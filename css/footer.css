@@ -1,0 +1,33 @@
+.footer{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.footer-item ul li a{
+    color: white;
+    text-decoration: none;
+}
+.footer-item{
+}
+.bottom{
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.bottom-item{
+    
+}
+.bottom-item h3{
+    color: red;
+}

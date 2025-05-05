@@ -1,0 +1,24 @@
+
+#cart-table {
+    width: 90%;
+    margin-bottom: 100px; 
+    margin-left: auto;   
+    margin-right: auto;  
+    border-collapse: separate;
+}
+
+#cart-table th {
+    height: 60px;
+    background-color:#4CAF50;
+    color: white;
+}
+
+#cart-table td {
+    padding: 20px;
+    text-align: center;
+    background-color: #ccc;
+    border-bottom: 1px solid #27a057;
+} 
+
+
+  

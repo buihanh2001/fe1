@@ -1,0 +1,40 @@
+
+.lienhe-info{
+	margin: 20px auto 0; 
+	display: inline-block;
+	width: 100%;
+}
+.info-left{
+	float: left;
+	width: 48%;
+}
+.info-right {
+	float: right;
+	width: 48%;	
+}
+.info-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-right form input,
+.info-right form button {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.info-right form button {
+    background-color: rgb(203, 19, 19);
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.info-right form button:hover {
+    background-color: lightpink;
+}
+
