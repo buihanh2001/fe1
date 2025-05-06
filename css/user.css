@@ -1,10 +1,14 @@
-.uset-info{
+
+h1 {
+    text-align: center;
+    color: rgb(42, 130, 184);
+}
+
+.user-info {
     text-align: center;
     line-height: 20px;
 }
 
-
-h1{
-    color:  rgb(42, 130, 184);
-    /* margin-top: 200px; */
+.info-item {
+    margin-bottom: 15px; 
 }

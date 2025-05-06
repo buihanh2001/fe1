@@ -1,5 +1,5 @@
 window.onload = function () {
-    fetch('http://localhost:3000/cars')
+    fetch('https://seven-yaks-find.loca.lt/api/cars')
         .then(response => {
             console.log("fetch response:", response); // Log toàn bộ response
             if (!response.ok) {
