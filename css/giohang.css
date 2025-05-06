@@ -1,5 +1,9 @@
+h1{
+    color: green; 
+    text-align: center
+}
 
-#cart-table {
+.cart-table {
     width: 90%;
     margin-bottom: 100px; 
     margin-left: auto;   
@@ -7,13 +11,13 @@
     border-collapse: separate;
 }
 
-#cart-table th {
+.cart-table th {
     height: 60px;
     background-color:#4CAF50;
     color: white;
 }
 
-#cart-table td {
+.cart-table td {
     padding: 20px;
     text-align: center;
     background-color: #ccc;
