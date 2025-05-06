@@ -1,41 +1,46 @@
-
 // Thêm topnav vào trang
-function addTopNav() {
-    document.write(`
-        <div class="nav">
-            <ul >
-            <li ><a href="index.html" class="nav-li-a">TRANG CHỦ</a> </li>
-            <li ><a href="sanpham.html" class="nav-li-a">SẢN PHẨM</a> </li>
-            <li ><a href="dichvu.html" class="nav-li-a">DỊCH VỤ</a> </li>
-            <li ><a href="gioithieu.html" class="nav-li-a">GIỚI THIỆU</a> </li>
-            <li ><a href="chamsoc.html" class="nav-li-a">CHĂM SÓC KHÁCH HÀNG</a> </li>
-            <li ><a href="lienhe.html" class="nav-li-a">LIÊN HỆ</a> </li>
-        </ul>
-</div>
-    </div><!-- End Top Nav  -->`);
+function addHeader() {
+  const header = document.createElement("div");
+  header.className = "header";
+  header.innerHTML = `
+      <div class="header-item">
+        <a href="index.html">
+          <img src="img/logo.png" width="250" height="100" alt="logo">
+        </a>
+        <a href="index.html">Gia Lâm Auto Mall</a>
+      </div>
+      <div class="header-buttons">
+        <a href="dangnhap.html" class="header-button">Tài khoản</a>
+        <a href="giohang.html" class="header-button">Giỏ hàng</a>
+      </div>
+    `;
+  document.body.prepend(header);
 }
 
 // Thêm header
-function addHeader() {
-    document.write(`
-        <div class="header">
-            <div class = "header-item">
-                <a href="index.html">
-                    <img src="img/logo.png" width="250" height="100" alt="logo">
-                </a>
-                <a href="index.html">Gia Lâm Auto Mall</a>
-            </div>
-            <div class="header-buttons">
-                <a href="dangnhap.html" class="header-button">Tài khoản</a>
-                <a href="giohang.html" class="header-button">Giỏ hàng</a>
-            </div>
-        </div>
-    `);
+function addTopNav() {
+  const nav = document.createElement("div");
+  nav.className = "nav";
+  nav.innerHTML = `
+      <ul>
+        <li><a href="index.html" class="nav-li-a">TRANG CHỦ</a></li>
+        <li><a href="sanpham.html" class="nav-li-a">SẢN PHẨM</a></li>
+        <li><a href="dichvu.html" class="nav-li-a">DỊCH VỤ</a></li>
+        <li><a href="gioithieu.html" class="nav-li-a">GIỚI THIỆU</a></li>
+        <li><a href="chamsoc.html" class="nav-li-a">CHĂM SÓC KHÁCH HÀNG</a></li>
+        <li><a href="lienhe.html" class="nav-li-a">LIÊN HỆ</a></li>
+      </ul>
+    `;
+
+  const productDetail = document.querySelector(".product-detail");
+  document.body.insertBefore(nav, productDetail);
 }
+
 //thêm footer
 function addFooterAndBottom() {
-    document.write(`
-        <div class="footer">
+  const footer = document.createElement("div");
+  footer.className = "footer";
+  footer.innerHTML = `<div class="footer">
             <div class="footer-item">
                 <p>DỊCH VỤ</p><br>
                 <ul>
@@ -73,9 +78,11 @@ function addFooterAndBottom() {
                     <li>Tin tức</li>
                 </ul>
             </div>
-        </div>
+        </div>`; // your footer HTML here
 
-        <div class="bottom">
+  const bottom = document.createElement("div");
+  bottom.className = "bottom";
+  bottom.innerHTML = `<div class="bottom">
             <div class="bottom-item">
                 <h3>SHOWROOM GIA LÂM AUTO MALL</h3><br>
                 <p>Địa chỉ: 144, Gia Lâm, Trâu Quỳ, Hà Nội</p><br>
@@ -87,7 +94,7 @@ function addFooterAndBottom() {
                 <p>Hotline: 097777777 - CSKH: 028 9996 777</p><br>
                 <p>E-mail: GiaLamAutoMall@gmail.com</p>
             </div>
-        </div>
-    `);
+        </div>`; // your bottom HTML here
+  document.body.appendChild(footer);
+  document.body.appendChild(bottom);
 }
-

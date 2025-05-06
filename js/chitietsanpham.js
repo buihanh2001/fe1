@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = async function () {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
@@ -7,12 +7,12 @@ window.onload = function () {
     return;
   }
 
-  fetch(`http://localhost:8080/api/cars/${id}`)
+  await fetch(`${API_BASE_URL}/cars/${id}`)
     .then((response) => {
       if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
       return response.json();
     })
-    .then((data) => renderProductDetail(data))
+    .then(async (data) => await renderProductDetail(data))
     .catch((error) => {
       console.error(error);
       document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
@@ -32,13 +32,22 @@ function renderProductDetail(product) {
     .join("");
 
   container.innerHTML = `
-      <h1>${product.name}</h1>
-      <div class="product-images">${imageHTML}</div>
-      <p><strong>Giá:</strong> ${product.price.toLocaleString("vi-VN")} VND</p>
-      <p><strong>Tồn kho:</strong> ${product.stock}</p>
-      <p><strong>Loại xe:</strong> ${product.carTypeName}</p>
+      <p><strong>Loại xe:</strong> </p>
       <p><strong>Mô tả:</strong> ${product.description}</p>
-  `;
+      <div>
+        ${imageHTML}
+      </div>
+      <div class="product-info">
+        <h1>${product.name}</h1>
+        <p>Mô tả: <span>${product.description}</span></p>
+        <p class="price">Giá: <span>${product.price.toLocaleString(
+          "vi-VN"
+        )}</span> VNĐ</p>
+        <p>Hãng xe: <span class="brand">${product.carTypeName}</span></p>
+        <p>Số lượng còn lại: <span class="stok">${product.stock}</span></p>
+        <p>Lượt xem: <span>${product.viewCount}</span></p>
 
-  document.body.appendChild(container);
+        <button class="button_add">Thêm vào giỏ hàng</button>
+      </div>
+  `;
 }

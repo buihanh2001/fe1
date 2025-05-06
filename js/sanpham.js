@@ -1,5 +1,5 @@
-window.onload = function () {
-  fetch("http://localhost:8080/api/cars")
+window.onload = async function () {
+  await fetch(`${API_BASE_URL}/cars`)
     .then((response) => {
       console.log("fetch response:", response); // Log toàn bộ response
       if (!response.ok) {
@@ -7,7 +7,7 @@ window.onload = function () {
       }
       return response.json();
     })
-    .then((data) => {
+    .then(async (data) => {
       console.log("fetch data:", data); // Log dữ liệu thô từ API
       products = data.map((car) => ({
         ...car,
@@ -15,11 +15,10 @@ window.onload = function () {
           car.carImagesUrl && car.carImagesUrl.length > 0
             ? car.carImagesUrl[0]
             : defaultImage,
-        brand: getBrandFromName(car.name),
       }));
       console.log("mapped products:", products); // Log sau khi map
-      populateBrandFilter();
-      applyFilters();
+      renderProducts(products);
+      await populateBrandFilter();
     })
     .catch((error) => {
       console.error("Lỗi fetch:", error);
@@ -27,18 +26,22 @@ window.onload = function () {
         "<p>Không thể tải dữ liệu sản phẩm.</p>";
     });
 
-  document.getElementById("brand-filter").addEventListener("change", () => {
-    currentPage = 1;
-    applyFilters();
-  });
-  document.getElementById("price-filter").addEventListener("change", () => {
-    currentPage = 1;
-    applyFilters();
-  });
+  document
+    .getElementById("brand-filter")
+    .addEventListener("change", async () => {
+      currentPage = 1;
+      await applyFilters();
+    });
+  document
+    .getElementById("price-filter")
+    .addEventListener("change", async () => {
+      currentPage = 1;
+      await applyFilters();
+    });
 };
 
 let currentPage = 1;
-const itemsPerPage = 12;
+const itemsPerPage = 4;
 let products = [];
 const defaultImage =
   "https://toyotahoankiem.com.vn/Uploads/images/cars/Altis-2020.png";
@@ -96,18 +99,35 @@ function renderPagination(totalItems) {
   }
 }
 
-function applyFilters() {
+async function applyFilters() {
   console.log("applyFilters called");
   const brandFilter = document.getElementById("brand-filter").value;
   const priceFilter = document.getElementById("price-filter").value;
-
+  await fetch(`${API_BASE_URL}/cars?carTypeId=` + brandFilter)
+    .then((response) => {
+      console.log("fetch response:", response); // Log toàn bộ response
+      if (!response.ok) {
+        throw new Error("Lỗi mạng: " + response.status);
+      }
+      return response.json();
+    })
+    .then(async (data) => {
+      console.log("fetch data:", data); // Log dữ liệu thô từ API
+      products = data.map((car) => ({
+        ...car,
+        image:
+          car.carImagesUrl && car.carImagesUrl.length > 0
+            ? car.carImagesUrl[0]
+            : defaultImage,
+      }));
+      console.log("mapped products:", products);
+    })
+    .catch((error) => {
+      console.error("Lỗi fetch:", error);
+      document.querySelector(".product-container").innerHTML =
+        "<p>Không thể tải dữ liệu sản phẩm.</p>";
+    });
   let filteredProducts = [...products];
-
-  if (brandFilter) {
-    filteredProducts = filteredProducts.filter(
-      (p) => getBrandFromName(p.name) === brandFilter
-    );
-  }
 
   if (priceFilter === "asc") {
     filteredProducts.sort((a, b) => a.price - b.price);
@@ -118,31 +138,37 @@ function applyFilters() {
   renderProducts(filteredProducts);
 }
 
-function populateBrandFilter() {
+async function populateBrandFilter() {
   console.log("populateBrandFilter called");
   const brandSelect = document.getElementById("brand-filter");
 
-  while (brandSelect.options.length > 1) {
-    brandSelect.remove(1);
-  }
-
-  if (products.length > 0) {
-    const brands = [...new Set(products.map((p) => getBrandFromName(p.name)))];
-    brands.sort();
-
-    brands.forEach((brand) => {
-      const option = document.createElement("option");
-      option.value = brand;
-      option.textContent = brand;
-      brandSelect.appendChild(option);
+  let brands;
+  await fetch(`${API_BASE_URL}/carType`)
+    .then((response) => {
+      console.log("fetch response:", response); // Log toàn bộ response
+      if (!response.ok) {
+        throw new Error("Lỗi mạng: " + response.status);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("fetch data:", data); // Log dữ liệu thô từ API
+      brands = data.map((carType) => ({
+        ...carType,
+        id: carType.id,
+        name: carType.name,
+      }));
+      console.log("mapped brands:", brands);
+    })
+    .catch((error) => {
+      console.error("Lỗi fetch:", error);
+      document.querySelector(".product-container").innerHTML =
+        "<p>Không thể tải dữ liệu sản phẩm.</p>";
     });
-  }
-}
-
-function getBrandFromName(name) {
-  const parts = name.split(" ");
-  if (parts.length > 0) {
-    return parts[0];
-  }
-  return "";
+  brands.forEach((brand) => {
+    const option = document.createElement("option");
+    option.value = brand.id;
+    option.textContent = brand.name;
+    brandSelect.appendChild(option);
+  });
 }
