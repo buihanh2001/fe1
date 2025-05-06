@@ -1,0 +1,14 @@
+
+h1 {
+    text-align: center;
+    color: rgb(42, 130, 184);
+}
+
+.user-info {
+    text-align: center;
+    line-height: 20px;
+}
+
+.info-item {
+    margin-bottom: 15px; 
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Quản Trị - Xe hay Gia Lâm</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">Xe hay Gia Lâm</div>
+            <ul class="menu">
+                <li data-id="trangchu"class="active"><a href="#">Trang Chủ</a></li>
+                <li data-id="sanpham"><a href="#">Sản Phẩm</a></li>
+                <li data-id="donhang"><a href="#">Đơn Hàng</a></li>
+                <li data-id="khachhang"><a href="#">Khách Hàng</a></li>
+                <li><a href="#">Đăng xuất</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content" id="trangchu">
+            <p>Xin chào Admin !</p>
+        </div>
+
+        <div class="main-content" id="sanpham">
+            <div class="header">
+                <h2>SẢN PHẨM</h2>
+                <div class="search-add">
+                    <div class="search-box">
+                        <input type="text" placeholder="Tìm kiếm...">
+                        <button>Tìm kiếm</button>
+                    </div>
+                    <button class="add-button">+ Thêm sản phẩm</button>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">Mã</th>
+                        <th style="width: 20%;">Tên sản phẩm</th>
+                        <th style="width: 10%;">Hãng xe</th>
+                        <th style="width: 10%;">Giá </th>
+                        <th style="width: 25%;">Mô tả</th>
+                        <th style="width: 10%;">Lượt xem</th>
+                        <th style="width: 5%;">Còn</th>
+                        <th style="width: 15%;">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Hyundai santafe 2024</td>
+                        <td>Toyota</td>
+                        <td>950000000</td>
+                        <td style="word-break: break-word;">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
+                        <td>100</td>
+                        <td>15</td>
+                        <td>
+                            <button class="update-button">🔧</button>
+                            <button class="delete-button">✖</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="main-content" id="donhang">
+            <div class="header">
+                <h2>ĐƠN HÀNG</h2>
+                <div class="search-add">
+                    <div class="search-box">
+                        <input type="text" placeholder="Tìm kiếm...">
+                        <button>Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Mã đơn </th>
+                        <th>Tạo bởi</th>
+                        <th>Ngày tạo</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>chienthang</td>
+                        <td>1/1/2025</td>
+                        <td>950000000</td>
+                        <td>chờ phê duyệt</td>
+                        <td>
+                            <button class="add-button">✓</button>
+                            <button class="delete-button">✖</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="main-content" id="khachhang">
+            <div class="header">
+                <h2>KHÁCH HÀNG</h2>
+                <div class="search-add">
+                    <div class="search-box">
+                        <input type="text" placeholder="Tìm kiếm...">
+                        <button>Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Mã </th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Mật khẩu</th>
+                        <th>trạng thái</th>
+                        <th>ngày tạo</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>chienthang</td>
+                        <td>aaaaaaa@gmail.com</td>
+                        <td>0378999669</td>
+                        <td>66668888</td>
+                        <td>đang hoạt động</td>
+                        <td>9/9/2025</td>
+                        <td><button class="delete-button">✖</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>

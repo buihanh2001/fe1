@@ -17,15 +17,14 @@
       <link rel="stylesheet" href="css/giohang.css"> 
       
       <script src="js/dungchung.js"></script>
-      <script src="data/products.js"></script>
       <script src="js/giohang.js"></script>  
   </head>
 
   <body>
       <script>addHeader();</script>
       <script>addTopNav();</script><br>
-      <h1 style="color: green; text-align: center;">GIỎ HÀNG CỦA BẠN</h1><br>
-      <table id="cart-table">
+      <h1>GIỎ HÀNG CỦA BẠN</h1><br>
+      <table class="cart-table">
         <thead>
           <tr>
             <th>STT</th>
@@ -50,21 +49,52 @@
               </td>
                 <td>5.690.000 đ</td>
                 <td>5/5/2025, 12:03:07 PM</td>
-                <td><button>🗑</button></td>
+                <td><button>X</button></td>
               </tr>
                 
               <tr>
                 <td colspan="4"><strong>TỔNG TIỀN:</strong></td>
                 <td><strong>9.850.000 đ</strong></td>
-                <td style="background: #cfc;"><strong>Đặt cọc</strong></td>
+                <td style="background: #cfc;"><strong>Đặt hàng</strong></td>
                 <td><strong>Xóa hết</strong></td>
               </tr>
         </tbody>
       </table>
 
-      <table>
+      <h1>ĐƠN HÀNG CỦA BẠN</h1><br>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Mã đơn hàng</th>
+            <th>Thời gian</th>
+            <th>Trạng thái đơn hàng</th>
+            <th>Sản phẩm</th>
+            <th>Tổng tiền</th>
+            <th>Thanh toán</th>
+            <th>Xóa</th>
+          </tr>
+        </thead>
 
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>5/5/2025, 12:03:07 PM</td>
+            <td>Chờ phê duyệt</td>
+            <td>toyota</td>
+            <td>5.690.000 đ</td>
+            <td style="background: #cfc;">Thanh toán</td>
+            <td><button>X</button></td>
+          </tr>
+
+          <tr>
+            <td colspan="4"><strong>TỔNG TIỀN:</strong></td>
+            <td><strong>9.850.000 đ</strong></td>
+            <td style="background: #cfc;"><strong>Thanh toán tất cả</strong></td>
+            <td><strong>Xóa hết</strong></td>
+          </tr>
+        </tbody>
       </table>
+
             
       <script> addFooterAndBottom();</script>
   </body>
