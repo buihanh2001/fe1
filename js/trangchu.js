@@ -39,31 +39,6 @@ window.onload = function () {
 	}, 100); 
 };
 
-// thêm sản phẩm
-// function renderHomeProducts() {
-//     const container = document.getElementById('home-product-container');
-//     if (!container) return;
-
-//     container.innerHTML = '';
-
-    
-//     const latestProducts = products.slice(0, 8);
-
-//     latestProducts.forEach(product => {
-//         const item = document.createElement('div');
-//         item.className = 'product-item';
-//         item.innerHTML = `
-//             <img src="${product.image}" alt="${product.name}">
-//             <h3>${product.name}</h3>
-//             <p>Giá: ${product.price.toLocaleString('vi-VN')} VND</p>
-//         `;
-//         container.appendChild(item);
-//     });
-// }
-
-// window.addEventListener('DOMContentLoaded', function() {
-//     renderHomeProducts();
-// });
 
 
 

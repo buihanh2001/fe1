@@ -32,9 +32,7 @@ function renderProductDetail(product) {
     .join("");
 
   container.innerHTML = `
-      <p><strong>Loại xe:</strong> </p>
-      <p><strong>Mô tả:</strong> ${product.description}</p>
-      <div>
+      <div class="product-images-container">
         ${imageHTML}
       </div>
       <div class="product-info">

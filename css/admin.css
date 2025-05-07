@@ -103,7 +103,7 @@ body {
 .search-box button {
     background-color: #007bff; 
     border-radius: 5px;
-    cursor: pointer; /* Hiển thị con trỏ chuột khi hover */
+    cursor: pointer; 
 }
 
 .add-button {
@@ -120,7 +120,7 @@ body {
     border-collapse: collapse; 
     background-color: #34495e; 
     border-radius: 5px;
-    overflow: hidden; /* Ẩn các phần tử tràn ra ngoài border-radius */
+    overflow: hidden; /* Ẩn phần tử tràn ra ngoài */
 }
 
 .data-table th,
@@ -141,14 +141,14 @@ body {
 .delete-button {
     background: none;
     border: none;
-    color: #e74c3c; /* Màu đỏ cho nút xóa */
+    color: #e74c3c; 
     font-size: 1.2rem;
     cursor: pointer;
 }
 .update-button {
     background: none;
     border: none;
-    color: #1aa127; /* Màu đỏ cho nút xóa */
+    color: #1aa127; 
     font-size: 1.2rem;
     cursor: pointer;
 }

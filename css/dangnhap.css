@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background-color: #f4f4f4;
+    background-color: #e8e4e4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,12 +9,11 @@ body {
 }
 
 .container {
-    background-color: #fff;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     width: 400px;
-    max-width: 90%;
+    
 }
 
 .form-wrapper {
@@ -100,7 +99,6 @@ input:focus {
     font-size: 16px;
     cursor: pointer;
     width: 100%;
-    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
