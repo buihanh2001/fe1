@@ -1,44 +1,47 @@
 <html lang="vi">
-<head>
+  <head>
     <title>Sửa sản phẩm - Xe hay Gia Lâm</title>
-	<meta charset="UTF-8">
-	<meta name="keywwords" content="Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Ô tô Gia Lâm">
-	<meta name="description" content="Sửa sản phẩm , Xe hay Gia Lâm">
-	<meta name="author" content="Bùi Hạnh, Viết Dũng">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta
+      name="keywwords"
+      content="Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Ô tô Gia Lâm"
+    />
+    <meta name="description" content="Sửa sản phẩm , Xe hay Gia Lâm" />
+    <meta name="author" content="Bùi Hạnh, Viết Dũng" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" href="css/them_sua_sp.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/them_sua_sp.css" />
+    <script src="js/config.js"></script>
+  </head>
+  <body>
     <div class="container">
-        <h2>Sửa Sản Phẩm</h2>
-        <form>
-          <label>Mã</label>
-          <input type="text">
-    
-          <label >Tên sản phẩm</label>
-          <input type="text">
-    
-          <label>Loại Xe</label>
-          <input type="text">
-    
-          <label>Giá</label>
-          <input type="number">
-    
-          <label>Mô tả</label>
-          <textarea></textarea>
-    
-          <label for="gia">Còn</label>
-          <input type="number">
+      <h2>Sửa Sản Phẩm</h2>
+      <form id="carForm" enctype="multipart/form-data">
+        <input type="text" id="carId" name="carId" style="display: none" />
 
-          <label>Hình ảnh</label>
-          <div id="imgFile">Chọn ảnh</div>
-          <input type="file" id="imageInput" multiple accept="image/*" style="display: none;">
-    
-          <button type="hidden" id="productId">Hoàn tất sửa sản phẩm</button>
-        </form>
-      </div>
-      <script src="js/suasanpham.js"></script>
-</body>
+        <label>Tên sản phẩm</label>
+        <input type="text" id="name" name="name" />
+
+        <label>Loại Xe</label>
+        <select id="carType" name="carType"></select>
+
+        <label>Giá</label>
+        <input type="text" id="price" name="price" />
+
+        <label>Mô tả</label>
+        <textarea id="description" name="description"></textarea>
+
+        <label for="stock">Còn</label>
+        <input type="number" id="stock" name="stock" />
+
+        <label>Hình ảnh</label>
+        <!-- <div id="imgFile">Chọn ảnh</div> -->
+        <input type="file" id="imageInput" multiple accept="image/*" />
+        <div class="imageCar"></div>
+        <button type="submit">Hoàn tất sửa sản phẩm</button>
+      </form>
+    </div>
+    <script src="js/suasanpham.js"></script>
+  </body>
 </html>

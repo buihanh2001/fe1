@@ -1,74 +1,78 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color:  #222d32;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 6px;
-    color: #222d32;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-  }
-  
-  textarea {
-    resize: none;
-    height: 80px;
-    overflow-y: auto;
-  }
-  
-  button {
-    width: 100%;
-    padding: 12px;
-    background-color: #367a99;;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background-color: #304650;;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #222d32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  #imgFile {
-    width: 100%;
-    padding: 10px;
-    border: 1px dashed #ccc;
-    border-radius: 6px;
-    text-align: center;
-    cursor: pointer;
-    margin-bottom: 15px;
-    background-color: #f9f9f9;
-    color: #555;
-  }
-  #imgFile:hover {
-    background-color: #e0e0e0;
-  }
-  
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+.product-image {
+  width: 200px;
+  height: 200px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #222d32;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+  overflow-y: auto;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #367a99;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #304650;
+}
+
+#imgFile {
+  width: 100%;
+  padding: 10px;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  color: #555;
+}
+#imgFile:hover {
+  background-color: #e0e0e0;
+}

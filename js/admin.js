@@ -31,6 +31,24 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
         });
+      document
+        .querySelector(".search-car")
+        .addEventListener("click", async function () {
+          const keyword = document.getElementById("search-car").value;
+          const res = await fetch(
+            `${API_BASE_URL}/cars/search?keyword=${keyword}`
+          )
+            .then((response) => {
+              if (!response.ok)
+                throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+              return response.json();
+            })
+            .then(async (data) => await renderCar(data))
+            .catch((error) => {
+              console.error(error);
+              document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+            });
+        });
     } else if (selectedId == "khachhang") {
       await fetch(`${API_BASE_URL}/account`)
         .then((response) => {
@@ -90,11 +108,38 @@ function renderCar(listCar) {
               <td>${car.viewCount}</td>
               <td>${car.stock}</td>
               <td>
-                <button class="update-button">🔧</button>
-                <button class="delete-button">✖</button>
+                <a type="button" href="suasanpham.html?id=${
+                  car.id
+                }" class="update-button">🔧</a>
+                <button class="delete-button" data-id="${car.id}">✖</button>
               </td>
     `;
     tbody.appendChild(row);
+  });
+  document.querySelectorAll(".delete-button").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const confirmed = confirm("Bạn có chắc là xóa luôn không?");
+      if (!confirmed) return;
+      const id = button.dataset.id;
+      const res = await fetch(`${API_BASE_URL}/cars/${id}`, {
+        method: "DELETE",
+      });
+      if (!res.ok) {
+        alert("Xóa thất bại");
+      } else {
+        alert("Xóa thành công");
+        await fetch(`${API_BASE_URL}/cars`)
+          .then((response) => {
+            if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+            return response.json();
+          })
+          .then(async (data) => await renderCar(data))
+          .catch((error) => {
+            console.error(error);
+            document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+          });
+      }
+    });
   });
 }
 function renderAccount(listAccount) {
@@ -121,3 +166,8 @@ function renderAccount(listAccount) {
     tbody.appendChild(row);
   });
 }
+
+const item = document.querySelector(".add-button");
+item.addEventListener("click", () => {
+  window.location.href = `themsanpham.html`;
+});

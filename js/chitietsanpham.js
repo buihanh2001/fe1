@@ -12,14 +12,14 @@ window.onload = async function () {
       if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
       return response.json();
     })
-    .then(async (data) => await renderProductDetail(data))
+    .then(async (data) => await renderProductDetail(data, id))
     .catch((error) => {
       console.error(error);
       document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
     });
 };
 
-function renderProductDetail(product) {
+function renderProductDetail(product, id) {
   document.title = product.name;
 
   const container = document.querySelector(".product-detail");
@@ -44,8 +44,28 @@ function renderProductDetail(product) {
         <p>Hãng xe: <span class="brand">${product.carTypeName}</span></p>
         <p>Số lượng còn lại: <span class="stok">${product.stock}</span></p>
         <p>Lượt xem: <span>${product.viewCount}</span></p>
-
+        <p>Số lượng đặt hàng: </p>
+        <input type="number" id="quantity" name="quantity" value="1"/>
         <button class="button_add">Thêm vào giỏ hàng</button>
       </div>
   `;
+  const buttonAdd = document
+    .querySelector(".button_add")
+    .addEventListener("click", async function () {
+      const quantity = document.getElementById("quantity").value;
+      if (!quantity) {
+        quantity = 1;
+      }
+      const res = await fetch(
+        `${API_BASE_URL}/cart/add?accountId=1&carId=${id}&quantity=${quantity}`,
+        {
+          method: "POST",
+        }
+      );
+      if (!res.ok) {
+        alert("Lỗi khi thêm sản phẩm vào giỏ hàng");
+      } else {
+        alert("Thành công khi thêm sản phẩm vào giỏ hàng");
+      }
+    });
 }
