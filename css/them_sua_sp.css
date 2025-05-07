@@ -56,4 +56,19 @@ body {
   button:hover {
     background-color: #304650;;
   }
+
+  #imgFile {
+    width: 100%;
+    padding: 10px;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    color: #555;
+  }
+  #imgFile:hover {
+    background-color: #e0e0e0;
+  }
   
