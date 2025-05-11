@@ -70,7 +70,7 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
   });
 });
 
-function renderOrder(listOrder) {
+async function renderOrder(listOrder) {
   const tbody = document.querySelector(".detail-table-order");
   tbody.innerHTML = "";
   listOrder.forEach((order) => {
@@ -81,13 +81,50 @@ function renderOrder(listOrder) {
               <td>${order.customerName}</td>
               <td>${order.createdDateTime}</td>
               <td>${order.totalPrice.toLocaleString("vi-VN")}</td>
-              <td>${order.orderStatus}</td>
+              <td class="orderStatus">${order.orderStatus}</td>
               <td>
-                <button class="add-button">✓</button>
-                <button class="delete-button">✖</button>
+                <button class="approve-button" data-id=${order.uuid}>✓</button>
+                <button class="cancel-button" data-id=${order.uuid}>✖</button>
               </td>
     `;
     tbody.appendChild(row);
+  });
+  document.querySelectorAll(".approve-button").forEach((button) => {
+    button.addEventListener("click", async (e) => {
+      const id = e.target.dataset.id;
+      const resp = await fetch(
+        `${API_BASE_URL}/orders/changeStatus?orderUUId=${id}&isIncrease=true`,
+        {
+          method: "PUT",
+        }
+      );
+      if (!resp.ok) {
+        throw new Error("Lỗi khi xóa cart item");
+      } else {
+        const row = button.closest("tr");
+        row.querySelector(".orderStatus").innerText =
+          row.querySelector(".orderStatus").innerText == "APPROVED"
+            ? "COMPLETED"
+            : "APPROVED";
+      }
+    });
+  });
+  document.querySelectorAll(".cancel-button").forEach((button) => {
+    button.addEventListener("click", async (e) => {
+      const id = e.target.dataset.id;
+      const resp = await fetch(
+        `${API_BASE_URL}/orders/changeStatus?orderUUId=${id}&isIncrease=false`,
+        {
+          method: "PUT",
+        }
+      );
+      if (!resp.ok) {
+        throw new Error("Lỗi khi xóa cart item");
+      } else {
+        const row = button.closest("tr");
+        row.querySelector(".orderStatus").innerText = "CANCELLED";
+      }
+    });
   });
 }
 

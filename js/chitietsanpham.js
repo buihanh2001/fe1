@@ -45,7 +45,7 @@ function renderProductDetail(product, id) {
         <p>Số lượng còn lại: <span class="stok">${product.stock}</span></p>
         <p>Lượt xem: <span>${product.viewCount}</span></p>
         <p>Số lượng đặt hàng: </p>
-        <input type="number" id="quantity" name="quantity" value="1"/>
+        <input type="text" id="quantity" name="quantity" value="1"/>
         <button class="button_add">Thêm vào giỏ hàng</button>
       </div>
   `;
@@ -68,4 +68,14 @@ function renderProductDetail(product, id) {
         alert("Thành công khi thêm sản phẩm vào giỏ hàng");
       }
     });
+  document.getElementById("quantity").addEventListener("input", function (e) {
+    if (e.target.value.includes("-"))
+      e.target.value = e.target.value.replace("-", "");
+    const rawValue = e.target.value.replace(/[^\d]/g, "");
+    if (rawValue) {
+      e.target.value = Number(rawValue);
+    } else {
+      e.target.value = "";
+    }
+  });
 }
