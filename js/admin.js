@@ -158,7 +158,6 @@ function renderAccount(listAccount) {
               <td>${account.active ? "đang hoạt động" : "hết hoạt động"}</td>
               <td>${account.createdDateTime}</td>
               <td>
-                <button class="update-button">🔧</button>
                 <button class="delete-button">✖</button>
               </td>
     `;
