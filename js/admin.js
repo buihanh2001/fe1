@@ -150,7 +150,6 @@ function renderAccount(listAccount) {
     const row = document.createElement("tr");
     row.innerHTML = `
               <td>${account.id}</td>
-              <td>${account.name}</td>
               <td>${account.username}</td>
               <td>${account.email}</td>
               <td>

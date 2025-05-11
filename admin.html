@@ -18,6 +18,7 @@
           <li data-id="sanpham"><a href="#">Sản Phẩm</a></li>
           <li data-id="donhang"><a href="#">Đơn Hàng</a></li>
           <li data-id="khachhang"><a href="#">Khách Hàng</a></li>
+          <li data-id="lichhen"><a href="#">Lịch hẹn xem xe</a></li>
           <li><a href="#">Đăng xuất</a></li>
         </ul>
       </div>
@@ -40,14 +41,14 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th style="width: 5%">Mã</th>
-              <th style="width: 20%">Tên sản phẩm</th>
-              <th style="width: 10%">Loại Xe</th>
-              <th style="width: 10%">Giá</th>
-              <th style="width: 25%">Mô tả</th>
-              <th style="width: 10%">Lượt xem</th>
-              <th style="width: 5%">Còn</th>
-              <th style="width: 15%">Hành động</th>
+              <th style="width: 10px;">Mã</th>
+              <th style="width: 200px;">Tên sản phẩm</th>
+              <th style="width: 100px;">Loại Xe</th>
+              <th style="width: 100px;">Giá</th>
+              <th style="width: 300px;">Mô tả</th>
+              <th style="width: 50px;">Lượt xem</th>
+              <th style="width: 50px;">Còn</th>
+              <th>Hành động</th>
             </tr>
           </thead>
           <tbody class="detail-table-car">
@@ -119,7 +120,6 @@
           <thead>
             <tr>
               <th>Mã</th>
-              <th>Họ tên</th>
               <th>Tài khoản</th>
               <th>Email</th>
               <th>Số điện thoại</th>
@@ -138,6 +138,44 @@
               <td>đang hoạt động</td>
               <td>9/9/2025</td>
               <td><button class="delete-button">✖</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="main-content" id="lichhen">
+        <div class="header">
+          <h2>LỊCH HẸN XEM XE</h2>
+          <div class="search-add">
+            <div class="search-box">
+              <input type="text" placeholder="Tìm kiếm..." />
+              <button>Tìm kiếm</button>
+            </div>
+          </div>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Họ tên</th>
+              <th>Email</th>
+              <th>Số điện thoại</th>
+              <th>Thời gian</th>
+              <th>Ghi chú</th>
+              <th>Xóa</th>
+            </tr>
+          </thead>
+          <tbody class="detail-table-order">
+            <tr>
+              <td>1</td>
+              <td>chienthang</td>
+              <td>aaa@gmail.com</td>
+              <td>0123456789</td>
+              <td>5/11/2025</td>
+              <td>xin cam on</td>
+              <td>
+                <button class="delete-button">✖</button>
+              </td>
             </tr>
           </tbody>
         </table>

@@ -1,1 +1,1 @@
-const API_BASE_URL = "https://modern-results-occur.loca.lt/api";
+const API_BASE_URL = "https://stupid-taxis-add.loca.lt/api";
