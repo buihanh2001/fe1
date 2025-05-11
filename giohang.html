@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta
       name="keywwords"
-      content="Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Ô tô Gia Lâm"
-    />
+      content="Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Ô tô Gia Lâm"/>
     <meta name="description" content="Giỏ hàng Gia Lâm Auto Mall" />
     <meta name="author" content="Bùi Hạnh,Viết Dũng" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,80 +30,58 @@
       addTopNav();
     </script>
     <br />
-    <h1>GIỎ HÀNG CỦA BẠN</h1>
-    <br />
+    <h1>GIỎ HÀNG CỦA BẠN</h1><br>
     <table class="cart-table">
       <thead>
         <tr>
-          <th>STT</th>
-          <th>Sản phẩm</th>
-          <th>Giá</th>
-          <th>Số lượng</th>
-          <th>Thành tiền</th>
-          <th>Thời gian</th>
+          <th style="width: 50px;">STT</th>
+          <th style="width: 400px;">Tên sản phẩm</th>
+          <th style="width: 200px;">Giá</th>
+          <th style="width: 200px;">Số lượng</th>
+          <th style="width: 300px;">Thành tiền</th>
           <th>Xóa</th>
         </tr>
       </thead>
 
       <tbody class="detail-table-cart-item">
         <tr>
-          <td>1</td>
-          <td>toyota</td>
-          <td>5.690.000 đ</td>
-          <td>
-            <button>-</button>
-            <input type="text" value="1" />
-            <button>+</button>
-          </td>
-          <td>5.690.000 đ</td>
-          <td>5/5/2025, 12:03:07 PM</td>
-          <td><button>X</button></td>
-        </tr>
-
-        <tr>
           <td colspan="4"><strong>TỔNG TIỀN:</strong></td>
           <td><strong>9.850.000 đ</strong></td>
-          <td style="background: #cfc"><strong>Đặt hàng</strong></td>
-          <td><strong>Xóa hết</strong></td>
+          <td><button><strong>Xóa hết</strong></button></td>
         </tr>
       </tbody>
     </table>
 
-    <h1>ĐƠN HÀNG CỦA BẠN</h1>
-    <br />
+    <div style="text-align: right;"> 
+      <button class="payButton"> <strong>ĐẶT CỌC</strong></button>
+    </div>
+
+    <h1>ĐƠN HÀNG CỦA BẠN</h1><br>
     <table class="cart-table">
       <thead>
         <tr>
-          <th>Mã đơn hàng</th>
+          <th style="width: 150px;">Mã đơn hàng</th>
+          <th style="width: 400px;">Tên sản phẩm</th>
+          <th style="width: 250px;">Trạng thái đơn hàng</th>
+          <th style="width: 250px;">Tổng tiền</th>
           <th>Thời gian</th>
-          <th>Trạng thái đơn hàng</th>
-          <th>Sản phẩm</th>
-          <th>Tổng tiền</th>
-          <th>Thanh toán</th>
-          <th>Xóa</th>
         </tr>
       </thead>
 
       <tbody>
         <tr>
           <td>1</td>
-          <td>5/5/2025, 12:03:07 PM</td>
-          <td>Chờ phê duyệt</td>
           <td>toyota</td>
+          <td>Chờ phê duyệt</td>
           <td>5.690.000 đ</td>
-          <td style="background: #cfc">Thanh toán</td>
-          <td><button>X</button></td>
-        </tr>
-
-        <tr>
-          <td colspan="4"><strong>TỔNG TIỀN:</strong></td>
-          <td><strong>9.850.000 đ</strong></td>
-          <td style="background: #cfc"><strong>Thanh toán tất cả</strong></td>
-          <td><strong>Xóa hết</strong></td>
+          <td>5/5/2025</td>
         </tr>
       </tbody>
     </table>
 
+    <div style="text-align: right;"> 
+      <a href="dangkixemxe.html"><button class="payButton"><strong>ĐẶT LỊCH XEM XE</strong></button></a>
+    </div>
     <script>
       addFooterAndBottom();
     </script>

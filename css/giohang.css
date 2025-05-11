@@ -5,7 +5,7 @@ h1{
 
 .cart-table {
     width: 90%;
-    margin-bottom: 100px; 
+    margin-bottom: 10px; 
     margin-left: auto;   
     margin-right: auto;  
     border-collapse: separate;
@@ -24,5 +24,30 @@ h1{
     border-bottom: 1px solid #27a057;
 } 
 
+.cart-table button{
+    width: 20px;
+    padding: 5px;
+    background-color: #27a057;
+    border: none;
+    color: white;
+ }
+button:hover{
+    cursor: pointer;
+}
+ input{
+    width: 60px;
+    padding: 5px;
+    border: none;
+    text-align: center;
+ }
 
+.payButton{
+    width: 150px;
+    border: none;
+    color: white;
+    padding: 10px 0;
+    margin-right: 100px;
+    margin-bottom: 100px;
+    background-color: #27a057;
+}
   

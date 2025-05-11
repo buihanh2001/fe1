@@ -11,12 +11,12 @@ body {
   background-color: white;
   padding: 30px;
   border-radius: 10px;
-  width: 400px;
+  width: 600px;
 }
 
 h2 {
   text-align: center;
-  color: #333;
+  color: #103a4e;
   margin-bottom: 20px;
 }
 .product-image {
@@ -37,7 +37,7 @@ textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #445cb4;
   border-radius: 6px;
 }
 

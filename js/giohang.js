@@ -31,7 +31,6 @@ function renderCartItem(datas) {
           <td><p class="totalAmount">${data.totalAmount.toLocaleString(
             "vi-VN"
           )} đ</p></td>
-          <td>${data.updatedDate}</td>
           <td><button>X</button></td>
     `;
     tbody.appendChild(row);
