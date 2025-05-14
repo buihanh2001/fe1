@@ -137,6 +137,14 @@ body {
 .data-table tbody tr:hover {
   background-color: #455a64;
 }
+
+.add-button{
+  background-color: #1aa127;
+  padding: 10px 5px;
+  color: white;
+  border: none;
+}
+.delete-button,
 .cancel-button {
   background: none;
   border: none;
@@ -150,4 +158,11 @@ body {
   color: #1aa127;
   font-size: 1.2rem;
   cursor: pointer;
+}
+a{
+  color: white;
+  /* text-decoration: none; */
+}
+input{
+  padding: 10px;
 }

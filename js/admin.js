@@ -60,6 +60,17 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
         });
+    } else if (selectedId == "hangxe") {
+      await fetch(`${API_BASE_URL}/carType`)
+        .then((response) => {
+          if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+          return response.json();
+        })
+        .then(async (data) => await renderCarTypes(data))
+        .catch((error) => {
+          console.error(error);
+          document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+        });
     }
 
     // Cập nhật class active
@@ -197,6 +208,24 @@ function renderAccount(listAccount) {
               <td>
                 <button class="delete-button">✖</button>
               </td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+function renderCarTypes(listCarTypes) {
+  const tbody = document.querySelector(".detail-table-carType");
+  tbody.innerHTML = ""; // Xóa nội dung cũ của bảng
+
+  listCarTypes.forEach((carType) => {
+    console.log("Rendering car type:", carType);
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${carType.id}</td>
+      <td>${carType.name}</td>
+      <td>
+        <button class="delete-button">✖</button>
+      </td>
     `;
     tbody.appendChild(row);
   });

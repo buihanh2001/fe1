@@ -3,7 +3,8 @@ h1{
     text-align: center
 }
 
-.cart-table {
+.cart-table,
+.order-table {
     width: 90%;
     margin-bottom: 10px; 
     margin-left: auto;   
@@ -11,13 +12,15 @@ h1{
     border-collapse: separate;
 }
 
-.cart-table th {
+.cart-table th,
+.order-table th {
     height: 60px;
     background-color:#4CAF50;
     color: white;
 }
 
-.cart-table td {
+.cart-table td,
+.order-table td {
     padding: 20px;
     text-align: center;
     background-color: #ccc;
@@ -50,4 +53,11 @@ button:hover{
     margin-bottom: 100px;
     background-color: #27a057;
 }
-  
+
+tbody .deleteAllRow {
+    width: 100px ;
+}
+
+.order-table{
+    margin-bottom: 100px;
+}

@@ -1,14 +1,18 @@
 
-h1 {
-    text-align: center;
-    color: rgb(42, 130, 184);
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 100px;
+}
+.info p {
+  margin: 8px 0;
+  color: #444;
+  font-size: 18px;
 }
 
-.user-info {
-    text-align: center;
-    line-height: 20px;
+.info strong {
+  color: #000;
 }
 
-.info-item {
-    margin-bottom: 15px; 
-}

@@ -18,8 +18,9 @@
           <li data-id="sanpham"><a href="#">Sản Phẩm</a></li>
           <li data-id="donhang"><a href="#">Đơn Hàng</a></li>
           <li data-id="khachhang"><a href="#">Khách Hàng</a></li>
-          <li data-id="lichhen"><a href="#">Lịch hẹn xem xe</a></li>
-          <li><a href="#">Đăng xuất</a></li>
+          <li data-id="lichhen"><a href="#">Lịch Hẹn</a></li>
+          <li data-id="hangxe"><a href="#">Hãng Xe</a></li>
+          <li><a href="index.html">Đăng xuất</a></li>
         </ul>
       </div>
 
@@ -35,7 +36,7 @@
               <input type="text" id="search-car" placeholder="Tìm kiếm..." />
               <button class="search-car">Tìm kiếm</button>
             </div>
-            <button class="add-button">+ Thêm sản phẩm</button>
+            <button class="add-button">Thêm sản phẩm</button>
           </div>
         </div>
         <table class="data-table">
@@ -99,7 +100,7 @@
               <td>chờ phê duyệt</td>
               <td>
                 <button class="add-button">✓</button>
-                <button class="delete-button">✖</button>
+                <button class="cancel-button">✖</button>
               </td>
             </tr>
           </tbody>
@@ -109,12 +110,6 @@
       <div class="main-content" id="khachhang">
         <div class="header">
           <h2>KHÁCH HÀNG</h2>
-          <div class="search-add">
-            <div class="search-box">
-              <input type="text" placeholder="Tìm kiếm..." />
-              <button>Tìm kiếm</button>
-            </div>
-          </div>
         </div>
         <table class="data-table">
           <thead>
@@ -132,7 +127,6 @@
             <tr>
               <td>1</td>
               <td>chienthang</td>
-              <td>66668888</td>
               <td>aaaaaaa@gmail.com</td>
               <td>0378999669</td>
               <td>đang hoạt động</td>
@@ -158,21 +152,46 @@
             <tr>
               <th>STT</th>
               <th>Họ tên</th>
-              <th>Email</th>
-              <th>Số điện thoại</th>
               <th>Thời gian</th>
-              <th>Ghi chú</th>
+              <th>Chi tiết đơn hàng</th>
               <th>Xóa</th>
             </tr>
           </thead>
-          <tbody class="detail-table-order">
+          <tbody>
             <tr>
               <td>1</td>
               <td>chienthang</td>
-              <td>aaa@gmail.com</td>
-              <td>0123456789</td>
               <td>5/11/2025</td>
-              <td>xin cam on</td>
+              <td><a href="chitietdonhang.html">Xem chi tiết đơn hàng</a></td>
+              <td>
+                <button class="delete-button">✖</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="main-content" id="hangxe">
+        <div class="header">
+          <h2>HÃNG XE HIỆN CÓ</h2>
+          <div class="search-add">
+            <label for="">Thêm hãng xe:</label>
+            <input type="text">
+            <button class="add-button">Thêm</button>
+          </div>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Hãng xe</th>
+              <th>Xóa</th>
+            </tr>
+          </thead>
+          <tbody class="detail-table-carType">
+            <tr>
+              <td>1</td>
+              <td>AUDI</td>
               <td>
                 <button class="delete-button">✖</button>
               </td>

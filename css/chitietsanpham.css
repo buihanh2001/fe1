@@ -68,3 +68,8 @@ body {
   background-color: rgb(61, 137, 158);
   cursor: pointer;
 }
+input{
+  width: 100px;
+  padding: 5px;
+  align-items: center;
+}

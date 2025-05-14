@@ -70,7 +70,7 @@ window.onload = async function () {
           console.log("fetch api not ok");
           return;
         }
-        alert("Add car success");
+        alert("Thêm sản phẩm thành công");
       } catch (err) {
         console.log(err);
       }
