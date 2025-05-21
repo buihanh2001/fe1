@@ -1,218 +1,348 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <title>Dịch vụ Gia Lâm Auto Mall</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="keywwords"
+      content="Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Ô tô Gia Lâm, Gia Lâm Auto Mall"
+    />
+    <meta name="description" content="Dịch vụ Gia Lâm Auto Mall" />
+    <meta name="author" content="Bùi Hạnh, Viết Dũng" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-	<title>Dịch vụ Gia Lâm Auto Mall</title>
-	<meta charset="UTF-8">
-	<meta name="keywwords" content="Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Ô tô Gia Lâm, Gia Lâm Auto Mall">
-	<meta name="description" content="Dịch vụ Gia Lâm Auto Mall">
-	<meta name="author" content="Bùi Hạnh, Viết Dũng">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Load font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-	<!-- Load font awesome icons -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/topnav.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/banner.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
-	<!-- css -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/topnav.css">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/footer.css">
-	
-	<!-- js -->
-	<script src="js/dungchung.js"></script>
-	<script src="js/trangchu.js"></script>
-	<script src="data/products.js"></script>
-	
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dungchung.js"></script>
+    <script src="js/trangchu.js"></script>
+    <script src="data/products.js"></script>
+  </head>
+  <body>
+    <script>
+      addHeader();
+    </script>
+    <script>
+      addTopNav();
+    </script>
+    <img src="img/dichvu/dichvu1.jpg" width="100%" alt="chăm sóc khách hàng" />
 
-</head>
-<body>
-	<script> addHeader(); </script>
-	<script> addTopNav(); </script>
-	<img src="img/dichvu/dichvu1.jpg" width="100%" alt="chăm sóc khách hàng">
-	
-	<div class="flexContain">
-		<a href="#conttent1"><i class="fas fa-file-contract"></i>Chính sách bảo hành</a>
-		<a href="#conttent2"><i class="fas fa-cogs"></i>Dịch vụ bảo dưỡng</a>
-        <a href="#conttent3"><i class="fas fa-wrench"></i>Dịch vụ sửa chữa</a>
-        <a href="#conttent4"><i class="fas fa-exclamation-circle"></i>Kiểm tra triệu hồi</a>
-        <a href="#conttent5"><i class="fas fa-ellipsis-h"></i>Dịch vụ khác</a>
-	</div>
+    <div class="flexContain">
+      <a href="#conttent1"
+        ><i class="fas fa-file-contract"></i>Chính sách bảo hành</a
+      >
+      <a href="#conttent2"><i class="fas fa-cogs"></i>Dịch vụ bảo dưỡng</a>
+      <a href="#conttent3"><i class="fas fa-wrench"></i>Dịch vụ sửa chữa</a>
+      <a href="#conttent4"
+        ><i class="fas fa-exclamation-circle"></i>Kiểm tra triệu hồi</a
+      >
+      <a href="#conttent5"><i class="fas fa-ellipsis-h"></i>Dịch vụ khác</a>
+    </div>
 
     <section>
-		<div id="conttent1">
-            <h1>Chính sách bảo hành</h1>
-            <h3>1. Những yếu tố ngoài kiểm soát của nhà sản xuất</h3>
-            <p>-  Những sửa chữa hay điều chỉnh do sử dụng sai (đua xe, chở quá tải), cẩu thả, tự ý sửa đổi, biến cải, đấu nối, tháo 
-                ngắt, sửa chữa điều chỉnh không đúng kỹ thuật, tai nạn, tự ý lắp thêm phụ tùng/phụ kiện, không thuộc chế độ bảo hành. <br>
-                -  Ăn mòn do hóa mỹ phẩm hoặc ăn mòn bề mặt xe do bị đá bắn hoặc xước sơn không được bảo hành. <br>
-                -  Hư hại hay bị ăn mòn do môi trường như mưa axit, hóa chất, nhựa cây, muối, mưa đá, mưa bão, sấm chớp, ngập lụt và 
-                những tác động tự nhiên khác không được bảo hành.</p>
-            
-            <h3>2. Không bảo dưỡng xe dùng sai nguyên liệu, dầu bôi trơn</h3>
-            <p>Sửa chữa, điều chỉnh do bảo dưỡng xe không phù hợp, không bảo dưỡng hay dùng nhiên liệu, dầu bôi trơn khác với những 
-                loại ghi trong cuốn "Hướng dẫn sử dụng" không thuộc chế độ bảo hành.</p>
+      <div id="conttent1">
+        <h1>Chính sách bảo hành</h1>
+        <h3>1. Những yếu tố ngoài kiểm soát của nhà sản xuất</h3>
+        <p>
+          - Những sửa chữa hay điều chỉnh do sử dụng sai (đua xe, chở quá tải),
+          cẩu thả, tự ý sửa đổi, biến cải, đấu nối, tháo ngắt, sửa chữa điều
+          chỉnh không đúng kỹ thuật, tai nạn, tự ý lắp thêm phụ tùng/phụ kiện,
+          không thuộc chế độ bảo hành. <br />
+          - Ăn mòn do hóa mỹ phẩm hoặc ăn mòn bề mặt xe do bị đá bắn hoặc xước
+          sơn không được bảo hành. <br />
+          - Hư hại hay bị ăn mòn do môi trường như mưa axit, hóa chất, nhựa cây,
+          muối, mưa đá, mưa bão, sấm chớp, ngập lụt và những tác động tự nhiên
+          khác không được bảo hành.
+        </p>
 
-            <h3>3. Chi phí bảo dưỡng thuộc trách nhiệm của chủ xe</h3>
-            <p>Những công việc hiệu chỉnh động cơ, thay dầu bôi trơn, rửa xe, đánh bóng, thay bầu lọc, nước làm mát, dung dịch điện 
-                phân, ga điều hòa, nhiên liệu, các loại dầu mỡ, chất phụ gia, bugi, cầu chì, bóng đèn (trừ bóng halogen, bóng HID, 
-                bóng liền chóa), dây đai dẫn động (trừ dây đai cam), cao su gạt nước, má phanh, đĩa côn đã mòn là việc bảo dưỡng 
-                thường xuyên yêu cầu cho mọi loại xe. Những hạng mục bảo dưỡng trên không thuộc chế độ bảo hành.</p>
+        <h3>2. Không bảo dưỡng xe dùng sai nguyên liệu, dầu bôi trơn</h3>
+        <p>
+          Sửa chữa, điều chỉnh do bảo dưỡng xe không phù hợp, không bảo dưỡng
+          hay dùng nhiên liệu, dầu bôi trơn khác với những loại ghi trong cuốn
+          "Hướng dẫn sử dụng" không thuộc chế độ bảo hành.
+        </p>
 
-            <h3>4. Tiếng động bình thường, xe rung, giảm giá trị tự nhiên</h3>
-            <p>Tiếng động bình thường, xe rung, sự ăn mòn hay bị giảm giá trị tự nhiên như ngả màu, biến dạng, tỳ vết, không được bảo 
-                hành.</p>
+        <h3>3. Chi phí bảo dưỡng thuộc trách nhiệm của chủ xe</h3>
+        <p>
+          Những công việc hiệu chỉnh động cơ, thay dầu bôi trơn, rửa xe, đánh
+          bóng, thay bầu lọc, nước làm mát, dung dịch điện phân, ga điều hòa,
+          nhiên liệu, các loại dầu mỡ, chất phụ gia, bugi, cầu chì, bóng đèn
+          (trừ bóng halogen, bóng HID, bóng liền chóa), dây đai dẫn động (trừ
+          dây đai cam), cao su gạt nước, má phanh, đĩa côn đã mòn là việc bảo
+          dưỡng thường xuyên yêu cầu cho mọi loại xe. Những hạng mục bảo dưỡng
+          trên không thuộc chế độ bảo hành.
+        </p>
 
-            <h3>5. Thay đổi đồng hồ đo quãng đường</h3>
-            <p>Mọi hỏng hóc đối với chiếc xe nào đã bị thay đổi hay điều chỉnh đồng hồ công-tơ-mét dẫn đến không xác định được số đo 
-                chính xác đều không được bảo hành.</p>
+        <h3>4. Tiếng động bình thường, xe rung, giảm giá trị tự nhiên</h3>
+        <p>
+          Tiếng động bình thường, xe rung, sự ăn mòn hay bị giảm giá trị tự
+          nhiên như ngả màu, biến dạng, tỳ vết, không được bảo hành.
+        </p>
 
-            <h3>6. Chi phí phụ</h3>
-            <p>Thiệt hại phụ hoặc hậu quả kèm theo như gọi điện thoại, mất thời gian, nhỡ việc hay thiệt hại về thương mại không thuộc
-                chế độ bảo hành.</p>
-        </div>
-        <br><hr>
+        <h3>5. Thay đổi đồng hồ đo quãng đường</h3>
+        <p>
+          Mọi hỏng hóc đối với chiếc xe nào đã bị thay đổi hay điều chỉnh đồng
+          hồ công-tơ-mét dẫn đến không xác định được số đo chính xác đều không
+          được bảo hành.
+        </p>
 
+        <h3>6. Chi phí phụ</h3>
+        <p>
+          Thiệt hại phụ hoặc hậu quả kèm theo như gọi điện thoại, mất thời gian,
+          nhỡ việc hay thiệt hại về thương mại không thuộc chế độ bảo hành.
+        </p>
+      </div>
+      <br />
+      <hr />
 
-		<div id="conttent2">
-            <h1>Dịch vụ bảo dưỡng</h1>
-            <p>Bảo dưỡng là việc làm không thể thiếu trong quá trình sử dụng xe. Xe có được bảo dưỡng định kỳ, các bộ phận được 
-                chăm sóc thì mới vận hành tốt được. Đó là lý do vì sao khuyên khách hàng nên để ý các mốc bảo 
-                dưỡng xe. </p>
-            <h3>Lịch bảo dưỡng ô tô Toyota định kỳ</h3>
-            <p>Những khách hàng của chúng tôi hãy lưu ngay các mốc bảo dưỡng xe dưới đây. Bảo dưỡng đúng thời điểm, kiểm tra toàn 
-                diện, xe khỏe và hoạt động tốt.</p>
-            
-            <h3>Sau 6 tháng (dù chưa đạt 5.000km)</h3>
-            <p>Bảo dưỡng xe sau 6 tháng hay 5.000km đầu tiên là rất quan trọng. Bước này giúp đưa ra đánh giá chính xác về hiệu 
-                quả hoạt động của xe từ khi lăn bánh. Kiểm tra toàn diện, thay dầu, lọc gió động cơ là những hoạt động bảo dưỡng 
-                chính được thực hiện. Nước làm mát, nước rửa kính cũng sẽ được đổ thêm cho xe. <br>
-                Đặc biệt, trong trường hợp ít đi lại hoặc ít sử dụng, xe cũng cần được kiểm tra và bảo dưỡng sau mỗi 6 tháng, dù 
-                chưa đạt 5.000km để đảm bảo hoạt động ổn định.</p>
-            <img src="img/dichvu/dichvu2.jpg" alt="dịch vụ">
-            <p>Sau hơn 5.000km vận hành, dầu máy có thể lẫn vụn hoặc cặn kim loại. Thay dầu máy giúp bảo vệ máy dầu và không hư 
-                hại cho xe. Khi đến làm dịch vụ, khách hàng được tư vấn kỹ lưỡng, khắc phục hạn chế đang mắc phải, cho xế yêu 
-                khỏe và hoạt động tốt. Khách hàng xem chi tiết về bảo dưỡng xe sau mỗi 5.000km hoặc 6 tháng tại đây!</p>
+      <div id="conttent2">
+        <h1>Dịch vụ bảo dưỡng</h1>
+        <p>
+          Bảo dưỡng là việc làm không thể thiếu trong quá trình sử dụng xe. Xe
+          có được bảo dưỡng định kỳ, các bộ phận được chăm sóc thì mới vận hành
+          tốt được. Đó là lý do vì sao khuyên khách hàng nên để ý các mốc bảo
+          dưỡng xe.
+        </p>
+        <h3>Lịch bảo dưỡng ô tô Toyota định kỳ</h3>
+        <p>
+          Những khách hàng của chúng tôi hãy lưu ngay các mốc bảo dưỡng xe dưới
+          đây. Bảo dưỡng đúng thời điểm, kiểm tra toàn diện, xe khỏe và hoạt
+          động tốt.
+        </p>
 
-            <h3>Sau 10.000km hoặc 12 tháng</h3>
-            <img src="img/dichvu/dichvu3.jpg" alt="dịch vụ">
-            <p>Thay lọc dầu là việc quan trọng nhất trong bảo dưỡng ô tô Toyota mốc 10.000km hoặc 12 tháng. Điều này giúp loại bỏ 
-                cặn bẩn, động cơ được bôi trơn với dầu sạch và hoạt động trơn tru. Kỹ thuật viên sẽ kiểm tra lốp, tiến hành đảo 
-                lốp nếu cần thiết. Việc đảo lốp và thay lọc dầu nên được thực hiện sau mỗi 10.000km.</p>
-            
-            <h3>Sau 30.000km hoặc 36 tháng</h3>
-            <img src="img/dichvu/dichvu4.jpg" alt="dịch vụ">
-            <p>Thay bộ lọc không khí điều hòa là quy trình bảo dưỡng cốt lõi trong mốc 36 tháng. Bởi lúc này, lọc không khí điều 
-                hòa đã bị bẩn và tắc. Nếu không được thay mới sẽ ảnh hưởng đến sức khỏe của khách hàng và hoạt động của hệ thống 
-                điều hòa. Hơn nữa, khi bộ lọc yếu, chúng sẽ tiêu hao nhiên liệu lớn hơn để duy trì hoạt động.</p>
-            <p>Ngoài ra, ở mốc bảo dưỡng này, dầu động cơ, lọc dầu động cơ cũng sẽ được thay thế cùng với các hạng mục kiểm tra 
-                định kỳ khác nhằm đảm bảo xế yêu của bạn hoạt động tốt nhất.</p>
+        <h3>Sau 6 tháng (dù chưa đạt 5.000km)</h3>
+        <p>
+          Bảo dưỡng xe sau 6 tháng hay 5.000km đầu tiên là rất quan trọng. Bước
+          này giúp đưa ra đánh giá chính xác về hiệu quả hoạt động của xe từ khi
+          lăn bánh. Kiểm tra toàn diện, thay dầu, lọc gió động cơ là những hoạt
+          động bảo dưỡng chính được thực hiện. Nước làm mát, nước rửa kính cũng
+          sẽ được đổ thêm cho xe. <br />
+          Đặc biệt, trong trường hợp ít đi lại hoặc ít sử dụng, xe cũng cần được
+          kiểm tra và bảo dưỡng sau mỗi 6 tháng, dù chưa đạt 5.000km để đảm bảo
+          hoạt động ổn định.
+        </p>
+        <img src="img/dichvu/dichvu2.jpg" alt="dịch vụ" />
+        <p>
+          Sau hơn 5.000km vận hành, dầu máy có thể lẫn vụn hoặc cặn kim loại.
+          Thay dầu máy giúp bảo vệ máy dầu và không hư hại cho xe. Khi đến làm
+          dịch vụ, khách hàng được tư vấn kỹ lưỡng, khắc phục hạn chế đang mắc
+          phải, cho xế yêu khỏe và hoạt động tốt. Khách hàng xem chi tiết về bảo
+          dưỡng xe sau mỗi 5.000km hoặc 6 tháng tại đây!
+        </p>
 
-            <h3>Sau 40.000km hoặc 48 tháng</h3>
-            <p>Khi đã đạt đến hơn 40.000km, chiếc xe của bạn cần được bảo dưỡng về: Thay bộ lọc gió động cơ; thay các loại dầu như 
-                dầu động cơ, lọc dầu, dầu vi sai, dầu li hợp, dầu phanh; bộ lọc gió điều hòa và các hạng mục kiểm tra cần thiết 
-                khác.</p>
-            
-            <h3>Sau 80.000km</h3>
-            <p>Bảo dưỡng là việc bạn cần làm để “thưởng” cho xế yêu sau thời gian hoạt động hiệu quả. Sau 80.000km, dung dịch làm 
-                mát động cơ có thể bị suy giảm chất lượng. Vấn đề này ảnh hưởng không nhỏ đến hệ thống làm mát của xe và cần được 
-                kiểm tra kỹ càng và thay thế nếu cần thiết, mặc dù dung dịch làm mát chính hãng của Toyota có chu kỳ thay thế định 
-                kỳ là 160.000km. Ngoài ra, thay thế bugi, má phanh cũng cần được thực hiện. <br>
-                Bên cạnh đó, việc bảo dưỡng còn phụ thuộc vào thực trạng của xe. Ở bất kỳ mốc thời gian nào, xế yêu cũng được kiểm 
-                tra đèn cảnh báo táp lô, lốp xe, ắc quy, phanh, hệ thống chiếu sáng, hệ thống treo và hệ thống lái, cho khách hàng 
-                hành trình di chuyển an toàn và hiệu quả.</p>
-        </div>
-        <br><hr>
+        <h3>Sau 10.000km hoặc 12 tháng</h3>
+        <img src="img/dichvu/dichvu3.jpg" alt="dịch vụ" />
+        <p>
+          Thay lọc dầu là việc quan trọng nhất trong bảo dưỡng ô tô Toyota mốc
+          10.000km hoặc 12 tháng. Điều này giúp loại bỏ cặn bẩn, động cơ được
+          bôi trơn với dầu sạch và hoạt động trơn tru. Kỹ thuật viên sẽ kiểm tra
+          lốp, tiến hành đảo lốp nếu cần thiết. Việc đảo lốp và thay lọc dầu nên
+          được thực hiện sau mỗi 10.000km.
+        </p>
 
-        <div id="conttent3">
-            <h1>Dịch vụ sửa chữa</h1>
-            <p>Ngoài dịch vụ bảo dưỡng và sửa chữa những hiện tượng bất thường trên xe, Toyota cũng cung cấp dịch vụ sửa chữa đối 
-                với những hư hỏng do va chạm mà chiếc xe của bạn gặp phải trong quá trình sử dụng. Dịch vụ đó được gọi là Sửa chữa 
-                Thân xe và Sơn <br>
-                Với kỹ thuật sửa chữa theo tiêu chuẩn toàn cầu, trang thiết bị, vật tư vật chất lượng cao , chúng tôi
-                sẽ phục hồi hình dạng cũng như diện mạo lớp sơn trên chiếc xe của bạn về điều kiện ban đầu. <br>
-                [Quy trình sửa chữa thân xe và sơn]</p>
-            <img src="img/dichvu/dichvu6.png" alt="dịch vụ sửa chữa">
-            <p>Ngoài ra, nhằm đảm bảo chất lượng và rút ngắn thời gian sửa chữa, chúng tôi xây dựng và áp dụng quy trình quản lý 
-                chất lượng trong từng công đoạn, quy trình sửa chữa vết xước trong 4 giờ...để không ngừng đem đến sự hài lòng cho 
-                khách hàng đối với dịch vụ sửa chữa Thân xe và Sơn của.</p>
-        </div>
-        <br><hr>
+        <h3>Sau 30.000km hoặc 36 tháng</h3>
+        <img src="img/dichvu/dichvu4.jpg" alt="dịch vụ" />
+        <p>
+          Thay bộ lọc không khí điều hòa là quy trình bảo dưỡng cốt lõi trong
+          mốc 36 tháng. Bởi lúc này, lọc không khí điều hòa đã bị bẩn và tắc.
+          Nếu không được thay mới sẽ ảnh hưởng đến sức khỏe của khách hàng và
+          hoạt động của hệ thống điều hòa. Hơn nữa, khi bộ lọc yếu, chúng sẽ
+          tiêu hao nhiên liệu lớn hơn để duy trì hoạt động.
+        </p>
+        <p>
+          Ngoài ra, ở mốc bảo dưỡng này, dầu động cơ, lọc dầu động cơ cũng sẽ
+          được thay thế cùng với các hạng mục kiểm tra định kỳ khác nhằm đảm bảo
+          xế yêu của bạn hoạt động tốt nhất.
+        </p>
 
-        <div id="conttent4">
-            <h1>Kiểm tra triệu hồi</h1>
-            <p>Để kiểm tra xe bạn có thuộc các chương trình kiểm tra & triệu hồi hay không, vui lòng liên hệ cho chúng tôi qua 
-            Hotline: 097777777 - CSKH: 028 9996 777</p>
-        </div>
-        <br><hr>
+        <h3>Sau 40.000km hoặc 48 tháng</h3>
+        <p>
+          Khi đã đạt đến hơn 40.000km, chiếc xe của bạn cần được bảo dưỡng về:
+          Thay bộ lọc gió động cơ; thay các loại dầu như dầu động cơ, lọc dầu,
+          dầu vi sai, dầu li hợp, dầu phanh; bộ lọc gió điều hòa và các hạng mục
+          kiểm tra cần thiết khác.
+        </p>
 
-        <div id="conttent5">
-            <h1>Dịch vụ khác</h1>
-            <p>Tại Việt Nam, xe hơi không đơn thuần là phương tiện đi lại bình thường phục vụ nhu cầu thiết yếu cho bản thân và 
-                gia đình mà còn thể hiện đẳng cấp của người sở hữu và là một thứ tài sản vô cùng quý giá. Chiếc xe là người bạn 
-                đồng hành quan trọng và thiết yếu cho mỗi cá nhân người sử dụng. Do đó mà việc quyết định và lựa chọn cho mình một 
-                chiếc xe ưng ý và tốt nhất như thế nào không phải là điều đơn giản, Toyota Hoàn Kiếm sẽ có một vài điều tư vấn 
-                nhằm giúp quý khách hàng có thể sàng lọc và đưa ra quyết định đúng đắn nhất trong việc lựa chọn cho mình một chiếc 
-                xe Toyota tốt nhất. <br>
-                Thường thì điều đầu tiên khách hàng sẽ quan tâm và đặt ra vô số câu hỏi làm sao để tìm được chiếc xe ưng ý, giá cả 
-                hợp lý, chi phí sử dụng, bảo dưỡng thấp và có giá trị bán lại cao sau khi sử dụng… Dưới đây sẽ có 1 vài câu hỏi 
-                để quý khách có thể xem xét trước khi mua cho mình một chiếc Toyota mới:</p>
+        <h3>Sau 80.000km</h3>
+        <p>
+          Bảo dưỡng là việc bạn cần làm để “thưởng” cho xế yêu sau thời gian
+          hoạt động hiệu quả. Sau 80.000km, dung dịch làm mát động cơ có thể bị
+          suy giảm chất lượng. Vấn đề này ảnh hưởng không nhỏ đến hệ thống làm
+          mát của xe và cần được kiểm tra kỹ càng và thay thế nếu cần thiết, mặc
+          dù dung dịch làm mát chính hãng của Toyota có chu kỳ thay thế định kỳ
+          là 160.000km. Ngoài ra, thay thế bugi, má phanh cũng cần được thực
+          hiện. <br />
+          Bên cạnh đó, việc bảo dưỡng còn phụ thuộc vào thực trạng của xe. Ở bất
+          kỳ mốc thời gian nào, xế yêu cũng được kiểm tra đèn cảnh báo táp lô,
+          lốp xe, ắc quy, phanh, hệ thống chiếu sáng, hệ thống treo và hệ thống
+          lái, cho khách hàng hành trình di chuyển an toàn và hiệu quả.
+        </p>
+      </div>
+      <br />
+      <hr />
 
-            <h3>1. Tên thương hiệu sản phẩm:</h3>
-            <p>Quý khách có thể tham khảo thông qua top 100 thương hiệu được yêu thích nhất năm2014. Trong đó “Toyota” là thương 
-                hiệu được xếp vị trí thứ 1 cho thấy vị trí Toyota khá uy tín luôn được khách hàng tín nhiệm và có chất lượng hàng 
-                đầu</p>
-            <h3>2. Tên thương hiệu Đại lý Tập đoàn nước ngoài, liên doanh hay tư nhân…</h3>
-            <p>Hầu như sản phẩm và chế độ bảo hành tại các đại lý là tương đương, tuy nhiên tốc độ điều hành, giải quyếtvà xử lý 
-                công việc của Toyota Hoàn Kiếm lại khiến bạn yêntâm hơn khi thực hiện giao dịch. Toyota Hoàn Kiếm là một trong 
-                những trạm dịchvụ ủy quyền tốt nhất của Toyota Việt Nam</p>
+      <div id="conttent3">
+        <h1>Dịch vụ sửa chữa</h1>
+        <p>
+          Ngoài dịch vụ bảo dưỡng và sửa chữa những hiện tượng bất thường trên
+          xe, Toyota cũng cung cấp dịch vụ sửa chữa đối với những hư hỏng do va
+          chạm mà chiếc xe của bạn gặp phải trong quá trình sử dụng. Dịch vụ đó
+          được gọi là Sửa chữa Thân xe và Sơn <br />
+          Với kỹ thuật sửa chữa theo tiêu chuẩn toàn cầu, trang thiết bị, vật tư
+          vật chất lượng cao , chúng tôi sẽ phục hồi hình dạng cũng như diện mạo
+          lớp sơn trên chiếc xe của bạn về điều kiện ban đầu. <br />
+          [Quy trình sửa chữa thân xe và sơn]
+        </p>
+        <img src="img/dichvu/dichvu6.png" alt="dịch vụ sửa chữa" />
+        <p>
+          Ngoài ra, nhằm đảm bảo chất lượng và rút ngắn thời gian sửa chữa,
+          chúng tôi xây dựng và áp dụng quy trình quản lý chất lượng trong từng
+          công đoạn, quy trình sửa chữa vết xước trong 4 giờ...để không ngừng
+          đem đến sự hài lòng cho khách hàng đối với dịch vụ sửa chữa Thân xe và
+          Sơn của.
+        </p>
+      </div>
+      <br />
+      <hr />
 
-            <h3>3. Xác nhận nhu cầu và mục đích sử dụng.</h3>
-            <p>Nhu cầu chủ yếu khi lựa chọn xe là phục vụ cho việc làm phương tiện đi lại thuận lợi. Song vấn đề khó khăn đối với 
-                những quý khách mua xe mới lần đầu và gặp chút khó khăn về tài chính thường phân vân giữa nhu cầu đi lại và mục 
-                đích sử dụng nhiều hay ít và xe du lịch 5 chỗ hay xe đa dụng 8 chỗ với nhiều tiện nghi và bềthế cũng là vấn đề để 
-                Quý vị xem xét trước khi bỏ ra số tiền lớn...Toyota với rất nhiều các mẫu mã đa dạng phục vụ cho từng nhu cầu , 
-                từng mong muốn cụ thể vớichi phí mua là phù hợp đảm bảo sẽ giúp cho việc quyết định của quý khách được dễ dàng 
-                hơn rất nhiều.</p>
+      <div id="conttent4">
+        <h1>Kiểm tra triệu hồi</h1>
+        <p>
+          Để kiểm tra xe bạn có thuộc các chương trình kiểm tra & triệu hồi hay
+          không, vui lòng liên hệ cho chúng tôi qua Hotline: 097777777 - CSKH:
+          028 9996 777
+        </p>
+      </div>
+      <br />
+      <hr />
 
-            <h3>4. Xác nhận khoản tiền cho việc mua xe mới.</h3>
-            <p>Đừng bị cám dỗ nhiều khi bạn bước vào showroom xe với những dịch vụ đổi màu sơn, phủ gầm, cách âm… bạn nên xác 
-                định ngay từ đầu việc đầu tư tiền cho xe là bao nhiêu và hãy hỏi kỹ các chi phí liên quan đến chiếc xe như trước 
-                bạ, bảo hiểm, đăng kiểm….Và điều bạn cần lưu ý thêm là hãy hỏi chi phí tối thiểu dành cho việc bảo dưỡng và chăm 
-                sóc xe của bạn là bao nhiêu cho mỗi năm sử dụng. Thường là những hãng xe lớn có uytín như Toyota đều có bảng giá 
-                niêm yết cho những dịch vụ này.</p>
+      <div id="conttent5">
+        <h1>Dịch vụ khác</h1>
+        <p>
+          Tại Việt Nam, xe hơi không đơn thuần là phương tiện đi lại bình thường
+          phục vụ nhu cầu thiết yếu cho bản thân và gia đình mà còn thể hiện
+          đẳng cấp của người sở hữu và là một thứ tài sản vô cùng quý giá. Chiếc
+          xe là người bạn đồng hành quan trọng và thiết yếu cho mỗi cá nhân
+          người sử dụng. Do đó mà việc quyết định và lựa chọn cho mình một chiếc
+          xe ưng ý và tốt nhất như thế nào không phải là điều đơn giản, Toyota
+          Hoàn Kiếm sẽ có một vài điều tư vấn nhằm giúp quý khách hàng có thể
+          sàng lọc và đưa ra quyết định đúng đắn nhất trong việc lựa chọn cho
+          mình một chiếc xe Toyota tốt nhất. <br />
+          Thường thì điều đầu tiên khách hàng sẽ quan tâm và đặt ra vô số câu
+          hỏi làm sao để tìm được chiếc xe ưng ý, giá cả hợp lý, chi phí sử
+          dụng, bảo dưỡng thấp và có giá trị bán lại cao sau khi sử dụng… Dưới
+          đây sẽ có 1 vài câu hỏi để quý khách có thể xem xét trước khi mua cho
+          mình một chiếc Toyota mới:
+        </p>
 
-            <h3>5. Mua xe vì thương hiệu mình yêu thích hay khuyến mãi.</h3>
-            <p>Thông thường khi mua bất kì sản phẩm nào, quý khách được hưởng chế độ giảm giá, khuyến mãi hay ưu đãi cũng sẽ là 
-                một mục tiêu giúp cho việc mua xe được tốt hơn, tuy nhiên, cần phải chú trọng vào mục tiêu thích đáng là lựa chọn 
-                cho mình một chiếc xe mà mình cần. Cho dù chiếc xe có rẻ hơn so với dự tính, mà không đáp ứng đúng nhu cầu thiết 
-                yếu cần thiết của quý khách thì vẫn khiến tăng chi phí mua hơn.</p>
+        <h3>1. Tên thương hiệu sản phẩm:</h3>
+        <p>
+          Quý khách có thể tham khảo thông qua top 100 thương hiệu được yêu
+          thích nhất năm2014. Trong đó “Toyota” là thương hiệu được xếp vị trí
+          thứ 1 cho thấy vị trí Toyota khá uy tín luôn được khách hàng tín nhiệm
+          và có chất lượng hàng đầu
+        </p>
+        <h3>
+          2. Tên thương hiệu Đại lý Tập đoàn nước ngoài, liên doanh hay tư nhân…
+        </h3>
+        <p>
+          Hầu như sản phẩm và chế độ bảo hành tại các đại lý là tương đương, tuy
+          nhiên tốc độ điều hành, giải quyếtvà xử lý công việc của Toyota Hoàn
+          Kiếm lại khiến bạn yêntâm hơn khi thực hiện giao dịch. Toyota Hoàn
+          Kiếm là một trong những trạm dịchvụ ủy quyền tốt nhất của Toyota Việt
+          Nam
+        </p>
 
-            <h3>6. Lái thử xe.</h3>
-            <p>Dịch vụ lái thử xe là một yêu cầu hết sức cần thiết nhằm giúp cho quý khách có những cảm nhận thiết thực nhất về 
-                sản lượng cũng như chất lượng của xe Toyota. Hầu hết những hãng xe lớn tại Việt Nam đều có chương trình lái thử 
-                xe dành cho khách hàng.Và đến với bất kì đại lý nào của Toyota, việc lái thử xe luôn được nhắc nhở nhằm giúp quý 
-                khách có những quyết định tốt và cảm nhận được độ uy tín của hãng.</p>
+        <h3>3. Xác nhận nhu cầu và mục đích sử dụng.</h3>
+        <p>
+          Nhu cầu chủ yếu khi lựa chọn xe là phục vụ cho việc làm phương tiện đi
+          lại thuận lợi. Song vấn đề khó khăn đối với những quý khách mua xe mới
+          lần đầu và gặp chút khó khăn về tài chính thường phân vân giữa nhu cầu
+          đi lại và mục đích sử dụng nhiều hay ít và xe du lịch 5 chỗ hay xe đa
+          dụng 8 chỗ với nhiều tiện nghi và bềthế cũng là vấn đề để Quý vị xem
+          xét trước khi bỏ ra số tiền lớn...Toyota với rất nhiều các mẫu mã đa
+          dạng phục vụ cho từng nhu cầu , từng mong muốn cụ thể vớichi phí mua
+          là phù hợp đảm bảo sẽ giúp cho việc quyết định của quý khách được dễ
+          dàng hơn rất nhiều.
+        </p>
 
-            <h3>7. Tính năng an toàn.</h3>
-            <p>Thông thường với quý khách lần đầu mua xe chỉ quan tâm tới khuyến mãi, thương hiệu yêu thích, mẫu mã hình dáng … 
-                mà không để ý tới các tính năng quan trọng bên trong chiếc xe quý khách có ý định mua như độ an toàn, động cơ vận 
-                hành, đánh giá và cảm nhận…Điều này rất quan trọng, vì khi xảy ra sự cố thì những tính năngan toàn sẽ giúp phát 
-                huy tính dụng để bảo vệ bạn và gia đình của bạn. Do đó mà tính năng an toàn là một trong những yếu tố luôn được 
-                hãng Toyota đề cao vai trò hàng đầu, nhằm bảo đảm tốt nhất cho người sở hữu.</p>
-            
-            <h3>8. Dịch vụ sau bán hàng.</h3>
-            <p>Nhằm tăng tuổi thọ của xe và nâng giá trị bán lại cao sau khi sử dụng một thời gian thì việc bảo hành và bảo dưỡng 
-                xe tại các cơ sở chính hãng là rất quan trọng. Hiện nay chúng tôi là đại lý của với các kỹ thuật viên cùng với 
-                nhân viên kinh doanh hàng đầu phụ trách đảm bảo sẽ đem lại sự hài lòng cao nhất cho Quý khách hàng. <br>
-                Với bài viết này chúng tôi mong muốn rằng quý khách hàng sẽ có những lựa chọn quyết định đúng đắn nhất. 
-                Và có thể tự trả lời cho mình câu hỏi "tại sao lại mua xe của chúng tôi”</p>
-            <p>Chúng tôi cam kết đem lại những lợi ích cao nhất đảm bảo uy tín hàng đầu và lâu dài cho quý khách hàng.</p>
-        </div>	
+        <h3>4. Xác nhận khoản tiền cho việc mua xe mới.</h3>
+        <p>
+          Đừng bị cám dỗ nhiều khi bạn bước vào showroom xe với những dịch vụ
+          đổi màu sơn, phủ gầm, cách âm… bạn nên xác định ngay từ đầu việc đầu
+          tư tiền cho xe là bao nhiêu và hãy hỏi kỹ các chi phí liên quan đến
+          chiếc xe như trước bạ, bảo hiểm, đăng kiểm….Và điều bạn cần lưu ý thêm
+          là hãy hỏi chi phí tối thiểu dành cho việc bảo dưỡng và chăm sóc xe
+          của bạn là bao nhiêu cho mỗi năm sử dụng. Thường là những hãng xe lớn
+          có uytín như Toyota đều có bảng giá niêm yết cho những dịch vụ này.
+        </p>
+
+        <h3>5. Mua xe vì thương hiệu mình yêu thích hay khuyến mãi.</h3>
+        <p>
+          Thông thường khi mua bất kì sản phẩm nào, quý khách được hưởng chế độ
+          giảm giá, khuyến mãi hay ưu đãi cũng sẽ là một mục tiêu giúp cho việc
+          mua xe được tốt hơn, tuy nhiên, cần phải chú trọng vào mục tiêu thích
+          đáng là lựa chọn cho mình một chiếc xe mà mình cần. Cho dù chiếc xe có
+          rẻ hơn so với dự tính, mà không đáp ứng đúng nhu cầu thiết yếu cần
+          thiết của quý khách thì vẫn khiến tăng chi phí mua hơn.
+        </p>
+
+        <h3>6. Lái thử xe.</h3>
+        <p>
+          Dịch vụ lái thử xe là một yêu cầu hết sức cần thiết nhằm giúp cho quý
+          khách có những cảm nhận thiết thực nhất về sản lượng cũng như chất
+          lượng của xe Toyota. Hầu hết những hãng xe lớn tại Việt Nam đều có
+          chương trình lái thử xe dành cho khách hàng.Và đến với bất kì đại lý
+          nào của Toyota, việc lái thử xe luôn được nhắc nhở nhằm giúp quý khách
+          có những quyết định tốt và cảm nhận được độ uy tín của hãng.
+        </p>
+
+        <h3>7. Tính năng an toàn.</h3>
+        <p>
+          Thông thường với quý khách lần đầu mua xe chỉ quan tâm tới khuyến mãi,
+          thương hiệu yêu thích, mẫu mã hình dáng … mà không để ý tới các tính
+          năng quan trọng bên trong chiếc xe quý khách có ý định mua như độ an
+          toàn, động cơ vận hành, đánh giá và cảm nhận…Điều này rất quan trọng,
+          vì khi xảy ra sự cố thì những tính năngan toàn sẽ giúp phát huy tính
+          dụng để bảo vệ bạn và gia đình của bạn. Do đó mà tính năng an toàn là
+          một trong những yếu tố luôn được hãng Toyota đề cao vai trò hàng đầu,
+          nhằm bảo đảm tốt nhất cho người sở hữu.
+        </p>
+
+        <h3>8. Dịch vụ sau bán hàng.</h3>
+        <p>
+          Nhằm tăng tuổi thọ của xe và nâng giá trị bán lại cao sau khi sử dụng
+          một thời gian thì việc bảo hành và bảo dưỡng xe tại các cơ sở chính
+          hãng là rất quan trọng. Hiện nay chúng tôi là đại lý của với các kỹ
+          thuật viên cùng với nhân viên kinh doanh hàng đầu phụ trách đảm bảo sẽ
+          đem lại sự hài lòng cao nhất cho Quý khách hàng. <br />
+          Với bài viết này chúng tôi mong muốn rằng quý khách hàng sẽ có những
+          lựa chọn quyết định đúng đắn nhất. Và có thể tự trả lời cho mình câu
+          hỏi "tại sao lại mua xe của chúng tôi”
+        </p>
+        <p>
+          Chúng tôi cam kết đem lại những lợi ích cao nhất đảm bảo uy tín hàng
+          đầu và lâu dài cho quý khách hàng.
+        </p>
+      </div>
     </section>
-    <br>
-    <script>addFooterAndBottom();</script>
-</body>
-
+    <br />
+    <script>
+      addFooterAndBottom();
+    </script>
+  </body>
 </html>

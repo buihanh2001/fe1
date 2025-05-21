@@ -44,38 +44,49 @@ function renderProductDetail(product, id) {
         <p>Hãng xe: <span class="brand">${product.carTypeName}</span></p>
         <p>Số lượng còn lại: <span class="stok">${product.stock}</span></p>
         <p>Lượt xem: <span>${product.viewCount}</span></p>
-        <p>Số lượng đặt hàng: </p>
+        ${
+          isLoggedIn()
+            ? `<p>Số lượng đặt hàng: </p>
         <input type="text" id="quantity" name="quantity" value="1"/>
-        <button class="button_add">Thêm vào giỏ hàng</button>
+        <button class="button_add">Thêm vào giỏ hàng</button>`
+            : ``
+        }
+        
       </div>
   `;
-  const buttonAdd = document
-    .querySelector(".button_add")
-    .addEventListener("click", async function () {
-      const quantity = document.getElementById("quantity").value;
-      if (!quantity) {
-        quantity = 1;
-      }
-      const res = await fetch(
-        `${API_BASE_URL}/cart/add?accountId=1&carId=${id}&quantity=${quantity}`,
-        {
-          method: "POST",
+  if (isLoggedIn()) {
+    const buttonAdd = document
+      .querySelector(".button_add")
+      .addEventListener("click", async function () {
+        const quantity = document.getElementById("quantity").value;
+        if (!quantity) {
+          quantity = 1;
         }
-      );
-      if (!res.ok) {
-        alert("Lỗi khi thêm sản phẩm vào giỏ hàng");
+        const res = await fetch(
+          `${API_BASE_URL}/cart/add?accountId=${await getUserId()}&carId=${id}&quantity=${quantity}`,
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${getToken()}`,
+            },
+          }
+        );
+        if (!res.ok) {
+          alert("Lỗi khi thêm sản phẩm vào giỏ hàng");
+        } else {
+          alert("Thành công khi thêm sản phẩm vào giỏ hàng");
+        }
+      });
+
+    document.getElementById("quantity").addEventListener("input", function (e) {
+      if (e.target.value.includes("-"))
+        e.target.value = e.target.value.replace("-", "");
+      const rawValue = e.target.value.replace(/[^\d]/g, "");
+      if (rawValue) {
+        e.target.value = Number(rawValue);
       } else {
-        alert("Thành công khi thêm sản phẩm vào giỏ hàng");
+        e.target.value = "";
       }
     });
-  document.getElementById("quantity").addEventListener("input", function (e) {
-    if (e.target.value.includes("-"))
-      e.target.value = e.target.value.replace("-", "");
-    const rawValue = e.target.value.replace(/[^\d]/g, "");
-    if (rawValue) {
-      e.target.value = Number(rawValue);
-    } else {
-      e.target.value = "";
-    }
-  });
+  }
 }

@@ -1,1 +1,1 @@
-const API_BASE_URL = "https://new-foxes-share.loca.lt/api";
+const API_BASE_URL = "http://localhost:8080/api";

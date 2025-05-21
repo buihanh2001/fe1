@@ -10,8 +10,13 @@ function addHeader() {
         <a href="index.html">Gia Lâm Auto Mall</a>
       </div>
       <div class="header-buttons">
-        <a href="dangnhap.html" class="header-button">Tài khoản</a>
-        <a href="giohang.html" class="header-button">Giỏ hàng</a>
+        ${
+          isLoggedIn()
+            ? `<a href="giohang.html" class="header-button">Giỏ hàng</a>
+                <a href="user.html" class="header-button">Tài khoản</a>`
+            : `<a href="dangnhap.html" class="header-button">Đăng nhập</a>`
+        }
+        
       </div>
     `;
   document.body.prepend(header);

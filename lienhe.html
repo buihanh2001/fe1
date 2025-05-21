@@ -1,60 +1,80 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <title>Liên hệ Gia Lâm Auto Mall</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="keywwords"
+      content="Liên hệ,Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Gia Lâm Auto Mall"
+    />
+    <meta name="description" content="Liên hệ Gia Lâm Auto Mall" />
+    <meta name="author" content="Bùi Hạnh,Viết Dũng" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-	<title>Liên hệ Gia Lâm Auto Mall</title>
-	<meta charset="UTF-8">
-	<meta name="keywwords" content="Liên hệ,Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Gia Lâm Auto Mall">
-	<meta name="description" content="Liên hệ Gia Lâm Auto Mall">
-	<meta name="author" content="Bùi Hạnh,Viết Dũng">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/topnav.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/lienhe.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dungchung.js"></script>
+    <script src="data/products.js"></script>
+    <script src="js/lienhe.js"></script>
+  </head>
 
-	<!-- css -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/topnav.css">
-	<link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/lienhe.css">
-    <link rel="stylesheet" href="css/footer.css">
-	
-	<!-- js -->
-	<script src="js/dungchung.js"></script>
-	<script src="data/products.js"></script>
-	<script src="js/lienhe.js"></script>
-
-</head>
-
-<body>
-    <script> addHeader(); </script>
-	<script> addTopNav(); </script>
-    <img src="img/banners/banner-lienhe.jpg" alt="liên hệ" width="100%">
+  <body>
+    <script>
+      addHeader();
+    </script>
+    <script>
+      addTopNav();
+    </script>
+    <img src="img/banners/banner-lienhe.jpg" alt="liên hệ" width="100%" />
 
     <section>
-        <div class="lienhe-info">
-            <div class="info-left">
-                <h2> Gia Lâm Auto Mall</h2><br />
-                <br>
-                <b>Địa chỉ:</b> 144, Gia Lâm, Trâu Quỳ, Hà Nội<br /><br />
-                <b>Telephone:</b> 012 3456 7899<br /><br />
-                <b>Hotline:</b> 097777777 - CSKH: 028 9996 777<br /><br />
-                <b>E-mail:</b>GiaLamAutoMall@gmail.com<br /><br />
-                <b>Tài khoản ngân hàng :</b><br /><br />
-                <b>Số TK:</b> 666666888888 <br /><br />
-                <b>Tại Ngân hàng:</b> Vietinbank<br /><br /><br /><br />
-            </div>
-                
-            <div class="info-right">
-                <h2>CAM KẾT CỦA CHÚNG TÔI</h2><br>
-                <p>Chúng tôi luôn sẵn sàng lắng nghe và tư vấn tận tâm để giúp Quý khách lựa chọn được chiếc xe phù hợp nhất 
-                    với nhu cầu và ngân sách của mình. </p><br>
-                <p>Đội ngũ chuyên viên giàu kinh nghiệm của chúng tôi sẽ đồng hành cùng Quý khách từ bước đầu tìm hiểu đến khi 
-                    hoàn tất thủ tục, với thái độ chuyên nghiệp, nhiệt tình và minh bạch. </p><br>
-                <p>Mọi thắc mắc của Quý khách sẽ được phản hồi nhanh chóng, chính xác và đầy đủ nhất.</p>
-            </div>
+      <div class="lienhe-info">
+        <div class="info-left">
+          <h2>Gia Lâm Auto Mall</h2>
+          <br />
+          <br />
+          <b>Địa chỉ:</b> 144, Gia Lâm, Trâu Quỳ, Hà Nội<br /><br />
+          <b>Telephone:</b> 012 3456 7899<br /><br />
+          <b>Hotline:</b> 097777777 - CSKH: 028 9996 777<br /><br />
+          <b>E-mail:</b>GiaLamAutoMall@gmail.com<br /><br />
+          <b>Tài khoản ngân hàng :</b><br /><br />
+          <b>Số TK:</b> 666666888888 <br /><br />
+          <b>Tại Ngân hàng:</b> Vietinbank<br /><br /><br /><br />
         </div>
+
+        <div class="info-right">
+          <h2>CAM KẾT CỦA CHÚNG TÔI</h2>
+          <br />
+          <p>
+            Chúng tôi luôn sẵn sàng lắng nghe và tư vấn tận tâm để giúp Quý
+            khách lựa chọn được chiếc xe phù hợp nhất với nhu cầu và ngân sách
+            của mình.
+          </p>
+          <br />
+          <p>
+            Đội ngũ chuyên viên giàu kinh nghiệm của chúng tôi sẽ đồng hành cùng
+            Quý khách từ bước đầu tìm hiểu đến khi hoàn tất thủ tục, với thái độ
+            chuyên nghiệp, nhiệt tình và minh bạch.
+          </p>
+          <br />
+          <p>
+            Mọi thắc mắc của Quý khách sẽ được phản hồi nhanh chóng, chính xác
+            và đầy đủ nhất.
+          </p>
+        </div>
+      </div>
     </section>
-    <script>addFooterAndBottom();</script>
-</body>
+    <script>
+      addFooterAndBottom();
+    </script>
+  </body>
 </html>

@@ -1,6 +1,10 @@
 window.onload = async function () {
   let cartItemIds = [];
-  await fetch(`${API_BASE_URL}/cart?accountId=1`)
+  await fetch(`${API_BASE_URL}/cart?accountId=${await getUserId()}`, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  })
     .then((response) => {
       if (!response.ok) throw new Error("Lỗi khi lấy chi tiết giỏ hàng");
       return response.json();
@@ -19,6 +23,7 @@ window.onload = async function () {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${getToken()}`,
       },
       body: JSON.stringify(cartItemIds),
     }).then(async (resp) => {
@@ -91,13 +96,23 @@ function renderCartItem(datas) {
     .addEventListener("click", async (event) => {
       const confirmed = confirm("Bạn có chắc là xóa luôn không?");
       if (!confirmed) return;
-      const resp = await fetch(`${API_BASE_URL}/cart/clear?accountId=1`, {
-        method: "DELETE",
-      });
+      const resp = await fetch(
+        `${API_BASE_URL}/cart/clear?accountId=${await getUserId()}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        }
+      );
       if (!resp.ok) {
         throw new Error("Lỗi khi xóa cart item");
       } else {
-        await fetch(`${API_BASE_URL}/cart?accountId=1`)
+        await fetch(`${API_BASE_URL}/cart?accountId=${new getUserId()}`, {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        })
           .then((response) => {
             if (!response.ok) throw new Error("Lỗi khi lấy thông tin giỏ hàng");
             return response.json();
@@ -113,11 +128,18 @@ function renderCartItem(datas) {
       const id = button.dataset.id;
       const resp = await fetch(`${API_BASE_URL}/cart/remove/${id}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
       });
       if (!resp.ok) {
         throw new Error("Lỗi khi xóa cart item");
       } else {
-        await fetch(`${API_BASE_URL}/cart?accountId=1`)
+        await fetch(`${API_BASE_URL}/cart?accountId=${await getUserId()}`, {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        })
           .then((response) => {
             if (!response.ok) throw new Error("Lỗi khi lấy thông tin giỏ hàng");
             return response.json();
@@ -135,6 +157,9 @@ function renderCartItem(datas) {
         `${API_BASE_URL}/cart/update/${id}?quantity=${quantity}`,
         {
           method: "POST",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
         }
       );
       if (!resp.ok) {
@@ -162,11 +187,18 @@ function renderCartItem(datas) {
         if (!confirmed) return;
         const resp = await fetch(`${API_BASE_URL}/cart/remove/${id}`, {
           method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
         });
         if (!resp.ok) {
           throw new Error("Lỗi khi xóa cart item");
         } else {
-          await fetch(`${API_BASE_URL}/cart?accountId=1`)
+          await fetch(`${API_BASE_URL}/cart?accountId=${await getUserId()}`, {
+            headers: {
+              Authorization: `Bearer ${getToken()}`,
+            },
+          })
             .then((response) => {
               if (!response.ok)
                 throw new Error("Lỗi khi lấy thông tin giỏ hàng");
@@ -180,6 +212,9 @@ function renderCartItem(datas) {
         `${API_BASE_URL}/cart/update/${id}?quantity=${quantity}`,
         {
           method: "POST",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
         }
       );
       if (!resp.ok) {
@@ -207,6 +242,9 @@ function renderCartItem(datas) {
         `${API_BASE_URL}/cart/update/${id}?quantity=${quantity}`,
         {
           method: "POST",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
         }
       );
       if (!resp.ok) {

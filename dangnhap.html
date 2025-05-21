@@ -1,67 +1,82 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <title>Đăng nhập / Đăng ký </title>
-	<meta charset="UTF-8">
-	<meta name="description" content="Đăng nhập đăng kí Gia Lâm Auto Mall">
-	<meta name="author" content="Bùi Hạnh, Viết Dũng">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <title>Đăng nhập / Đăng ký</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Đăng nhập đăng kí Gia Lâm Auto Mall" />
+    <meta name="author" content="Bùi Hạnh, Viết Dũng" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" href="css/dangnhap.css">
+    <link rel="stylesheet" href="css/dangnhap.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/dangnhap.js"></script>
-</head>
-<body>
+    <script src="js/dangky.js"></script>
+    <script src="js/config.js"></script>
+  </head>
+  <body>
     <div class="container">
-        <div class="tab-buttons">
-            <button class="tab-button active" data-tab="login">Đăng nhập</button>
-            <button class="tab-button" data-tab="register">Đăng ký</button>
+      <div class="tab-buttons">
+        <button class="tab-button active" data-tab="login">Đăng nhập</button>
+        <button class="tab-button" data-tab="register">Đăng ký</button>
+      </div>
+
+      <div class="tab-content">
+        <div id="login" class="tab-panel active">
+          <h2>Chào mừng trở lại!</h2>
+          <form id="login-form">
+            <div class="form-group">
+              <label>Tên đăng nhập / Email:</label>
+              <input type="text" id="loginUsername" required />
+            </div>
+            <div class="form-group">
+              <label>Mật khẩu:</label>
+              <input type="password" id="loginPassword" required />
+            </div>
+            <button type="submit" class="btn">Đăng nhập</button>
+          </form>
         </div>
 
-        <div class="tab-content">
-            <div id="login" class="tab-panel active">
-                <h2>Chào mừng trở lại!</h2>
-                <form id="login-form">
-                    <div class="form-group">
-                        <label>Tên đăng nhập / Email:</label>
-                        <input type="text" id="login-username" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Mật khẩu:</label>
-                        <input type="password" id="login-password" required>
-                    </div>
-                    <button type="submit" class="btn">Đăng nhập</button>
-                    
-                </form>
+        <div id="register" class="tab-panel">
+          <h2>Tạo tài khoản mới</h2>
+          <form id="register-form">
+            <div class="form-group">
+              <label>Họ và Tên</label>
+              <input type="text" id="registerFullname" required />
             </div>
-
-            <div id="register" class="tab-panel">
-                <h2>Tạo tài khoản mới</h2>
-                <form id="register-form">
-                    <div class="form-group">
-                        <label>Tên đăng nhập</label>
-                        <input type="text" id="register-fullname"required>
-                    </div>
-                    <div class="form-group">
-                        <label for="register-email">Email:</label>
-                        <input type="email" id="register-email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Số điện thoại:</label>
-                        <input type="tel" id="register-phone">
-                    </div>
-                    <div class="form-group">
-                        <label>Mật khẩu:</label>
-                        <input type="password" id="register-password" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Xác nhận mật khẩu:</label>
-                        <input type="password" id="register-confirm-password" required>
-                    </div>
-                    <button type="submit" class="btn">Đăng ký</button>
-                </form>
+            <div class="form-group">
+              <label>Địa chỉ</label>
+              <input type="text" id="address" required />
             </div>
+            <div class="form-group">
+              <label>Ngày sinh:</label>
+              <input type="date" id="dob" name="dob" required />
+            </div>
+            <div class="form-group">
+              <label for="registeEmail">Email:</label>
+              <input type="email" id="registeEmail" required />
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại:</label>
+              <input type="tel" id="registerPhone" />
+            </div>
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" required />
+            </div>
+            <div class="form-group">
+              <label>Mật khẩu:</label>
+              <input type="password" id="registerPassword" required />
+            </div>
+            <div class="form-group">
+              <label>Xác nhận mật khẩu:</label>
+              <input type="password" id="registerConfirmPassword" required />
+            </div>
+            <button type="submit" class="btn">Đăng ký</button>
+          </form>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

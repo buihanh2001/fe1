@@ -1,111 +1,180 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <head>
+    <title>Gia Lâm Auto Mall</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="keywwords"
+      content="Chăm sóc, Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Ô tô Gia Lâm, Gia Lâm Auto Mall"
+    />
+    <meta name="description" content="Trang chủ Gia Lâm Auto Mall" />
+    <meta name="author" content="Bùi Hạnh, Viết Dũng" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-	<title>Gia Lâm Auto Mall</title>
-	<meta charset="UTF-8">
-	<meta name="keywwords" content="Chăm sóc, Ô tô, Xe hơi, Xe hay, Ô tô Việt Nam, Ô tô Gia Lâm, Gia Lâm Auto Mall">
-	<meta name="description" content="Trang chủ Gia Lâm Auto Mall">
-	<meta name="author" content="Bùi Hạnh, Viết Dũng">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Load font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-	<!-- Load font awesome icons -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/topnav.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/banner.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
-	<!-- css -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/topnav.css">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/banner.css">
-	<link rel="stylesheet" href="css/footer.css">
-	
-	<!-- js -->
-	<script src="js/dungchung.js"></script>
-	<script src="js/trangchu.js"></script>
-	<script src="data/products.js"></script>
-	
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dungchung.js"></script>
+    <script src="js/trangchu.js"></script>
+    <script src="data/products.js"></script>
+  </head>
+  <body>
+    <script>
+      addHeader();
+    </script>
+    <script>
+      addTopNav();
+    </script>
+    <img
+      src="img/chamsoc/chamsoc0.jpg"
+      width="100%"
+      alt="chăm sóc khách hàng"
+    />
 
-</head>
-<body>
-	<script> addHeader(); </script>
-	<script> addTopNav(); </script>
-	<img src="img/chamsoc/chamsoc0.jpg" width="100%" alt="chăm sóc khách hàng">
-	
-	<div class="flexContain">
-		<a href="#conttent1"><i class="fas fa-question-circle"></i> Các câu hỏi thường gặp trong dịch vụ khách hàng (FAQ)</a>
-		<a href="#conttent2"><i class="fas fa-check-circle"></i>Khách hàng nói về chúng tôi</a>
-	</div>
+    <div class="flexContain">
+      <a href="#conttent1"
+        ><i class="fas fa-question-circle"></i> Các câu hỏi thường gặp trong
+        dịch vụ khách hàng (FAQ)</a
+      >
+      <a href="#conttent2"
+        ><i class="fas fa-check-circle"></i>Khách hàng nói về chúng tôi</a
+      >
+    </div>
 
     <section>
-		<div id="conttent1">
+      <div id="conttent1">
         <h1>Các câu hỏi thường gặp trong dịch vụ khách hàng (FAQ)</h1>
-        <h3>1. Tôi có được rút lại khoản tiền cọc đã đặt mua xe tại Đại lý không?</h3>
-        <p>Thông thường khi đặt cọc mua xe tại Đại lý, giữa Quý khách và Đại lý sẽ có hợp đồng đặt cọc mua xe. Khi Quý khách yêu 
-			cầu hoàn trả lại tiền cọc thì Quý khách cần cân nhắc lại các Điều khoản thỏa thuận trong Hợp đồng trên <br>
-			+ Trong trường hợp, Hợp đồng quy định nếu Bên mua không tiến hành thanh toán và lấy xe trong thời gian dự kiến thì số
-			 tiền cọc sẽ thuộc về Bên bán. <br>
-			+ Trường hợp, Bên mua mua thông qua Công ty Tài chính TFS, nếu trong hợp đồng có quy định trường hợp Bên mua không đủ 
-			điều kiện vay trả góp, Đại lý cân nhắc hoàn trả tiền cọc; còn nếu Ngân hàng đồng ý cho vay và đủ điều kiện nhưng Bên 
-			mua không mua, thì khả năng lớn tiền cọc sẽ thuộc về Bên bán.</p>
-			
-		<h3>2. Thủ tục để đăng ký lái thử xe là như thế nào?</h3>
-		<p>Để đăng ký lái thử xe tại Toyota, Quý khách có thể đăng ký trực tuyến bằng cách truy cập tại Website hoặc Quý khách 
-			cũng có thể đến trực tiếp tại các Đại lý ủy quyền của Toyota để được trải nghiệm sản phẩm và dịch vụ này.</p>
+        <h3>
+          1. Tôi có được rút lại khoản tiền cọc đã đặt mua xe tại Đại lý không?
+        </h3>
+        <p>
+          Thông thường khi đặt cọc mua xe tại Đại lý, giữa Quý khách và Đại lý
+          sẽ có hợp đồng đặt cọc mua xe. Khi Quý khách yêu cầu hoàn trả lại tiền
+          cọc thì Quý khách cần cân nhắc lại các Điều khoản thỏa thuận trong Hợp
+          đồng trên <br />
+          + Trong trường hợp, Hợp đồng quy định nếu Bên mua không tiến hành
+          thanh toán và lấy xe trong thời gian dự kiến thì số tiền cọc sẽ thuộc
+          về Bên bán. <br />
+          + Trường hợp, Bên mua mua thông qua Công ty Tài chính TFS, nếu trong
+          hợp đồng có quy định trường hợp Bên mua không đủ điều kiện vay trả
+          góp, Đại lý cân nhắc hoàn trả tiền cọc; còn nếu Ngân hàng đồng ý cho
+          vay và đủ điều kiện nhưng Bên mua không mua, thì khả năng lớn tiền cọc
+          sẽ thuộc về Bên bán.
+        </p>
 
-		<h3>3. Hướng dẫn tôi cách tính lệ phí trước bạ?</h3>
-		<p>Lệ phí trước bạ (VNĐ) = Giá tính lệ phí trước bạ của xe (VNĐ) x Mức thu (%) <br>
-			Giá tính lệ phí trước bạ của mỗi xe (VNĐ) căn cứ vào Bảng giá tính lệ phí trước bạ do Bộ tài chính ban hành chung cho cả nước <br>
-			Mức thu (%) tùy theo mỗi tỉnh, thành phố.</p>
-		
-		<h3>4. Tại sao một số xe giảm giá bán mà giá tính lệ phí trước bạ không giảm theo?</h3>
-		<p>Theo thông tư số 304/2016/TT-BTC do Bộ Tài chính ban hành có nêu rõ: Bảng giá do Bộ Tài chính ban hành được sửa đổi, 
-			bổ sung trong trường hợp phát sinh ô tô chưa được quy định hoặc giá chuyển nhượng thực tế của ô tô đã được quy định 
-			tăng hoặc giảm 20% trở lên. <br>
-			Với trường hợp giá xe thay đổi dưới 20%, bảng giá tính lệ phí trước bạ chưa được thay đổi.</p>
+        <h3>2. Thủ tục để đăng ký lái thử xe là như thế nào?</h3>
+        <p>
+          Để đăng ký lái thử xe tại Toyota, Quý khách có thể đăng ký trực tuyến
+          bằng cách truy cập tại Website hoặc Quý khách cũng có thể đến trực
+          tiếp tại các Đại lý ủy quyền của Toyota để được trải nghiệm sản phẩm
+          và dịch vụ này.
+        </p>
 
-		<h3>5. Trường hợp đã nộp thuế theo Bảng giá hiện hành, trong đó một số xe bị áp giá tính lệ phí trước bạ cao hơn giá công 
-			bố của nhà sản xuất/ nhà nhập khẩu thì tôi có đòi lại được phần chênh không?</h3>
-		<p>Bảng giá hiện hành đang có giá trị pháp lý do Bộ Tài chính ban hành, TMV hay Đại lý không thể xác nhận được vấn đề này. 
-			Khách hàng có thể liên hệ trực tiếp với Chi cục thuế nơi thu thuế để đặt câu hỏi trực tiếp.</p>
+        <h3>3. Hướng dẫn tôi cách tính lệ phí trước bạ?</h3>
+        <p>
+          Lệ phí trước bạ (VNĐ) = Giá tính lệ phí trước bạ của xe (VNĐ) x Mức
+          thu (%) <br />
+          Giá tính lệ phí trước bạ của mỗi xe (VNĐ) căn cứ vào Bảng giá tính lệ
+          phí trước bạ do Bộ tài chính ban hành chung cho cả nước <br />
+          Mức thu (%) tùy theo mỗi tỉnh, thành phố.
+        </p>
 
-		<h3>6. Tôi bị mất sách HDSD xe, liệu TMV có thể cung cấp lại, bán hoặc gửi bản copy sách HDSD cho tôi được không?</h3>
-		<p>Hiện nay sách HDSD được phòng xuất bản sách của TMV cấp mã số sách. Do vậy anh chị có thể đặt mua sách qua hệ thống các 
-			ĐL trên toàn quốc</p>
-		
-		<h3>7. Tôi mua xe ở ĐL của hãng ở Hà Nội. Khi giao xe cho tôi, trên xe đã có biển tạm nhưng trên đường chạy về nhà (Hà Nam,…) 
-			tôi bị công an giữ lại, tại sao vậy?</h3>
-		<p>- Biển tạm công ty Toyota Việt Nam đăng ký để vận chuyển xe từ nhà máy về Đại lý với quãng đường cụ thể và thời gian 
-			giới hạn thường là 1 tuần. Biển tạm này chỉ có hiệu lực trong điều kiện trên, do đó nếu KH chạy ngoài phạm vi trên sẽ 
-			bị phạt. <br>
-			- Để tránh bị phạt anh chị nên trao đổi với nhân viên bán hàng của mình để được tư vấn & hỗ trợ đăng ký lại biển tạm 
-			cho quãng đường anh chị di chuyển từ ĐL về nhà.</p>
-		
-		<h3>8. Tại sao tất cả những xe màu trắng ngọc trai đều có giá cao hơn xe cùng loại màu khác là 8 triệu đồng?</h3>
-		<p>Do chi phí sản xuất màu trắng ngọc trai cao hơn so với các màu khác dẫn tới giá thành cao hơn.</p>
-		</div>
-		<br><br>
-		<hr>
+        <h3>
+          4. Tại sao một số xe giảm giá bán mà giá tính lệ phí trước bạ không
+          giảm theo?
+        </h3>
+        <p>
+          Theo thông tư số 304/2016/TT-BTC do Bộ Tài chính ban hành có nêu rõ:
+          Bảng giá do Bộ Tài chính ban hành được sửa đổi, bổ sung trong trường
+          hợp phát sinh ô tô chưa được quy định hoặc giá chuyển nhượng thực tế
+          của ô tô đã được quy định tăng hoặc giảm 20% trở lên. <br />
+          Với trường hợp giá xe thay đổi dưới 20%, bảng giá tính lệ phí trước bạ
+          chưa được thay đổi.
+        </p>
 
-		<div id="conttent2">
-		<h1>Khách hàng nói về chúng tôi</h1>
-		<img src="img/chamsoc/chamsoc1.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc2.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc3.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc4.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc5.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc6.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc7.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc8.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc9.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc10.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc11.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc12.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc13.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc14.png" alt="khách hàng">
-		<img src="img/chamsoc/chamsoc15.png" alt="khách hàng">
-		</div>
+        <h3>
+          5. Trường hợp đã nộp thuế theo Bảng giá hiện hành, trong đó một số xe
+          bị áp giá tính lệ phí trước bạ cao hơn giá công bố của nhà sản xuất/
+          nhà nhập khẩu thì tôi có đòi lại được phần chênh không?
+        </h3>
+        <p>
+          Bảng giá hiện hành đang có giá trị pháp lý do Bộ Tài chính ban hành,
+          TMV hay Đại lý không thể xác nhận được vấn đề này. Khách hàng có thể
+          liên hệ trực tiếp với Chi cục thuế nơi thu thuế để đặt câu hỏi trực
+          tiếp.
+        </p>
+
+        <h3>
+          6. Tôi bị mất sách HDSD xe, liệu TMV có thể cung cấp lại, bán hoặc gửi
+          bản copy sách HDSD cho tôi được không?
+        </h3>
+        <p>
+          Hiện nay sách HDSD được phòng xuất bản sách của TMV cấp mã số sách. Do
+          vậy anh chị có thể đặt mua sách qua hệ thống các ĐL trên toàn quốc
+        </p>
+
+        <h3>
+          7. Tôi mua xe ở ĐL của hãng ở Hà Nội. Khi giao xe cho tôi, trên xe đã
+          có biển tạm nhưng trên đường chạy về nhà (Hà Nam,…) tôi bị công an giữ
+          lại, tại sao vậy?
+        </h3>
+        <p>
+          - Biển tạm công ty Toyota Việt Nam đăng ký để vận chuyển xe từ nhà máy
+          về Đại lý với quãng đường cụ thể và thời gian giới hạn thường là 1
+          tuần. Biển tạm này chỉ có hiệu lực trong điều kiện trên, do đó nếu KH
+          chạy ngoài phạm vi trên sẽ bị phạt. <br />
+          - Để tránh bị phạt anh chị nên trao đổi với nhân viên bán hàng của
+          mình để được tư vấn & hỗ trợ đăng ký lại biển tạm cho quãng đường anh
+          chị di chuyển từ ĐL về nhà.
+        </p>
+
+        <h3>
+          8. Tại sao tất cả những xe màu trắng ngọc trai đều có giá cao hơn xe
+          cùng loại màu khác là 8 triệu đồng?
+        </h3>
+        <p>
+          Do chi phí sản xuất màu trắng ngọc trai cao hơn so với các màu khác
+          dẫn tới giá thành cao hơn.
+        </p>
+      </div>
+      <br /><br />
+      <hr />
+
+      <div id="conttent2">
+        <h1>Khách hàng nói về chúng tôi</h1>
+        <img src="img/chamsoc/chamsoc1.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc2.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc3.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc4.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc5.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc6.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc7.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc8.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc9.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc10.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc11.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc12.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc13.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc14.png" alt="khách hàng" />
+        <img src="img/chamsoc/chamsoc15.png" alt="khách hàng" />
+      </div>
     </section>
-	<script>addFooterAndBottom();</script>
-</body>
+    <script>
+      addFooterAndBottom();
+    </script>
+  </body>
 </html>

@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/giohang.css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/dungchung.js"></script>
     <script src="js/giohang.js"></script>
     <script src="js/config.js"></script>
@@ -27,15 +29,16 @@
       addTopNav();
     </script>
     <br />
-    <h1>GIỎ HÀNG CỦA BẠN</h1><br>
+    <h1>GIỎ HÀNG CỦA BẠN</h1>
+    <br />
     <table class="cart-table">
       <thead>
         <tr>
-          <th style="width: 150px;">STT</th>
-          <th style="width: 400px;">Tên sản phẩm</th>
-          <th style="width: 200px;">Giá</th>
-          <th style="width: 200px;">Số lượng</th>
-          <th style="width: 300px;">Thành tiền</th>
+          <th style="width: 150px">STT</th>
+          <th style="width: 400px">Tên sản phẩm</th>
+          <th style="width: 200px">Giá</th>
+          <th style="width: 200px">Số lượng</th>
+          <th style="width: 300px">Thành tiền</th>
           <th>Xóa</th>
         </tr>
       </thead>
@@ -44,15 +47,17 @@
         <tr>
           <td colspan="4"><strong>TỔNG TIỀN:</strong></td>
           <td><strong>9.850.000 đ</strong></td>
-          <td><button><strong>Xóa hết</strong></button></td>
+          <td>
+            <button><strong>Xóa hết</strong></button>
+          </td>
         </tr>
       </tbody>
     </table>
 
-    <div style="text-align: right;"> 
-      <button class="payButton"> <strong>ĐẶT CỌC</strong></button>
+    <div style="text-align: right">
+      <button class="payButton"><strong>ĐẶT CỌC</strong></button>
     </div>
-    
+
     <script>
       addFooterAndBottom();
     </script>
