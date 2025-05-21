@@ -15,4 +15,10 @@
 .info strong {
   color: #000;
 }
+button{
+  padding: 5px;
+  color: white;
+  background: green;
+  border: none;
+}
 
