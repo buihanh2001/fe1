@@ -1,10 +1,13 @@
 window.onload = async function () {
   let cartItemIds = [];
-  await fetch(`${API_BASE_URL}/cart?accountId=${await getUserId()}`, {
-    headers: {
-      Authorization: `Bearer ${getToken()}`,
-    },
-  })
+  await fetch(
+    `${API_BASE_URL}/cart?accountId=${localStorage.getItem("userId")}`,
+    {
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    }
+  )
     .then((response) => {
       if (!response.ok) throw new Error("Lỗi khi lấy chi tiết giỏ hàng");
       return response.json();
@@ -97,7 +100,9 @@ function renderCartItem(datas) {
       const confirmed = confirm("Bạn có chắc là xóa luôn không?");
       if (!confirmed) return;
       const resp = await fetch(
-        `${API_BASE_URL}/cart/clear?accountId=${await getUserId()}`,
+        `${API_BASE_URL}/cart/clear?accountId=${localStorage.getItem(
+          "userId"
+        )}`,
         {
           method: "DELETE",
           headers: {
@@ -108,11 +113,14 @@ function renderCartItem(datas) {
       if (!resp.ok) {
         throw new Error("Lỗi khi xóa cart item");
       } else {
-        await fetch(`${API_BASE_URL}/cart?accountId=${new getUserId()}`, {
-          headers: {
-            Authorization: `Bearer ${getToken()}`,
-          },
-        })
+        await fetch(
+          `${API_BASE_URL}/cart?accountId=${localStorage.getItem("userId")}`,
+          {
+            headers: {
+              Authorization: `Bearer ${getToken()}`,
+            },
+          }
+        )
           .then((response) => {
             if (!response.ok) throw new Error("Lỗi khi lấy thông tin giỏ hàng");
             return response.json();
@@ -135,11 +143,14 @@ function renderCartItem(datas) {
       if (!resp.ok) {
         throw new Error("Lỗi khi xóa cart item");
       } else {
-        await fetch(`${API_BASE_URL}/cart?accountId=${await getUserId()}`, {
-          headers: {
-            Authorization: `Bearer ${getToken()}`,
-          },
-        })
+        await fetch(
+          `${API_BASE_URL}/cart?accountId=${localStorage.getItem("userId")}`,
+          {
+            headers: {
+              Authorization: `Bearer ${getToken()}`,
+            },
+          }
+        )
           .then((response) => {
             if (!response.ok) throw new Error("Lỗi khi lấy thông tin giỏ hàng");
             return response.json();
@@ -194,11 +205,14 @@ function renderCartItem(datas) {
         if (!resp.ok) {
           throw new Error("Lỗi khi xóa cart item");
         } else {
-          await fetch(`${API_BASE_URL}/cart?accountId=${await getUserId()}`, {
-            headers: {
-              Authorization: `Bearer ${getToken()}`,
-            },
-          })
+          await fetch(
+            `${API_BASE_URL}/cart?accountId=${localStorage.getItem("userId")}`,
+            {
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
+          )
             .then((response) => {
               if (!response.ok)
                 throw new Error("Lỗi khi lấy thông tin giỏ hàng");

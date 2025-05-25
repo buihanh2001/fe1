@@ -104,6 +104,8 @@ async function handleLogin(event) {
       })
       .then(async (data) => {
         localStorage.setItem("token", data.token);
+        const userId = await getUserId();
+        localStorage.setItem("userId", userId);
         if (isAdmin()) {
           window.location.href = "admin.html";
         } else {

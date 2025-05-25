@@ -62,8 +62,9 @@ function renderProductDetail(product, id) {
         if (!quantity) {
           quantity = 1;
         }
+        const userId = localStorage.getItem("userId");
         const res = await fetch(
-          `${API_BASE_URL}/cart/add?accountId=${await getUserId()}&carId=${id}&quantity=${quantity}`,
+          `${API_BASE_URL}/cart/add?accountId=${userId}&carId=${id}&quantity=${quantity}`,
           {
             method: "POST",
             headers: {

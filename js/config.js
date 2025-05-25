@@ -1,1 +1,1 @@
-const API_BASE_URL = "https://full-trains-jam.loca.lt/api";
+const API_BASE_URL = "http://localhost:8080/api";

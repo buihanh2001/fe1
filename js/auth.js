@@ -28,6 +28,9 @@ function isTokenExpired() {
 }
 
 function isLoggedIn() {
+  if (isTokenExpired()) {
+    localStorage.removeItem("token");
+  }
   return !!getToken() || !!isTokenExpired();
 }
 
