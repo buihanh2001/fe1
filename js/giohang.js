@@ -22,14 +22,17 @@ window.onload = async function () {
     });
   document.querySelector(".payButton").addEventListener("click", async () => {
     console.log(JSON.stringify(cartItemIds));
-    const resp = await fetch(`${API_BASE_URL}/orders/1`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${getToken()}`,
-      },
-      body: JSON.stringify(cartItemIds),
-    }).then(async (resp) => {
+    const resp = await fetch(
+      `${API_BASE_URL}/orders/${localStorage.getItem("userId")}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${getToken()}`,
+        },
+        body: JSON.stringify(cartItemIds),
+      }
+    ).then(async (resp) => {
       if (!resp.ok) {
         const error = await resp.text();
         alert(resp.body);

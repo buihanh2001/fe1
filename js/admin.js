@@ -1,3 +1,9 @@
+window.onload = async function () {
+  if (!isAdmin()) {
+    window.location.href = "sanpham.html";
+  }
+};
+
 document.querySelectorAll(".sidebar li").forEach((item) => {
   item.addEventListener("click", async () => {
     const selectedId = item.getAttribute("data-id");
@@ -10,7 +16,11 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
     // Hiện phần nội dung được chọn
     document.getElementById(selectedId).style.display = "block";
     if (selectedId == "donhang") {
-      await fetch(`${API_BASE_URL}/orders`)
+      await fetch(`${API_BASE_URL}/orders`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
         .then((response) => {
           if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
           return response.json();
@@ -36,7 +46,12 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
         .addEventListener("click", async function () {
           const keyword = document.getElementById("search-car").value;
           const res = await fetch(
-            `${API_BASE_URL}/cars/search?keyword=${keyword}`
+            `${API_BASE_URL}/cars/search?keyword=${keyword}`,
+            {
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
           )
             .then((response) => {
               if (!response.ok)
@@ -50,7 +65,12 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
             });
         });
     } else if (selectedId == "khachhang") {
-      await fetch(`${API_BASE_URL}/account`)
+      await fetch(`${API_BASE_URL}/account`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
         .then((response) => {
           if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
           return response.json();
@@ -60,13 +80,17 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
         });
-    } else if (selectedId == "hangxe") {
-      await fetch(`${API_BASE_URL}/carType`)
+    } else if (selectedId == "lichhen") {
+      await fetch(`${API_BASE_URL}/orders/schedule`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
         .then((response) => {
-          if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+          if (!response.ok) throw new Error("Lỗi khi lấy danh sách lịch hẹn");
           return response.json();
         })
-        .then(async (data) => await renderCarTypes(data))
+        .then(async (data) => await renderSchedule(data))
         .catch((error) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
@@ -107,6 +131,9 @@ async function renderOrder(listOrder) {
         `${API_BASE_URL}/orders/changeStatus?orderUUId=${id}&isIncrease=true`,
         {
           method: "PUT",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
         }
       );
       if (!resp.ok) {
@@ -127,6 +154,9 @@ async function renderOrder(listOrder) {
         `${API_BASE_URL}/orders/changeStatus?orderUUId=${id}&isIncrease=false`,
         {
           method: "PUT",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
         }
       );
       if (!resp.ok) {
@@ -171,6 +201,9 @@ function renderCar(listCar) {
       const id = button.dataset.id;
       const res = await fetch(`${API_BASE_URL}/cars/${id}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
       });
       if (!res.ok) {
         alert("Xóa thất bại");
@@ -228,6 +261,26 @@ function renderCarTypes(listCarTypes) {
       </td>
     `;
     tbody.appendChild(row);
+  });
+}
+function renderSchedule(listCarTypes) {
+  const tbody = document.querySelector(".schedule-table");
+  tbody.innerHTML = ""; // Xóa nội dung cũ của bảng
+  let count = 1;
+
+  listCarTypes.forEach((carType) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${count}</td>
+      <td>${carType.customerName}</td>
+      <td>${carType.schedule}</td>
+      <td><a href="chitietdonhang.html?id=${carType.uuid}">Xem chi tiết đơn hàng</a></td>
+      <td>
+        <button class="delete-button">✖</button>
+      </td>
+    `;
+    tbody.appendChild(row);
+    count++;
   });
 }
 

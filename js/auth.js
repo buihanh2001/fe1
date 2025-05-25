@@ -30,12 +30,14 @@ function isTokenExpired() {
 function isLoggedIn() {
   if (isTokenExpired()) {
     localStorage.removeItem("token");
+    localStorage.removeItem("userId");
   }
   return !!getToken() || !!isTokenExpired();
 }
 
 function logout() {
   localStorage.removeItem("token");
+  localStorage.removeItem("userId");
   window.location.href = "dangnhap.html";
 }
 

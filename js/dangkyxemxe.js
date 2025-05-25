@@ -1,7 +1,11 @@
 window.onload = async function () {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("orderId");
-  await fetch(`${API_BASE_URL}/orders/account?orderId=${id}`)
+  await fetch(`${API_BASE_URL}/orders/account?orderId=${id}`, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  })
     .then((response) => {
       console.log("fetch response:", response); // Log toàn bộ response
       if (!response.ok) {
@@ -29,6 +33,7 @@ window.onload = async function () {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${getToken()}`,
           },
           body: JSON.stringify(schedule),
         });

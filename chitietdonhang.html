@@ -7,36 +7,13 @@
     <meta name="author" content="Bùi Hạnh, Viết Dũng" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <link rel="stylesheet" href="css/chitietdonhang.css">
-</head>
-<body>
-    <div class="order-detail-container">
-        <h1>Chi Tiết Đơn Hàng</h1>
-        <div class="customer-info">
-            <h2>Thông Tin Khách Hàng</h2>
-            <p><strong>Tên: </strong>Chien Thang</p>
-            <p><strong>Số Điện Thoại: </strong>0123456789</p>
-            <p><strong>Email: </strong>anv@gmail.com</p>
-        </div>
-
-        <div class="order-info">
-            <h2>Thông Tin Đơn Hàng</h2>
-            <p><strong>Ngày đặt hàng: </strong>15/05/2025</p>
-            <p><strong>Ngày hẹn xem xe: </strong>08/08/2025</p>
-            <h3>Sản Phẩm</h3>
-            <ul class="product-list">
-                <li>
-                    <span class="product-name">COROLLA ALTIS 1.8G</span>
-                    <span class="product-quantity">Số lượng: </span>
-                </li>
-                <li>
-                    <span class="product-name">COROLLA ALTIS 1.8G</span>
-                    <span class="product-quantity">Số lượng: </span>
-                </li>
-                </ul>
-            <p><strong>Ghi Chú:</strong> <span id="order-note">Giao hàng trong giờ hành chính.</span></p>
-        </div>
-    </div>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/chitietdonhang.js"></script>
+    <link rel="stylesheet" href="css/chitietdonhang.css" />
+  </head>
+  <body>
+    <div class="order-detail-container"></div>
+  </body>
 </html>
