@@ -41,7 +41,7 @@ window.onload = async function () {
 };
 
 let currentPage = 1;
-const itemsPerPage = 4;
+const itemsPerPage = 12;
 let products = [];
 const defaultImage =
   "https://toyotahoankiem.com.vn/Uploads/images/cars/Altis-2020.png";

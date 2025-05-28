@@ -73,6 +73,7 @@ window.onload = async function () {
           return;
         }
         alert("Sửa thành công");
+        window.location.href = "admin.html";
       } catch (err) {
         console.log(err);
       }

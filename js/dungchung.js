@@ -1,19 +1,20 @@
-// Thêm topnav vào trang
+
 function addHeader() {
   const header = document.createElement("div");
   header.className = "header";
   header.innerHTML = `
       <div class="header-item">
         <a href="index.html">
-          <img src="img/logo.png" width="250" height="100" alt="logo">
+          <img src="img/logo.png" width="auto" height="90px" alt="logo">
         </a>
-        <a href="index.html">Gia Lâm Auto Mall</a>
+        <a href="index.html">GIA LÂM AUTO MALL</a>
       </div>
       <div class="header-buttons">
         ${
           isLoggedIn()
             ? `<a href="giohang.html" class="header-button">Giỏ hàng</a>
-                <a href="user.html" class="header-button">Tài khoản</a>`
+                <a href="user.html" class="header-button">Tài khoản</a>
+                <a onclick="logout()" class="header-button">Đăng xuất</a>`
             : `<a href="dangnhap.html" class="header-button">Đăng nhập</a>`
         }
         
@@ -22,7 +23,7 @@ function addHeader() {
   document.body.prepend(header);
 }
 
-// Thêm header
+
 function addTopNav() {
   const nav = document.createElement("div");
   nav.className = "nav";

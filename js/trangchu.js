@@ -17,9 +17,8 @@ window.onload = function () {
 	
 	var bannerFiles = [
 	  "img/banners/banner0.png",
-	  "img/banners/banner1.jpg",
-	  "img/banners/banner2.jpg",
-	  "img/banners/banner3.png"];
+	  "img/banners/banner1.png",
+	  "img/banners/banner2.jpg"];
 
 	for (var i = 0; i < bannerFiles.length; i++) {
     addBanner(bannerFiles[i], bannerFiles[i]);
@@ -28,7 +27,7 @@ window.onload = function () {
 	
 	setTimeout(function () {
 		$('.owl-carousel').owlCarousel({
-			items: 1, 
+			items: 1.5, 
 			margin: 100,
 			center: true,
 			loop: true, 

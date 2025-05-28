@@ -71,6 +71,7 @@ window.onload = async function () {
           return;
         }
         alert("Thêm sản phẩm thành công");
+        window.location.href = "admin.html";
       } catch (err) {
         console.log(err);
       }

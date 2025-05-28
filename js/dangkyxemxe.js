@@ -42,6 +42,7 @@ window.onload = async function () {
           return;
         }
         alert("Đăng ký thành công");
+        window.location.href = "index.html";
       } catch (err) {
         console.log(err);
       }

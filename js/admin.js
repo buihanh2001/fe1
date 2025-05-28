@@ -95,6 +95,21 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
         });
+    }else if (selectedId == "hangxe") {
+      await fetch(`${API_BASE_URL}/carTypes`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error("Lỗi khi lấy danh sách lịch hẹn");
+          return response.json();
+        })
+        .then(async (data) => await renderCarTypes(data))
+        .catch((error) => {
+          console.error(error);
+          document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+        });
     }
 
     // Cập nhật class active
@@ -240,29 +255,40 @@ function renderAccount(listAccount) {
               <td>${account.createdDateTime}</td>
               <td>
                 <button class="delete-button">✖</button>
-              </td>
+              </td>      
     `;
     tbody.appendChild(row);
   });
-}
-
-function renderCarTypes(listCarTypes) {
-  const tbody = document.querySelector(".detail-table-carType");
-  tbody.innerHTML = ""; // Xóa nội dung cũ của bảng
-
-  listCarTypes.forEach((carType) => {
-    console.log("Rendering car type:", carType);
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${carType.id}</td>
-      <td>${carType.name}</td>
-      <td>
-        <button class="delete-button">✖</button>
-      </td>
-    `;
-    tbody.appendChild(row);
+  document.querySelectorAll(".delete-button").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const confirmed = confirm("Bạn có chắc là xóa luôn không?");
+      if (!confirmed) return;
+      const id = button.dataset.id;
+      const res = await fetch(`${API_BASE_URL}/account/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
+      if (!res.ok) {
+        alert("Xóa thất bại");
+      } else {
+        alert("Xóa thành công");
+        await fetch(`${API_BASE_URL}/account`)
+          .then((response) => {
+            if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+            return response.json();
+          })
+          .then(async (data) => await renderAccount(data))
+          .catch((error) => {
+            console.error(error);
+            document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+          });
+      }
+    });
   });
 }
+
 function renderSchedule(listCarTypes) {
   const tbody = document.querySelector(".schedule-table");
   tbody.innerHTML = ""; // Xóa nội dung cũ của bảng
@@ -284,7 +310,55 @@ function renderSchedule(listCarTypes) {
   });
 }
 
+function renderCarTypes(listCarTypes) {
+  const tbody = document.querySelector(".detail-table-carType");
+  tbody.innerHTML = ""; // Xóa nội dung cũ của bảng
+
+  listCarTypes.forEach((carType) => {
+    console.log("Rendering car type:", carType);
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${carType.id}</td>
+      <td>${carType.name}</td>
+      <td>
+        <button class="delete-button">✖</button>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
+  document.querySelectorAll(".delete-button").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const confirmed = confirm("Bạn có chắc là xóa luôn không?");
+      if (!confirmed) return;
+      const id = button.dataset.id;
+      const res = await fetch(`${API_BASE_URL}/carType/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
+      if (!res.ok) {
+        alert("Xóa thất bại");
+      } else {
+        alert("Xóa thành công");
+        await fetch(`${API_BASE_URL}/carType`)
+          .then((response) => {
+            if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+            return response.json();
+          })
+          .then(async (data) => await renderCarTypes(data))
+          .catch((error) => {
+            console.error(error);
+            document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+          });
+      }
+    });
+  });
+}
+
+
 const item = document.querySelector(".add-button");
 item.addEventListener("click", () => {
   window.location.href = `themsanpham.html`;
 });
+
