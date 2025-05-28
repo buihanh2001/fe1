@@ -99,7 +99,25 @@ async function renderUserOrders() {
     tbody.innerHTML = '<tr><td colspan="5">Lỗi khi tải dữ liệu đơn hàng.</td></tr>';
   }
 }
-var carsApi = 'https://tangy-suns-drum.loca.lt/api/orders';
+var carsApi = 'https://witty-cloths-find.loca.lt/api/account/10007';
+var token = localStorage.getItem("token");
+
+fetch(carsApi, {
+  headers: {
+    'Authorization': `Bearer ${token}`
+  }
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(json => console.log(json))
+  .catch(error => console.error('Có lỗi xảy ra:', error));
+  
+
+  var carsApi = 'https://witty-cloths-find.loca.lt/api/orders';
 var token = localStorage.getItem("token");
 
 fetch(carsApi, {

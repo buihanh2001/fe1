@@ -96,7 +96,7 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
         });
     }else if (selectedId == "hangxe") {
-      await fetch(`${API_BASE_URL}/carTypes`, {
+      await fetch(`${API_BASE_URL}/carType`, {
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },
@@ -307,6 +307,34 @@ function renderSchedule(listCarTypes) {
     `;
     tbody.appendChild(row);
     count++;
+  });
+  document.querySelectorAll(".delete-button").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const confirmed = confirm("Bạn có chắc là xóa luôn không?");
+      if (!confirmed) return;
+      const id = button.dataset.id;
+      const res = await fetch(`${API_BASE_URL}/orders/schedule/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
+      if (!res.ok) {
+        alert("Xóa thất bại");
+      } else {
+        alert("Xóa thành công");
+        await fetch(`${API_BASE_URL}/orders/schedule`)
+          .then((response) => {
+            if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+            return response.json();
+          })
+          .then(async (data) => await renderSchedule(data))
+          .catch((error) => {
+            console.error(error);
+            document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+          });
+      }
+    });
   });
 }
 

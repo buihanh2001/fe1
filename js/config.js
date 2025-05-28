@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://tangy-suns-drum.loca.lt/api";
+const API_BASE_URL = "https://witty-cloths-find.loca.lt/api";
 function formatDate(date) {
   const d = new Date(date);
   const day = String(d.getDate()).padStart(2, "0");
