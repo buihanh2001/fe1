@@ -95,7 +95,7 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
         });
-    }else if (selectedId == "hangxe") {
+    } else if (selectedId == "hangxe") {
       await fetch(`${API_BASE_URL}/carType`, {
         headers: {
           Authorization: `Bearer ${getToken()}`,
@@ -109,6 +109,38 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
         .catch((error) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+        });
+      document
+        .querySelector(".add-button-carType")
+        .addEventListener("click", async () => {
+          const nameCarType = document.getElementById("carTypeName").value;
+          const res = await fetch(
+            `${API_BASE_URL}/carType?name=${nameCarType}`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
+          );
+          if (!res.ok) {
+            alert("Thêm hãng xe thất bại");
+          } else {
+            Swal.fire("Thành công", "Thêm hãng xe thành công", "success");
+            await fetch(`${API_BASE_URL}/carType`)
+              .then((response) => {
+                if (!response.ok)
+                  throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+                return response.json();
+              })
+              .then(async (data) => await renderCarTypes(data))
+              .catch((error) => {
+                console.error(error);
+                document.body.innerHTML =
+                  "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+              });
+            document.getElementById("carTypeName").value = "";
+          }
         });
     }
 
@@ -251,10 +283,14 @@ function renderAccount(listAccount) {
               <td>
                 ${account.phoneNumber}
               </td>
-              <td>${account.active ? "đang hoạt động" : "hết hoạt động"}</td>
+              <td class="accountActive" data-status="${account.active}">${
+      account.active ? "đang hoạt động" : "hết hoạt động"
+    }</td>
               <td>${account.createdDateTime}</td>
               <td>
-                <button class="delete-button">✖</button>
+                <button class="delete-button" data-id="${account.id}">${
+      account.active ? "Disable" : "Enable"
+    }</button>
               </td>      
     `;
     tbody.appendChild(row);
@@ -263,18 +299,28 @@ function renderAccount(listAccount) {
     button.addEventListener("click", async () => {
       const confirmed = confirm("Bạn có chắc là xóa luôn không?");
       if (!confirmed) return;
+      const row = button.closest("tr");
+      const status =
+        row.querySelector(".accountActive").dataset.status === "true";
       const id = button.dataset.id;
-      const res = await fetch(`${API_BASE_URL}/account/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${getToken()}`,
-        },
-      });
+      const res = await fetch(
+        `${API_BASE_URL}/account/changeStatus?isEnabled=${!status}&accountId=${id}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        }
+      );
       if (!res.ok) {
         alert("Xóa thất bại");
       } else {
         alert("Xóa thành công");
-        await fetch(`${API_BASE_URL}/account`)
+        await fetch(`${API_BASE_URL}/account`, {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        })
           .then((response) => {
             if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
             return response.json();
@@ -302,7 +348,7 @@ function renderSchedule(listCarTypes) {
       <td>${carType.schedule}</td>
       <td><a href="chitietdonhang.html?id=${carType.uuid}">Xem chi tiết đơn hàng</a></td>
       <td>
-        <button class="delete-button">✖</button>
+        <button class="delete-button" data-id="${carType.uuid}">Thay đổi lịch hẹn</button>
       </td>
     `;
     tbody.appendChild(row);
@@ -310,30 +356,8 @@ function renderSchedule(listCarTypes) {
   });
   document.querySelectorAll(".delete-button").forEach((button) => {
     button.addEventListener("click", async () => {
-      const confirmed = confirm("Bạn có chắc là xóa luôn không?");
-      if (!confirmed) return;
       const id = button.dataset.id;
-      const res = await fetch(`${API_BASE_URL}/orders/schedule/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${getToken()}`,
-        },
-      });
-      if (!res.ok) {
-        alert("Xóa thất bại");
-      } else {
-        alert("Xóa thành công");
-        await fetch(`${API_BASE_URL}/orders/schedule`)
-          .then((response) => {
-            if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
-            return response.json();
-          })
-          .then(async (data) => await renderSchedule(data))
-          .catch((error) => {
-            console.error(error);
-            document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
-          });
-      }
+      window.open(`dangkixemxe.html?orderId=${id}`, "_blank");
     });
   });
 }
@@ -349,7 +373,7 @@ function renderCarTypes(listCarTypes) {
       <td>${carType.id}</td>
       <td>${carType.name}</td>
       <td>
-        <button class="delete-button">✖</button>
+        <button class="delete-button" data-id="${carType.id}">✖</button>
       </td>
     `;
     tbody.appendChild(row);
@@ -384,9 +408,7 @@ function renderCarTypes(listCarTypes) {
   });
 }
 
-
 const item = document.querySelector(".add-button");
 item.addEventListener("click", () => {
   window.location.href = `themsanpham.html`;
 });
-

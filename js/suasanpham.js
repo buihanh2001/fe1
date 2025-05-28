@@ -1,3 +1,12 @@
+let myEditor;
+document.addEventListener("DOMContentLoaded", function () {
+  ClassicEditor.create(document.querySelector("#description")).then(
+    (editor) => {
+      myEditor = editor;
+    }
+  );
+});
+
 window.onload = async function () {
   const brandSelect = document.getElementById("carType");
   const params = new URLSearchParams(window.location.search);
@@ -51,7 +60,7 @@ window.onload = async function () {
       const formData = new FormData();
       const car = {
         name: form.name.value,
-        description: form.description.value,
+        description: myEditor.getData(),
         price: form.price.value.replace(/[^\d]/g, ""),
         stock: form.stock.value,
         carTypeId: form.carType.value,
@@ -91,7 +100,7 @@ async function loadCar(id) {
       const car = await response.json();
       document.getElementById("carId").value = car.id || "";
       document.getElementById("name").value = car.name || "";
-      document.getElementById("description").value = car.description || "";
+      myEditor.setData(car.description || "");
       document.getElementById("price").value =
         car.price.toLocaleString("vi-VN") || "";
       document.getElementById("stock").value = car.stock || "";

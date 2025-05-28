@@ -43,10 +43,9 @@ textarea {
 
 textarea {
   resize: none;
-  height: 80px;
+  height: 200px;
   overflow-y: auto;
 }
-
 button {
   width: 100%;
   padding: 12px;

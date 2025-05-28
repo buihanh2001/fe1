@@ -25,19 +25,27 @@ function renderProductDetail(product, id) {
   const container = document.querySelector(".product-detail");
   container.innerHTML = "";
 
-  const imageHTML = product.carImagesUrl
+  const thumbnailHTML = product.carImagesUrl
     .map(
-      (url) => `<img src="${url}" alt="${product.name}" class="product-image">`
+      (url, index) =>
+        `<img src="${url}" alt="${product.name}" class="thumb ${
+          index === 0 ? "active" : ""
+        }">`
     )
     .join("");
 
   container.innerHTML = `
       <div class="product-images-container">
-        ${imageHTML}
+        <img id="main-image" src="${
+          product.carImagesUrl[0]
+        }" class="main-image" />
+        <div class="thumbnails">
+          ${thumbnailHTML}
+        </div>
       </div>
       <div class="product-info">
         <h1>${product.name}</h1>
-        <p>Mô tả: <span>${product.description}</span></p>
+        <p>Mô tả: </p>${product.description}
         <p class="price">Giá: <span>${product.price.toLocaleString(
           "vi-VN"
         )}</span> VNĐ</p>
@@ -54,6 +62,17 @@ function renderProductDetail(product, id) {
         
       </div>
   `;
+  const thumbs = document.querySelectorAll(".thumb");
+  function setMainImage(index) {
+    document.getElementById("main-image").src = product.carImagesUrl[index];
+    thumbs.forEach((t) => t.classList.remove("active"));
+    thumbs[index].classList.add("active");
+  }
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+      setMainImage(index);
+    });
+  });
   if (isLoggedIn()) {
     const buttonAdd = document
       .querySelector(".button_add")

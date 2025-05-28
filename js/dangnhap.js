@@ -52,32 +52,28 @@ async function handleRegister(event) {
     phoneNumber: form.registerPhone.value,
     password: form.registerPassword.value,
   };
-  try {
-    const res = await fetch(`${API_BASE_URL}/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(registerInfor),
+  const res = await fetch(`${API_BASE_URL}/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(registerInfor),
+  })
+    .then((response) => {
+      console.log("fetch response:", response); // Log toàn bộ response
+      if (!response.ok && response.status == 401) {
+        throw new Error("không có quyền");
+      }
+      return response.json();
     })
-      .then((response) => {
-        console.log("fetch response:", response); // Log toàn bộ response
-        if (!response.ok && response.status == 401) {
-          throw new Error("không có quyền");
-        }
-        return response.json();
-      })
-      .then(async (data) => {
-        if (data.resultCode == 1) {
-          alert(data.message);
-          return;
-        }
+    .then(async (data) => {
+      if (data.resultCode == 1) {
         alert(data.message);
-        window.location.href = "dangnhap.html";
-      });
-  } catch (error) {
-    alert(error);
-  }
+        return;
+      }
+      alert(data.message);
+      window.location.href = "dangnhap.html";
+    });
 }
 
 async function handleLogin(event) {
@@ -87,32 +83,27 @@ async function handleLogin(event) {
     email: form.loginUsername.value,
     password: form.loginPassword.value,
   };
-  try {
-    const res = await fetch(`${API_BASE_URL}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(registerInfor),
-    })
-      .then((response) => {
-        console.log("fetch response:", response); // Log toàn bộ response
-        if (!response.ok && response.status == 401) {
-          throw new Error(response.body);
-        }
-        return response.json();
-      })
-      .then(async (data) => {
-        localStorage.setItem("token", data.token);
-        const userId = await getUserId();
-        localStorage.setItem("userId", userId);
-        if (isAdmin()) {
-          window.location.href = "admin.html";
-        } else {
-          window.location.href = "sanpham.html";
-        }
-      });
-  } catch (error) {
-    alert(error);
+  const response = await fetch(`${API_BASE_URL}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(registerInfor),
+  });
+  console.log("fetch response:", response); // Log toàn bộ response
+  if (!response.ok && response.status == 401) {
+    alert(
+      "Tài khoản mật khẩu không chính xác, hoặc tài khoản đã bị khóa. Vui lòng liên hệ với admin!"
+    );
+    return;
+  }
+  const data = await response.json();
+  localStorage.setItem("token", data.token);
+  const userId = await getUserId();
+  localStorage.setItem("userId", userId);
+  if (isAdmin()) {
+    window.location.href = "admin.html";
+  } else {
+    window.location.href = "sanpham.html";
   }
 }

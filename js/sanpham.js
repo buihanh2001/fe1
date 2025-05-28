@@ -38,6 +38,28 @@ window.onload = async function () {
       currentPage = 1;
       await applyFilters();
     });
+  document
+    .getElementById("searchCarButton")
+    .addEventListener("click", async () => {
+      const keyword = document.getElementById("searchCar").value;
+      const res = await fetch(
+        `${API_BASE_URL}/cars/search?keyword=${keyword}`,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        }
+      )
+        .then((response) => {
+          if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+          return response.json();
+        })
+        .then(async (data) => await renderProducts(data))
+        .catch((error) => {
+          console.error(error);
+          document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+        });
+    });
 };
 
 let currentPage = 1;
