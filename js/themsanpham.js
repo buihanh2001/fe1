@@ -1,3 +1,11 @@
+let myEditor;
+document.addEventListener("DOMContentLoaded", function () {
+  ClassicEditor.create(document.querySelector("#description")).then(
+    (editor) => {
+      myEditor = editor;
+    }
+  );
+});
 window.onload = async function () {
   //   document.getElementById("imgFile").addEventListener("click", function () {
   //     document.getElementById("imageInput").click();
@@ -49,7 +57,7 @@ window.onload = async function () {
       const formData = new FormData();
       const car = {
         name: form.name.value,
-        description: form.description.value,
+        description: myEditor.getData(),
         price: form.price.value.replace(/[^\d]/g, ""),
         stock: form.stock.value,
         carTypeId: form.carType.value,

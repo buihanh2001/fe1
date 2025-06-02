@@ -159,16 +159,25 @@ async function renderOrder(listOrder) {
     console.log("Rendering order:", order);
     const row = document.createElement("tr");
     row.innerHTML = `
-              <td>${order.id}</td>
-              <td>${order.customerName}</td>
-              <td>${order.createdDateTime}</td>
-              <td>${order.totalPrice.toLocaleString("vi-VN")}</td>
-              <td class="orderStatus">${order.orderStatus}</td>
-              <td>
-                <button class="approve-button" data-id=${order.uuid}>✓</button>
-                <button class="cancel-button" data-id=${order.uuid}>✖</button>
-              </td>
-    `;
+  <td>${order.id}</td>
+  <td>${order.customerName}</td>
+  <td>${order.createdDateTime}</td>
+  <td>${order.totalPrice.toLocaleString("vi-VN")}</td>
+  <td class="orderStatus">${order.orderStatus}</td>
+  <td>
+  ${
+    order.orderStatus === "COMPLETE" || order.orderStatus === "CANCELLED"
+      ? ""
+      : `
+      ${
+        order.orderStatus === "APPROVED"
+          ? ""
+          : `<button class="approve-button" data-id=${order.uuid}>✓</button>`
+      }
+    <button class="cancel-button" data-id=${order.uuid}>✖</button>`
+  }
+  </td>
+`;
     tbody.appendChild(row);
   });
   document.querySelectorAll(".approve-button").forEach((button) => {
@@ -191,11 +200,29 @@ async function renderOrder(listOrder) {
           row.querySelector(".orderStatus").innerText == "APPROVED"
             ? "COMPLETED"
             : "APPROVED";
+        if (row.querySelector(".orderStatus").innerText == "COMPLETED") {
+          row.querySelector(".approve-button").style.display = "none";
+          row.querySelector(".cancel-button").style.display = "none";
+        } else if (row.querySelector(".orderStatus").innerText == "APPROVED") {
+          row.querySelector(".approve-button").style.display = "none";
+        }
       }
     });
   });
   document.querySelectorAll(".cancel-button").forEach((button) => {
     button.addEventListener("click", async (e) => {
+      const result = await Swal.fire({
+        title: "Cancel đơn đặt hàng",
+        text: "Bạn có chắc muốn cancel đơn đặt hàng này không?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Tiếp tục",
+        cancelButtonText: "Hủy",
+      });
+      if (result.isConfirmed) {
+      } else {
+        return;
+      }
       const id = e.target.dataset.id;
       const resp = await fetch(
         `${API_BASE_URL}/orders/changeStatus?orderUUId=${id}&isIncrease=false`,
@@ -211,6 +238,8 @@ async function renderOrder(listOrder) {
       } else {
         const row = button.closest("tr");
         row.querySelector(".orderStatus").innerText = "CANCELLED";
+        row.querySelector(".approve-button").style.display = "none";
+        row.querySelector(".cancel-button").style.display = "none";
       }
     });
   });

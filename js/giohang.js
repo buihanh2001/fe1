@@ -21,6 +21,19 @@ window.onload = async function () {
       document.body.innerHTML = "<p>Lỗi khi tải dữ liệu giỏ hàng.</p>";
     });
   document.querySelector(".payButton").addEventListener("click", async () => {
+    const result = await Swal.fire({
+      title: "Đặt cọc",
+      text: "Bạn sẽ phải đặt cọc 100.000 vnd. Bạn chắc chắn muốn tiếp tục đặt cọc chứ?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Tiếp tục",
+      cancelButtonText: "Hủy",
+    });
+    if (result.isConfirmed) {
+    } else {
+      return;
+    }
+
     console.log(JSON.stringify(cartItemIds));
     const resp = await fetch(
       `${API_BASE_URL}/orders/${localStorage.getItem("userId")}`,

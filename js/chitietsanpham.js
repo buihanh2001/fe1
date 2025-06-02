@@ -62,7 +62,63 @@ function renderProductDetail(product, id) {
         
       </div>
   `;
+  document.getElementById("productPrice").value =
+    product.price.toLocaleString("vi-VN");
+  document.getElementById("loanValue").value = (
+    product.price * 0.5
+  ).toLocaleString("vi-VN");
+  document.getElementById("payBefore").innerText =
+    (product.price - product.price * 0.5).toLocaleString("vi-VN") + " VNĐ";
+  let payPerMonth = (product.price * 0.5 + product.price * 0.5 * 0.1) / 60;
+  document.getElementById("payPerMonth").innerText =
+    payPerMonth.toLocaleString("vi-VN") + " VNĐ";
   const thumbs = document.querySelectorAll(".thumb");
+  document
+    .getElementById("productPrice")
+    .addEventListener("input", async () => {
+      await calculateLoan(
+        document.getElementById("productPrice").value.replaceAll(".", ""),
+        document.getElementById("percentOfPrice").value.replaceAll(".", ""),
+        document.getElementById("loanValue").value.replaceAll(".", ""),
+        document.getElementById("interestRate").value.replaceAll(".", ""),
+        document.getElementById("monthNumber").value.replaceAll(".", ""),
+        false
+      );
+    });
+  document
+    .getElementById("percentOfPrice")
+    .addEventListener("input", async () => {
+      await calculateLoan(
+        document.getElementById("productPrice").value.replaceAll(".", ""),
+        document.getElementById("percentOfPrice").value.replaceAll(".", ""),
+        document.getElementById("loanValue").value.replaceAll(".", ""),
+        document.getElementById("interestRate").value.replaceAll(".", ""),
+        document.getElementById("monthNumber").value.replaceAll(".", ""),
+        true
+      );
+    });
+  document
+    .getElementById("interestRate")
+    .addEventListener("input", async () => {
+      await calculateLoan(
+        document.getElementById("productPrice").value.replaceAll(".", ""),
+        document.getElementById("percentOfPrice").value.replaceAll(".", ""),
+        document.getElementById("loanValue").value.replaceAll(".", ""),
+        document.getElementById("interestRate").value.replaceAll(".", ""),
+        document.getElementById("monthNumber").value.replaceAll(".", ""),
+        false
+      );
+    });
+  document.getElementById("monthNumber").addEventListener("input", async () => {
+    await calculateLoan(
+      document.getElementById("productPrice").value.replaceAll(".", ""),
+      document.getElementById("percentOfPrice").value.replaceAll(".", ""),
+      document.getElementById("loanValue").value.replaceAll(".", ""),
+      document.getElementById("interestRate").value.replaceAll(".", ""),
+      document.getElementById("monthNumber").value.replaceAll(".", ""),
+      false
+    );
+  });
   function setMainImage(index) {
     document.getElementById("main-image").src = product.carImagesUrl[index];
     thumbs.forEach((t) => t.classList.remove("active"));
@@ -108,5 +164,63 @@ function renderProductDetail(product, id) {
         e.target.value = "";
       }
     });
+  }
+
+  async function calculateLoan(
+    productPrice,
+    percentOfPrice,
+    loanValue,
+    interestRate,
+    monthNumber,
+    isPercentOfPriceInput
+  ) {
+    if (productPrice == "" || productPrice == undefined) {
+      document.getElementById("payPerMonth").innerText = " VNĐ";
+      document.getElementById("payBefore").innerText = " VNĐ";
+      document.getElementById("percentOfPrice").value = "";
+      document.getElementById("loanValue").value = "";
+      return;
+    } else {
+      if (
+        (percentOfPrice == "" || percentOfPrice == undefined) &&
+        !isPercentOfPriceInput
+      ) {
+        document.getElementById("percentOfPrice").value = "50";
+        document.getElementById("loanValue").value = (
+          productPrice * 0.5
+        ).toLocaleString("vi-VN");
+        document.getElementById("productPrice").value =
+          productPrice.toLocaleString("vi-VN");
+        percentOfPrice = 50;
+        loanValue = productPrice * 0.5;
+      }
+    }
+    if (percentOfPrice == "" || percentOfPrice == undefined) {
+      document.getElementById("payPerMonth").innerText = " VNĐ";
+      document.getElementById("payBefore").innerText = " VNĐ";
+      document.getElementById("loanValue").value = "";
+      return;
+    }
+    if (interestRate == "" || interestRate == undefined) {
+      interestRate = 0;
+    }
+    if (monthNumber == "" || monthNumber == undefined) {
+      monthNumber = 1;
+    }
+    document.getElementById("interestRate").value = interestRate;
+    document.getElementById("monthNumber").value = monthNumber;
+    loanValue = productPrice * (percentOfPrice / 100);
+    document.getElementById("loanValue").value =
+      loanValue.toLocaleString("vi-VN");
+    let payPerMonth =
+      (productPrice * (percentOfPrice / 100) +
+        (productPrice * (percentOfPrice / 100) * interestRate) / 100) /
+      monthNumber;
+    document.getElementById("payPerMonth").innerText =
+      payPerMonth.toLocaleString("vi-VN") + " VNĐ";
+    document.getElementById("payBefore").innerText =
+      (productPrice - productPrice * (percentOfPrice / 100)).toLocaleString(
+        "vi-VN"
+      ) + " VNĐ";
   }
 }
