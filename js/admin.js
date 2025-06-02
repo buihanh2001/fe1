@@ -30,6 +30,29 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
         });
+      document
+        .querySelector(".search-orders")
+        .addEventListener("click", async function () {
+          const keyword = document.getElementById("search-orders").value;
+          const res = await fetch(
+            `${API_BASE_URL}/orders/search?keyword=${keyword}`,
+            {
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
+          )
+            .then((response) => {
+              if (!response.ok)
+                throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+              return response.json();
+            })
+            .then(async (data) => await renderOrder(data))
+            .catch((error) => {
+              console.error(error);
+              document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+            });
+        });
     } else if (selectedId == "sanpham") {
       await fetch(`${API_BASE_URL}/cars`)
         .then((response) => {
@@ -80,6 +103,29 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
         });
+      document
+        .querySelector(".search-account")
+        .addEventListener("click", async function () {
+          const keyword = document.getElementById("search-account").value;
+          const res = await fetch(
+            `${API_BASE_URL}/account/search?keyword=${keyword}`,
+            {
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
+          )
+            .then((response) => {
+              if (!response.ok)
+                throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+              return response.json();
+            })
+            .then(async (data) => await renderAccount(data))
+            .catch((error) => {
+              console.error(error);
+              document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+            });
+        });
     } else if (selectedId == "lichhen") {
       await fetch(`${API_BASE_URL}/orders/schedule`, {
         headers: {
@@ -94,6 +140,29 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
         .catch((error) => {
           console.error(error);
           document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+        });
+      document
+        .querySelector(".search-schedule")
+        .addEventListener("click", async function () {
+          const keyword = document.getElementById("search-schedule").value;
+          const res = await fetch(
+            `${API_BASE_URL}/search/schedule/search?keyword=${keyword}`,
+            {
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
+          )
+            .then((response) => {
+              if (!response.ok)
+                throw new Error("Lỗi khi lấy chi tiết sản phẩm");
+              return response.json();
+            })
+            .then(async (data) => await renderSchedule(data))
+            .catch((error) => {
+              console.error(error);
+              document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+            });
         });
     } else if (selectedId == "hangxe") {
       await fetch(`${API_BASE_URL}/carType`, {
@@ -213,7 +282,7 @@ async function renderOrder(listOrder) {
     button.addEventListener("click", async (e) => {
       const result = await Swal.fire({
         title: "Cancel đơn đặt hàng",
-        text: "Bạn có chắc muốn cancel đơn đặt hàng này không?",
+        text: "Bạn có chắc muốn hủy đơn đặt hàng này không?",
         icon: "question",
         showCancelButton: true,
         confirmButtonText: "Tiếp tục",
