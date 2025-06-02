@@ -35,6 +35,64 @@
     </script>
 
     <div class="product-detail"></div>
+    <div class="calculator-container">
+      <div class="loan-calculator-container">
+          <h2>Tính toán khoản vay</h2>
+          <div class="calculator-content">
+              <div class="input-section">
+                  <div class="input-group">
+                      <label for="car-price">Giá xe (VNĐ)</label>
+                      <div class="input-field">
+                          <input type="text" value="27.900.000">
+                          <span class="unit">đ</span>
+                      </div>
+                  </div>
+
+                  <div class="input-row-two-columns">
+                      <div class="input-group">
+                          <label>Khoản vay (% giá xe)</label>
+                          <div class="input-field">
+                              <input type="number" min="1">
+                          </div>
+                      </div>
+                      <div class="input-group">
+                          <label>Khoản vay (VNĐ)</label>
+                          <div class="input-field">
+                              <input type="number" min="1">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="input-row-two-columns">
+                      <div class="input-group">
+                          <label for="interest-rate">Lãi suất (%)</label>
+                          <div class="input-field">
+                              <input type="number" min="1">
+                          </div>
+                      </div>
+                      <div class="input-group">
+                          <label for="loan-term">Thời hạn vay (Tháng)</label>
+                          <div class="input-field">
+                              <input type="number" min="1">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="output-section">
+                  <div class="output-box">
+                      <p>Số tiền trả góp hàng tháng ước tính</p>
+                      <div class="amount">291.594 VNĐ</div>
+                      <div class="per-month">/ Tháng</div>
+                  </div>
+                  <div class="output-detail">
+                      <span>Trả trước:</span>
+                      <span class="value">13.950.000 VNĐ</span>
+                  </div>
+              </div>
+          </div>
+    </div>
+  </div>
 
     <script>
       addFooterAndBottom();

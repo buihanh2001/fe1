@@ -28,20 +28,17 @@
   border-radius: 8px;
 }
 
-/* Tên sản phẩm */
 .product-item h3 {
   font-size: 18px;
   margin-top: 15px;
 }
 
-/* Giá sản phẩm */
 .product-item p {
   font-size: 16px;
   color: #e67e22;
   font-weight: bold;
 }
 
-/* Container chính của phần lọc */
 .filters {
   padding-top: 20px;
   display: flex;
@@ -52,8 +49,23 @@
   width: 300px;
   padding: 10px;
   font-size: 16px;
-  border-radius: 5px;
   border: 1px solid #ccc;
+}
+.filters input{
+  width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+.filters button{
+  color: white;
+  background-color: #3498db;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #18417f;
+}
+button:hover{
+  cursor: pointer;
 }
 
 /* phân trang */
