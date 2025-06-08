@@ -1,7 +1,6 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  background-color: #222d32;
   color: #fff;
   display: flex;
 }
@@ -12,16 +11,20 @@ body {
 }
 
 .sidebar {
-  background-color: #2c3b41;
+  background-color: #1e292d;
   color: #a0aec0;
   width: 250px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  position: fixed; /* Cố định sidebar */
+  left: 0; /* Đặt sidebar ở bên trái */
+  top: 0; /* Đặt sidebar từ đầu trang */
 }
 
 .sidebar .logo {
+  color: white;
   font-size: 25px;
   font-weight: bold;
   margin-bottom: 30px;
@@ -54,9 +57,11 @@ body {
 }
 
 .main-content {
+  color: #1e292d;
   display: none;
-  flex-grow: 1; /* Chiếm phần không gian còn lại */
+  flex-grow: 1; 
   padding: 20px;
+  margin-left: 290px;
 }
 
 .main-content#trangchu {
@@ -70,6 +75,7 @@ body {
 }
 
 .header h2 {
+  color: #1e272c;
   margin: 0;
 }
 
@@ -81,28 +87,25 @@ body {
 
 .search-box {
   display: flex;
+  border: 1px solid grey;
   align-items: center;
-  background-color: #34495e; /* Màu nền ô tìm kiếm */
-  border-radius: 5px;
   padding: 5px;
 }
 
-.search-box input,
-.search-box button {
+.search-box input{
+  width: 300px;
   background: none;
   border: none;
   color: #fff;
   padding: 8px;
 }
 
-.search-box input {
-  flex-grow: 1;
-}
-
 .search-box button {
   background-color: #007bff;
-  border-radius: 5px;
   cursor: pointer;
+  border: none;
+  color: #fff;
+  padding: 8px;
 }
 
 .approve-button {
@@ -117,7 +120,8 @@ body {
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #34495e;
+  background-color: #dce2e7;
+  color: #1e292d;
   border-radius: 5px;
   overflow: hidden; /* Ẩn phần tử tràn ra ngoài */
 }
@@ -130,12 +134,14 @@ body {
 }
 
 .data-table th {
+  color: white;
   background-color: #2c3b41;
   font-weight: bold;
 }
 
 .data-table tbody tr:hover {
-  background-color: #455a64;
+  background-color: #86949b;
+  color: white;
 }
 
 .add-button,
@@ -154,16 +160,50 @@ body {
   cursor: pointer;
 }
 .update-button {
-  background: none;
+  background: rgb(62, 136, 62);
   border: none;
-  color: #1aa127;
+  color: rgb(62, 136, 62);
   font-size: 1.2rem;
   cursor: pointer;
 }
 a {
-  color: white;
+  color: #1e292d;
   /* text-decoration: none; */
 }
 input {
   padding: 10px;
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.statistics-item {
+  background-color: #bdcbd1;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.statistics-item h3 {
+  margin-top: 0;
+  color: #192327;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.statistics-item p {
+  margin: 0;
+  font-size: 36px;
+  font-weight: bold;
+  color: #428fd7;
+}
+
+.revenue-chart-card canvas {
+  max-width: 100%;
+  height: 400px;
 }

@@ -446,7 +446,7 @@ function renderSchedule(listCarTypes) {
       <td>${carType.schedule}</td>
       <td><a href="chitietdonhang.html?id=${carType.uuid}">Xem chi tiết đơn hàng</a></td>
       <td>
-        <button class="delete-button" data-id="${carType.uuid}">Thay đổi lịch hẹn</button>
+        <button class="update-button" data-id="${carType.uuid}">🔧
       </td>
     `;
     tbody.appendChild(row);

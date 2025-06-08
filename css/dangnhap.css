@@ -127,3 +127,12 @@ input:focus {
     background-color: #808183; 
     transform: scale(1.05); 
 }
+.btn-gmail{
+    background-color: white;
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid gray;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
