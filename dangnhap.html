@@ -16,77 +16,76 @@
     <script src="js/config.js"></script>
   </head>
   <body>
-    <a href="index.html" class="circle-link "><h3>X</h3></a>
-  
+    <div class="logo">
+      <a href="index.html"><img src="img/logo.png" alt="logo"></a>
+    </div>
     <div class="container">
-      <div class="main-container ">
-        <div class="tab-buttons">
-          <button class="tab-button active" data-tab="login">Đăng nhập</button>
-          <button class="tab-button" data-tab="register">Đăng ký</button>
+      <div class="head">
+        <a href="index.html"><img src="img/logo.png" alt="logo"></a>
+        <h3>GIA LÂM AUTO MALL</h3>
+      </div>
+      <div class="tab-buttons">
+        <button class="tab-button active" data-tab="login">Đăng nhập</button>
+        <button class="tab-button" data-tab="register">Đăng ký</button>
+      </div>
+
+      <div class="tab-content">
+        <div id="login" class="tab-panel active">
+          <h2>Chào mừng trở lại!</h2>
+          <form id="login-form">
+            <div class="form-group">
+              <label>Tên đăng nhập / Email:</label>
+              <input type="text" id="loginUsername" required />
+            </div>
+            <div class="form-group">
+              <label>Mật khẩu:</label>
+              <input type="password" id="loginPassword" required />
+            </div>
+            <button type="submit" class="btn">Đăng nhập</button>
+            <hr>
+            <button type="button" class="btn-gmail">
+              <img style="width: 25px; height: auto;" src="img/google-logo.png"alt="Google logo"/>Đăng nhập bằng Gmail
+            </button>
+          </form>
         </div>
 
-        <div class="tab-content">
-          <div id="login" class="tab-panel active">
-            <h2>Chào mừng trở lại!</h2>
-            <form id="login-form">
-              <div class="form-group">
-                <label>Tên đăng nhập / Email:</label>
-                <input type="text" id="loginUsername" required />
-              </div>
-              <div class="form-group">
-                <label>Mật khẩu:</label>
-                <input type="password" id="loginPassword" required />
-              </div>
-              <button type="submit" class="btn">Đăng nhập</button>
-              <hr>
-              <button type="button" class="btn-gmail">
-              <img
-                src="img/google-logo.png"
-                alt="Google logo"
-              />
-        Đăng nhập bằng Gmail
-      </button>
-            </form>
-          </div>
-
-          <div id="register" class="tab-panel">
-            <h2>Tạo tài khoản mới</h2>
-            <form id="register-form">
-              <div class="form-group">
-                <label>Họ và Tên</label>
-                <input type="text" id="registerFullname" required />
-              </div>
-              <div class="form-group">
-                <label>Địa chỉ</label>
-                <input type="text" id="address" required />
-              </div>
-              <div class="form-group">
-                <label>Ngày sinh:</label>
-                <input type="date" id="dob" name="dob" required />
-              </div>
-              <div class="form-group">
-                <label for="registeEmail">Email:</label>
-                <input type="email" id="registeEmail" required />
-              </div>
-              <div class="form-group">
-                <label>Số điện thoại:</label>
-                <input type="tel" id="registerPhone" />
-              </div>
-              <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" required />
-              </div>
-              <div class="form-group">
-                <label>Mật khẩu:</label>
-                <input type="password" id="registerPassword" required />
-              </div>
-              <div class="form-group">
-                <label>Xác nhận mật khẩu:</label>
-                <input type="password" id="registerConfirmPassword" required />
-              </div>
-              <button type="submit" class="btn">Đăng ký</button>
-            </form>
-          </div>
+        <div id="register" class="tab-panel">
+          <h2>Tạo tài khoản mới</h2>
+          <form id="register-form">
+            <div class="form-group">
+              <label>Họ và Tên</label>
+              <input type="text" id="registerFullname" required />
+            </div>
+            <div class="form-group">
+              <label>Địa chỉ</label>
+              <input type="text" id="address" required />
+            </div>
+            <div class="form-group">
+              <label>Ngày sinh:</label>
+              <input type="date" id="dob" name="dob" required />
+            </div>
+            <div class="form-group">
+              <label for="registeEmail">Email:</label>
+              <input type="email" id="registeEmail" required />
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại:</label>
+              <input type="tel" id="registerPhone" />
+            </div>
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" required />
+            </div>
+            <div class="form-group">
+              <label>Mật khẩu:</label>
+              <input type="password" id="registerPassword" required />
+            </div>
+            <div class="form-group">
+              <label>Xác nhận mật khẩu:</label>
+              <input type="password" id="registerConfirmPassword" required />
+            </div>
+            <button type="submit" class="btn">Đăng ký</button>
+          </form>
         </div>
       </div>
     </div>

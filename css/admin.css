@@ -18,9 +18,9 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  position: fixed; /* Cố định sidebar */
-  left: 0; /* Đặt sidebar ở bên trái */
-  top: 0; /* Đặt sidebar từ đầu trang */
+  position: fixed; 
+  left: 0; 
+  top: 0; 
 }
 
 .sidebar .logo {
