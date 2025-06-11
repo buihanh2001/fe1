@@ -211,6 +211,21 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
             document.getElementById("carTypeName").value = "";
           }
         });
+    } else if (selectedId == "thongke") {
+      await fetch(`${API_BASE_URL}/orders/statistic`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error("Lỗi khi lấy danh sách lịch hẹn");
+          return response.json();
+        })
+        .then(async (data) => await renderStatistic(data))
+        .catch((error) => {
+          console.error(error);
+          document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
+        });
     }
 
     // Cập nhật class active
@@ -232,10 +247,10 @@ async function renderOrder(listOrder) {
   <td>${order.customerName}</td>
   <td>${order.createdDateTime}</td>
   <td>${order.totalPrice.toLocaleString("vi-VN")}</td>
-  <td class="orderStatus">${order.orderStatus}</td>
+  <td class="orderStatus">${renderStatus(order.orderStatus)}</td>
   <td>
   ${
-    order.orderStatus === "COMPLETE" || order.orderStatus === "CANCELLED"
+    order.orderStatus === "COMPLETED" || order.orderStatus === "CANCELLED"
       ? ""
       : `
       ${
@@ -266,18 +281,34 @@ async function renderOrder(listOrder) {
       } else {
         const row = button.closest("tr");
         row.querySelector(".orderStatus").innerText =
-          row.querySelector(".orderStatus").innerText == "APPROVED"
-            ? "COMPLETED"
-            : "APPROVED";
-        if (row.querySelector(".orderStatus").innerText == "COMPLETED") {
+          row.querySelector(".orderStatus").innerText == "Đã hẹn lịch"
+            ? "Đã hoàn thành"
+            : "Đã phê duyệt";
+        if (row.querySelector(".orderStatus").innerText == "Đã hoàn thành") {
           row.querySelector(".approve-button").style.display = "none";
           row.querySelector(".cancel-button").style.display = "none";
-        } else if (row.querySelector(".orderStatus").innerText == "APPROVED") {
+        } else if (
+          row.querySelector(".orderStatus").innerText == "Đã phê duyệt"
+        ) {
           row.querySelector(".approve-button").style.display = "none";
         }
       }
     });
   });
+  function renderStatus(status) {
+    switch (status) {
+      case "APPROVED":
+        return "Đã phê duyệt";
+      case "COMPLETED":
+        return "Đã hoàn thành";
+      case "SCHEDULED":
+        return "Đã hẹn lịch";
+      case "CANCELLED":
+        return "Đã hủy bỏ";
+      default:
+        return "Không xác định";
+    }
+  }
   document.querySelectorAll(".cancel-button").forEach((button) => {
     button.addEventListener("click", async (e) => {
       const result = await Swal.fire({
@@ -306,7 +337,7 @@ async function renderOrder(listOrder) {
         throw new Error("Lỗi khi xóa cart item");
       } else {
         const row = button.closest("tr");
-        row.querySelector(".orderStatus").innerText = "CANCELLED";
+        row.querySelector(".orderStatus").innerText = "Đã hủy bỏ";
         row.querySelector(".approve-button").style.display = "none";
         row.querySelector(".cancel-button").style.display = "none";
       }
@@ -503,6 +534,66 @@ function renderCarTypes(listCarTypes) {
       }
     });
   });
+}
+function renderStatistic(data) {
+  const tbody1 = document.getElementById("thongke1");
+  tbody1.innerHTML = ""; // Xóa nội dung cũ của bảng
+  tableBodyHtml = ``;
+  let count = 1;
+  data.statisticsOrderItemDTOS.forEach((item) => {
+    tableBodyHtml += `
+      
+        <tr>
+          <td>${count}</td>
+          <td>${item.orderItemName}</td>
+          <td>${item.totalCount}</td>
+          <td>${item.totalPrice.toLocaleString("vi-VN")} VNĐ</td>
+        </tr>
+      
+    `;
+    count++;
+  });
+  tbody1.innerHTML = `
+  <div class="header">
+          <h1>THỐNG KÊ BÁN HÀNG VÀ DOANH THU</h1>
+        </div><br>
+        <div class="statistics-grid">
+          <div class="statistics-item">
+            <h3>Tổng số đơn hàng hoàn thành</h3>
+            <p><span id="total-orders">${data.totalOrdersCompleted}</span></p>
+          </div>
+          <div class="statistics-item">
+            <h3>Tổng doanh thu</h3>
+            <p><span id="total-revenue">${data.totalOrdersPaid.toLocaleString(
+              "vi-VN"
+            )} VNĐ</span></p>
+          </div>
+          <div class="statistics-item">
+            <h3>Số lượng sản phẩm đã bán</h3>
+            <p><span id="total-sold-items">${data.totalOrderItemPaid}</span></p>
+          </div>
+        </div>
+        `;
+
+  const tbody2 = document.getElementById("thongke2");
+  tbody2.innerHTML = `
+        <div class="top-selling">
+          <h3>Sản phẩm bán chạy nhất</h3>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng bán</th>
+                <th>Doanh thu</th>
+              </tr>
+            </thead>
+            <tbody id="top-selling">
+              ${tableBodyHtml}
+            </tbody>
+          </table>
+        </div>
+  `;
 }
 
 const item = document.querySelector(".add-button");

@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://lazy-grapes-rescue.loca.lt/api";
+const API_BASE_URL = "http://localhost:8080/api";
 function formatDate(date) {
   const d = new Date(date);
   const day = String(d.getDate()).padStart(2, "0");

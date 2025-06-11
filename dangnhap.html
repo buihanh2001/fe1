@@ -12,16 +12,15 @@
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/dangnhap.js"></script>
-    <script src="js/dangky.js"></script>
     <script src="js/config.js"></script>
   </head>
   <body>
     <div class="logo">
-      <a href="index.html"><img src="img/logo.png" alt="logo"></a>
+      <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
     </div>
     <div class="container">
       <div class="head">
-        <a href="index.html"><img src="img/logo.png" alt="logo"></a>
+        <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
         <h3>GIA LÂM AUTO MALL</h3>
       </div>
       <div class="tab-buttons">
@@ -42,10 +41,18 @@
               <input type="password" id="loginPassword" required />
             </div>
             <button type="submit" class="btn">Đăng nhập</button>
-            <hr>
-            <button type="button" class="btn-gmail">
-              <img style="width: 25px; height: auto;" src="img/google-logo.png"alt="Google logo"/>Đăng nhập bằng Gmail
-            </button>
+            <hr />
+            <a
+              type="button"
+              href="http://localhost:8080/oauth2/authorization/google"
+              class="btn-gmail"
+            >
+              <img
+                style="width: 25px; height: auto"
+                src="img/google-logo.png"
+                alt="Google logo"
+              />Đăng nhập bằng Gmail
+            </a>
           </form>
         </div>
 

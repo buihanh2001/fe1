@@ -96,7 +96,7 @@ async function renderUserOrders() {
           <td>${formatDate(order.orderDate)}</td>
           <td>
             <button ${
-              order.orderStatus != "SCHEDULED" ? disabled : ""
+              order.orderStatus != "SCHEDULED" ? "disabled" : ""
             } class="changeSchedule" data-id="${
           order.uuid
         }">Thay đổi lịch hẹn</button>
