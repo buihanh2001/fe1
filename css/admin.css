@@ -96,8 +96,9 @@ body {
   width: 300px;
   background: none;
   border: none;
-  color: #fff;
+  color: black;
   padding: 8px;
+  outline: none;
 }
 
 .search-box button {
@@ -109,12 +110,12 @@ body {
 }
 
 .approve-button {
-  background-color: #28a745;
-  color: #fff;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  color: white;
+  font-size: 1.2rem;
   cursor: pointer;
+  background: rgb(9, 134, 78);
+  
 }
 
 .data-table {
@@ -153,18 +154,20 @@ body {
 }
 .delete-button,
 .cancel-button {
-  background: none;
   border: none;
-  color: #e74c3c;
+  color: white;
   font-size: 1.2rem;
   cursor: pointer;
+  background: rgb(184, 47, 16);
 }
+
 .update-button {
-  background: rgb(62, 136, 62);
+  background: rgb(34, 146, 95);
   border: none;
-  color: rgb(62, 136, 62);
+  color: rgb(34, 146, 95);;
   font-size: 1.2rem;
   cursor: pointer;
+  padding: 3px 2px;
 }
 a {
   color: #1e292d;

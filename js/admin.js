@@ -384,10 +384,9 @@ function renderAccount(listAccount) {
               <td class="accountActive" data-status="${account.active}">${
       account.active ? "đang hoạt động" : "hết hoạt động"
     }</td>
-              <td>${account.createdDateTime}</td>
               <td>
                 <button class="delete-button" data-id="${account.id}">${
-      account.active ? "Disable" : "Enable"
+      account.active ? "vô hiệu" : "khôi phục"
     }</button>
               </td>      
     `;
@@ -395,7 +394,7 @@ function renderAccount(listAccount) {
   });
   document.querySelectorAll(".delete-button").forEach((button) => {
     button.addEventListener("click", async () => {
-      const confirmed = confirm("Bạn có chắc là xóa luôn không?");
+      const confirmed = confirm("Bạn có chắc không?");
       if (!confirmed) return;
       const row = button.closest("tr");
       const status =
@@ -411,9 +410,9 @@ function renderAccount(listAccount) {
         }
       );
       if (!res.ok) {
-        alert("Xóa thất bại");
+        alert("thất bại");
       } else {
-        alert("Xóa thành công");
+        alert("thành công");
         await fetch(`${API_BASE_URL}/account`, {
           headers: {
             Authorization: `Bearer ${getToken()}`,
