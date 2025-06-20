@@ -150,7 +150,7 @@ function renderProductDetail(product, id) {
         if (!res.ok) {
           alert("Lỗi khi thêm sản phẩm vào giỏ hàng");
         } else {
-          alert("Thành công khi thêm sản phẩm vào giỏ hàng");
+          alert("Đã thêm vào giỏ hàng");
         }
       });
 
