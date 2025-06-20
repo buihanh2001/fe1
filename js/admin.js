@@ -579,7 +579,7 @@ function renderStatistic(data) {
   tbody2.innerHTML = `
         <div class="top-selling">
           <h3>Sản phẩm bán chạy nhất</h3>
-          <table class="data-table">
+          <table class="data-table-2">
             <thead>
               <tr>
                 <th>STT</th>
