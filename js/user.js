@@ -89,9 +89,7 @@ async function renderUserOrders() {
         row.innerHTML = `
           <td>${count}</td>
           <td>${productNames}</td>
-          <td>${
-            order.orderStatus == "SCHEDULED" ? "Đã hẹn lịch" : order.orderStatus
-          }</td>
+          <td>${renderStatus(order.orderStatus)}</td>
           <td>${order.totalAmount.toLocaleString("vi-VN")} đ</td>
           <td>${formatDate(order.orderDate)}</td>
           <td>
@@ -118,5 +116,21 @@ async function renderUserOrders() {
     console.error("Lỗi khi tải đơn hàng của người dùng:", error);
     tbody.innerHTML =
       '<tr><td colspan="5">Lỗi khi tải dữ liệu đơn hàng.</td></tr>';
+  }
+}
+function renderStatus(status) {
+  switch (status) {
+    case "APPROVED":
+      return "Đã phê duyệt";
+    case "COMPLETED":
+      return "Đã hoàn thành";
+    case "SCHEDULED":
+      return "Đã hẹn lịch";
+    case "CANCELLED":
+      return "Đã hủy bỏ";
+    case "PENDING_APPROVAL":
+      return "Đợi phê duyệt";
+    default:
+      return "Không xác định";
   }
 }

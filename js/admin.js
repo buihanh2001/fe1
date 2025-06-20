@@ -305,6 +305,8 @@ async function renderOrder(listOrder) {
         return "Đã hẹn lịch";
       case "CANCELLED":
         return "Đã hủy bỏ";
+      case "PENDING_APPROVAL":
+        return "Đợi phê duyệt";
       default:
         return "Không xác định";
     }
@@ -482,7 +484,7 @@ function renderSchedule(listCarTypes) {
     tbody.appendChild(row);
     count++;
   });
-  document.querySelectorAll(".delete-button").forEach((button) => {
+  document.querySelectorAll(".update-button").forEach((button) => {
     button.addEventListener("click", async () => {
       const id = button.dataset.id;
       window.open(`dangkixemxe.html?orderId=${id}`, "_blank");

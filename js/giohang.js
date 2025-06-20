@@ -95,7 +95,9 @@ function renderCartItem(datas) {
   tbody.innerHTML += `
           <tr>
           <td colspan="4"><strong>TỔNG TIỀN:</strong></td>
-          <td><strong>${totalPrice.toLocaleString("vi-VN")} đ</strong></td>
+          <td><p class="totalPrice"><strong>${totalPrice.toLocaleString(
+            "vi-VN"
+          )} đ</strong></p></td>
           <td><button class="deleteAllRow"><strong>Xóa hết</strong></button></td>
         </tr>`;
   document.querySelectorAll(".quantity").forEach((input) => {
@@ -200,6 +202,15 @@ function renderCartItem(datas) {
         row.querySelector(".totalAmount").innerText = `${(
           quantity * price
         ).toLocaleString("vi-VN")} đ`;
+
+        const totalPriceElement = document.querySelector(".totalPrice");
+        let totalPrice = 0;
+        document.querySelectorAll(".totalAmount").forEach((amount) => {
+          totalPrice += parseInt(amount.innerText.replace(/[^\d]/g, ""));
+        });
+        totalPriceElement.innerHTML = `<strong>${totalPrice.toLocaleString(
+          "vi-VN"
+        )} đ</strong>`;
       }
     });
   });
@@ -258,6 +269,14 @@ function renderCartItem(datas) {
         row.querySelector(".totalAmount").innerText = `${(
           quantity * price
         ).toLocaleString("vi-VN")} đ`;
+        const totalPriceElement = document.querySelector(".totalPrice");
+        let totalPrice = 0;
+        document.querySelectorAll(".totalAmount").forEach((amount) => {
+          totalPrice += parseInt(amount.innerText.replace(/[^\d]/g, ""));
+        });
+        totalPriceElement.innerHTML = `<strong>${totalPrice.toLocaleString(
+          "vi-VN"
+        )} đ</strong>`;
       }
     });
   });
@@ -288,6 +307,14 @@ function renderCartItem(datas) {
         row.querySelector(".totalAmount").innerText = `${(
           quantity * price
         ).toLocaleString("vi-VN")} đ`;
+        const totalPriceElement = document.querySelector(".totalPrice");
+        let totalPrice = 0;
+        document.querySelectorAll(".totalAmount").forEach((amount) => {
+          totalPrice += parseInt(amount.innerText.replace(/[^\d]/g, ""));
+        });
+        totalPriceElement.innerHTML = `<strong>${totalPrice.toLocaleString(
+          "vi-VN"
+        )} đ</strong>`;
       }
     });
   });
