@@ -63,9 +63,9 @@
               <label>Họ và Tên</label>
               <input type="text" id="registerFullname" required />
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display: none">
               <label>Địa chỉ</label>
-              <input type="text" id="address" required />
+              <input type="text" id="address" />
             </div>
             <div class="form-group">
               <label>Ngày sinh:</label>
@@ -74,6 +74,19 @@
             <div class="form-group">
               <label for="registeEmail">Email:</label>
               <input type="email" id="registeEmail" required />
+            </div>
+            <select id="province-filter">
+              <option id="province" value="">Tỉnh Thành</option>
+            </select>
+            <select id="district-filter">
+              <option id="district" value="">Quận Huyện</option>
+            </select>
+            <select id="ward-filter">
+              <option id="ward" value="">Phường Xã</option>
+            </select>
+            <div class="form-group">
+              <label>Địa chỉ cụ thể</label>
+              <input type="text" id="street" />
             </div>
             <div class="form-group">
               <label>Số điện thoại:</label>

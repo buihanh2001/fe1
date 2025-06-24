@@ -20,6 +20,31 @@ window.onload = async function () {
       console.error(error);
       document.body.innerHTML = "<p>Lỗi khi tải dữ liệu giỏ hàng.</p>";
     });
+  await fetch(`${API_BASE_URL}/cars/suggest`)
+    .then((response) => {
+      console.log("fetch response:", response); // Log toàn bộ response
+      if (!response.ok) {
+        throw new Error("Lỗi mạng: " + response.status);
+      }
+      return response.json();
+    })
+    .then(async (data) => {
+      console.log("fetch data:", data); // Log dữ liệu thô từ API
+      products = data.map((car) => ({
+        ...car,
+        image:
+          car.carImagesUrl && car.carImagesUrl.length > 0
+            ? car.carImagesUrl[0]
+            : "",
+      }));
+      console.log("mapped products:", products); // Log sau khi map
+      renderProducts(products);
+    })
+    .catch((error) => {
+      console.error("Lỗi fetch:", error);
+      document.querySelector(".product-container").innerHTML =
+        "<p>Không thể tải dữ liệu sản phẩm.</p>";
+    });
   document.querySelector(".payButton").addEventListener("click", async () => {
     const result = await Swal.fire({
       title: "Đặt cọc",
@@ -33,7 +58,6 @@ window.onload = async function () {
     } else {
       return;
     }
-
     console.log(JSON.stringify(cartItemIds));
     const resp = await fetch(
       `${API_BASE_URL}/orders/${localStorage.getItem("userId")}`,
@@ -62,6 +86,34 @@ window.onload = async function () {
     }
   });
 };
+const defaultImage =
+  "https://toyotahoankiem.com.vn/Uploads/images/cars/Altis-2020.png";
+function renderProducts(productList) {
+  console.log("renderProducts called with:", productList);
+  const container = document.querySelector(".product-container");
+  container.innerHTML = "";
+
+  if (productList.length === 0) {
+    container.innerHTML = "<p>Không tìm thấy sản phẩm nào.</p>";
+    document.getElementById("pagination").innerHTML = "";
+    return;
+  }
+
+  productList.forEach((product) => {
+    console.log("Rendering product:", product);
+    const item = document.createElement("div");
+    item.className = "product-item";
+    item.innerHTML = `
+            <img src="${product.image || defaultImage}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>Giá: ${product.price.toLocaleString("vi-VN")} VND</p>
+        `;
+    item.addEventListener("click", () => {
+      window.location.href = `chitietsanpham.html?id=${product.id}`;
+    });
+    container.appendChild(item);
+  });
+}
 function renderCartItem(datas) {
   const tbody = document.querySelector(".detail-table-cart-item");
   tbody.innerHTML = "";

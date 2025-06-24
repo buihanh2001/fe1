@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const tabPanels = document.querySelectorAll(".tab-panel");
   document.getElementById("login-form").addEventListener("submit", handleLogin);
   tabButtons.forEach((button) => {
-    button.addEventListener("click", function () {
+    button.addEventListener("click", async function () {
       const tabToShow = this.getAttribute("data-tab");
       if (tabToShow == "register") {
         document
@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document
           .getElementById("register-form")
           .addEventListener("submit", handleRegister);
+        await getProvinces();
       } else {
         document
           .getElementById("login-form")
@@ -43,9 +44,24 @@ async function handleRegister(event) {
     alert("Mật khẩu xác nhận không trùng với mật khẩu.");
     return;
   }
+  const selectProvince = document.getElementById("province-filter");
+  const selectedTextProvince =
+    selectProvince.options[selectProvince.selectedIndex].text;
+  const selectDistrict = document.getElementById("district-filter");
+  const selectedTextDistrict =
+    selectDistrict.options[selectDistrict.selectedIndex].text;
+  const selectWard = document.getElementById("ward-filter");
+  const selectedTextWard = selectWard.options[selectWard.selectedIndex].text;
   const registerInfor = {
     fullName: form.registerFullname.value,
-    address: form.address.value,
+    address:
+      selectedTextProvince +
+      " " +
+      selectedTextDistrict +
+      " " +
+      selectedTextWard +
+      " " +
+      document.getElementById("street").value,
     dob: form.dob.value,
     email: form.registeEmail.value,
     username: form.username.value,
@@ -60,7 +76,6 @@ async function handleRegister(event) {
     body: JSON.stringify(registerInfor),
   })
     .then((response) => {
-      console.log("fetch response:", response); // Log toàn bộ response
       if (!response.ok && response.status == 401) {
         throw new Error("không có quyền");
       }
@@ -90,7 +105,6 @@ async function handleLogin(event) {
     },
     body: JSON.stringify(registerInfor),
   });
-  console.log("fetch response:", response); // Log toàn bộ response
   if (!response.ok && response.status == 401) {
     alert(
       "Tài khoản mật khẩu không chính xác, hoặc tài khoản đã bị khóa. Vui lòng liên hệ với admin!"
@@ -106,4 +120,81 @@ async function handleLogin(event) {
   } else {
     window.location.href = "sanpham.html";
   }
+}
+async function getProvinces() {
+  const provinceSelect = document.getElementById("province-filter");
+  let provinces;
+  await fetch(`https://esgoo.net/api-tinhthanh/1/0.htm`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Lỗi mạng: " + response.status);
+      }
+      return response.json();
+    })
+    .then((response) => {
+      provinces = response.data.map((province) => ({
+        id: province.id,
+        name: province.full_name,
+      }));
+    });
+  provinces.forEach((brand) => {
+    const option = document.createElement("option");
+    option.value = brand.id;
+    option.textContent = brand.name;
+    provinceSelect.appendChild(option);
+  });
+  const districtSelect = document.getElementById("district-filter");
+  provinceSelect.addEventListener("change", async function () {
+    districtSelect.innerHTML = '<option value="">Chọn quận huyện</option>';
+    const provinceId = this.value;
+    if (provinceId) {
+      let districts;
+      await fetch(`https://esgoo.net/api-tinhthanh/2/${provinceId}.htm`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Lỗi mạng: " + response.status);
+          }
+          return response.json();
+        })
+        .then((response) => {
+          districts = response.data.map((district) => ({
+            id: district.id,
+            name: district.full_name,
+          }));
+        });
+      districts.forEach((district) => {
+        const option = document.createElement("option");
+        option.value = district.id;
+        option.textContent = district.name;
+        districtSelect.appendChild(option);
+      });
+    }
+  });
+  const wardSelect = document.getElementById("ward-filter");
+  districtSelect.addEventListener("change", async function () {
+    wardSelect.innerHTML = '<option value="">Chọn phường xã</option>';
+    const districtId = districtSelect.value;
+    if (districtId) {
+      let wards;
+      await fetch(`https://esgoo.net/api-tinhthanh/3/${districtId}.htm`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Lỗi mạng: " + response.status);
+          }
+          return response.json();
+        })
+        .then((response) => {
+          wards = response.data.map((ward) => ({
+            id: ward.id,
+            name: ward.full_name,
+          }));
+        });
+      wards.forEach((ward) => {
+        const option = document.createElement("option");
+        option.value = ward.id;
+        option.textContent = ward.name;
+        wardSelect.appendChild(option);
+      });
+    }
+  });
 }
