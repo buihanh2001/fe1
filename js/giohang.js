@@ -95,7 +95,6 @@ function renderProducts(productList) {
 
   if (productList.length === 0) {
     container.innerHTML = "<p>Không tìm thấy sản phẩm nào.</p>";
-    document.getElementById("pagination").innerHTML = "";
     return;
   }
 
@@ -181,7 +180,7 @@ function renderCartItem(datas) {
         }
       );
       if (!resp.ok) {
-        throw new Error("Lỗi khi xóa cart item");
+        throw new Error("Lỗi khi xóa");
       } else {
         await fetch(
           `${API_BASE_URL}/cart?accountId=${localStorage.getItem("userId")}`,

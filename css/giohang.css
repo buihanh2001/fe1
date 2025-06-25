@@ -1,4 +1,4 @@
-h1 {
+h1,h2 {
   color: green;
   text-align: center;
 }
@@ -60,6 +60,15 @@ tbody .deleteAllRow {
 
 .order-table {
   margin-bottom: 100px;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
 .product-item {
