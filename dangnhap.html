@@ -42,17 +42,14 @@
             </div>
             <button type="submit" class="btn">Đăng nhập</button>
             <hr />
-            <a
-              type="button"
-              href="http://localhost:8080/oauth2/authorization/google"
-              class="btn-gmail"
-            >
-              <img
-                style="width: 25px; height: auto"
-                src="img/google-logo.png"
-                alt="Google logo"
-              />Đăng nhập bằng Gmail
-            </a>
+            <button class="btn-gmail">
+              <img style="width: 25px; height: auto" src="img/google-logo.png"alt="Google logo"/>
+              <a href="http://localhost:8080/oauth2/authorization/google">Đăng nhập bằng Gmail</a>
+            </button>
+            <br>
+            <div class="forgot-password">
+              <a href="quenmatkhau.html">Quên mật khẩu</a>
+            </div>
           </form>
         </div>
 
@@ -75,15 +72,20 @@
               <label for="registeEmail">Email:</label>
               <input type="email" id="registeEmail" required />
             </div>
-            <select id="province-filter">
-              <option id="province" value="">Tỉnh Thành</option>
-            </select>
-            <select id="district-filter">
-              <option id="district" value="">Quận Huyện</option>
-            </select>
-            <select id="ward-filter">
-              <option id="ward" value="">Phường Xã</option>
-            </select>
+            <div class="form-group">
+              <label>Địa chỉ</label>
+              <div class="Address">
+                <select id="province-filter">
+                  <option id="province" value="">Tỉnh Thành</option>
+                </select>
+                <select id="district-filter">
+                  <option id="district" value="">Quận Huyện</option>
+                </select>
+                <select id="ward-filter">
+                  <option id="ward" value="">Phường Xã</option>
+                </select>
+              </div>
+            </div>
             <div class="form-group">
               <label>Địa chỉ cụ thể</label>
               <input type="text" id="street" />

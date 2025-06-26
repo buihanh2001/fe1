@@ -1,0 +1,132 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f8fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 20px;
+    flex-grow: 1; 
+}
+
+.header {
+    display: flex;
+    padding: 5px;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.header .logo{
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 80px; 
+    width: auto;
+}
+
+.main-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 30px;
+    max-width: 500px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-content h1 {
+    font-size: 28px;
+    color: #594c1b;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #ffcc00;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(179, 255, 0, 0.1);
+}
+
+.btn-email {
+    background-color: #ffcc00; 
+    color: #594c1b; 
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%; 
+}
+
+.btn-email:hover {
+    background-color: #e6b800; 
+}
+
+.footer {
+    background-color: #f7f8fa;
+    padding: 40px 20px;
+    font-size: 13px;
+    border-top: 1px solid #eee;
+    margin-top: 50px; 
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-text {
+    width: 50%;
+    color: #666;
+    min-width: 300px; 
+    line-height: 1.6;
+    margin-right: 20px; 
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+.footer-links a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
