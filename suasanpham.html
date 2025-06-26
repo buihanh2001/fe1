@@ -13,31 +13,32 @@
   </head>
   <body>
     <div class="container">
-      <h2>Sửa Sản Phẩm</h2>
-      <form id="carForm" enctype="multipart/form-data">
-        <input type="text" id="carId" name="carId" style="display: none" />
+      <div class="main-container">
+        <h2>Sửa Sản Phẩm</h2>
+        <form id="carForm" enctype="multipart/form-data">
 
-        <label>Tên sản phẩm</label>
-        <input type="text" id="name" name="name" />
+          <label>Tên sản phẩm</label>
+          <input type="text" id="name" name="name" />
 
-        <label>Loại Xe</label>
-        <select id="carType" name="carType"></select>
+          <label>Loại Xe</label>
+          <select id="carType" name="carType"></select>
 
-        <label>Giá</label>
-        <input type="text" id="price" name="price" />
+          <label>Giá</label>
+          <input type="text" id="price" name="price" />
 
-        <label>Mô tả</label>
-        <textarea id="description" name="description"></textarea>
+          <label>Mô tả</label>
+          <textarea id="description" name="description"></textarea>
 
-        <label for="stock">Còn</label>
-        <input type="number" id="stock" name="stock" />
+          <label for="stock">Còn</label>
+          <input type="number" id="stock" name="stock" />
 
-        <label>Hình ảnh</label>
-        <!-- <div id="imgFile">Chọn ảnh</div> -->
-        <input type="file" id="imageInput" multiple accept="image/*" />
-        <div class="imageCar"></div>
-        <button type="submit">Hoàn tất sửa sản phẩm</button>
-      </form>
+          <label>Hình ảnh</label>
+          <!-- <div id="imgFile">Chọn ảnh</div> -->
+          <input type="file" id="imageInput" multiple accept="image/*" />
+          <div class="imageCar"></div>
+          <button type="submit">Hoàn tất sửa sản phẩm</button>
+        </form>
+      </div>
     </div>
     <script src="js/suasanpham.js"></script>
   </body>

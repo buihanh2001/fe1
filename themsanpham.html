@@ -14,34 +14,35 @@
 
   <body>
     <div class="container">
-      <h2>Thêm Sản Phẩm Mới</h2>
-      <form id="carForm" enctype="multipart/form-data">
-        <label>Tên sản phẩm</label>
-        <input type="text" id="name" name="name" />
+      <div class="main-container">
+        <h2>Thêm Sản Phẩm Mới</h2>
+        <form id="carForm" enctype="multipart/form-data">
+          <label>Tên sản phẩm</label>
+          <input type="text" id="name" name="name" />
 
-        <label>Loại Xe</label>
-        <select id="carType" name="carType"></select>
+          <label>Loại Xe</label>
+          <select id="carType" name="carType"></select>
 
-        <label>Giá</label>
-        <input type="text" id="price" name="price" />
+          <label>Giá</label>
+          <input type="text" id="price" name="price" />
 
-        <label>Mô tả</label>
-        <textarea id="description" name="description"></textarea>
+          <label>Mô tả</label>
+          <textarea id="description" name="description"></textarea>
 
-        <label for="stock">Còn</label>
-        <input type="number" id="stock" name="stock" />
+          <label for="stock">Còn</label>
+          <input type="number" id="stock" name="stock" />
 
-        <label>Thêm ảnh</label>
-        <input
-          type="file"
-          id="imageInput"
-          multiple
-          accept="image/*"
-        /><br /><br />
-        <button type="submit" id="submitBtn">Thêm sản phẩm</button>
-      </form>
+          <label>Thêm ảnh</label>
+          <input
+            type="file"
+            id="imageInput"
+            multiple
+            accept="image/*"
+          /><br /><br />
+          <button type="submit" id="submitBtn">Thêm sản phẩm</button>
+        </form>
+      </div>
     </div>
-
     <script src="js/themsanpham.js"></script>
   </body>
 </html>

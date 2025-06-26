@@ -98,7 +98,6 @@ async function loadCar(id) {
     .then(async (response) => {
       if (!response.ok) throw new Error("Lỗi khi lấy chi tiết sản phẩm");
       const car = await response.json();
-      document.getElementById("carId").value = car.id || "";
       document.getElementById("name").value = car.name || "";
       myEditor.setData(car.description || "");
       document.getElementById("price").value =
