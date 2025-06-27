@@ -277,7 +277,7 @@ async function renderOrder(listOrder) {
         }
       );
       if (!resp.ok) {
-        throw new Error("Lỗi khi xóa cart item");
+        throw new Error("Lỗi cập nhật đơn hàng");
       } else {
         const row = button.closest("tr");
         row.querySelector(".orderStatus").innerText =
@@ -314,7 +314,7 @@ async function renderOrder(listOrder) {
   document.querySelectorAll(".cancel-button").forEach((button) => {
     button.addEventListener("click", async (e) => {
       const result = await Swal.fire({
-        title: "Cancel đơn đặt hàng",
+        title: "Hủy đơn đặt hàng",
         text: "Bạn có chắc muốn hủy đơn đặt hàng này không?",
         icon: "question",
         showCancelButton: true,
@@ -465,20 +465,20 @@ function renderAccount(listAccount) {
   });
 }
 
-function renderSchedule(listCarTypes) {
+function renderSchedule(listSchedule) {
   const tbody = document.querySelector(".schedule-table");
-  tbody.innerHTML = ""; // Xóa nội dung cũ của bảng
+  tbody.innerHTML = ""; 
   let count = 1;
 
-  listCarTypes.forEach((carType) => {
+  listSchedule.forEach((Schedule) => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${count}</td>
-      <td>${carType.customerName}</td>
-      <td>${carType.schedule}</td>
-      <td><a href="chitietdonhang.html?id=${carType.uuid}">Xem chi tiết đơn hàng</a></td>
+      <td>${Schedule.customerName}</td>
+      <td>${Schedule.schedule}</td>
+      <td><a href="chitietdonhang.html?id=${Schedule.uuid}">Xem chi tiết đơn hàng</a></td>
       <td>
-        <button class="update-button" data-id="${carType.uuid}">🔧
+        <button class="update-button" data-id="${Schedule.uuid}">🔧
       </td>
     `;
     tbody.appendChild(row);
@@ -494,7 +494,7 @@ function renderSchedule(listCarTypes) {
 
 function renderCarTypes(listCarTypes) {
   const tbody = document.querySelector(".detail-table-carType");
-  tbody.innerHTML = ""; // Xóa nội dung cũ của bảng
+  tbody.innerHTML = ""; 
 
   listCarTypes.forEach((carType) => {
     console.log("Rendering car type:", carType);
@@ -539,7 +539,7 @@ function renderCarTypes(listCarTypes) {
 }
 function renderStatistic(data) {
   const tbody1 = document.getElementById("thongke1");
-  tbody1.innerHTML = ""; // Xóa nội dung cũ của bảng
+  tbody1.innerHTML = ""; 
   tableBodyHtml = ``;
   let count = 1;
   data.statisticsOrderItemDTOS.forEach((item) => {
