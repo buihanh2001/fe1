@@ -2,6 +2,12 @@ body {
   font-family: Arial, sans-serif;
   background-color: #565f63;
 }
+.back-btn{
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
 .container{
   display: flex;
   justify-content: center;
@@ -46,7 +52,7 @@ textarea {
   height: 200px;
   overflow-y: auto;
 }
-button {
+.submit-btn {
   width: 100%;
   padding: 12px;
   background-color: #367a99;
@@ -75,3 +81,4 @@ button:hover {
 #imgFile:hover {
   background-color: #e0e0e0;
 }
+
