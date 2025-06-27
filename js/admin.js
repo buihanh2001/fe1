@@ -146,7 +146,7 @@ document.querySelectorAll(".sidebar li").forEach((item) => {
         .addEventListener("click", async function () {
           const keyword = document.getElementById("search-schedule").value;
           const res = await fetch(
-            `${API_BASE_URL}/search/schedule/search?keyword=${keyword}`,
+            `${API_BASE_URL}/orders/schedule/search?keyword=${keyword}`,
             {
               headers: {
                 Authorization: `Bearer ${getToken()}`,
@@ -467,7 +467,7 @@ function renderAccount(listAccount) {
 
 function renderSchedule(listSchedule) {
   const tbody = document.querySelector(".schedule-table");
-  tbody.innerHTML = ""; 
+  tbody.innerHTML = "";
   let count = 1;
 
   listSchedule.forEach((Schedule) => {
@@ -494,7 +494,7 @@ function renderSchedule(listSchedule) {
 
 function renderCarTypes(listCarTypes) {
   const tbody = document.querySelector(".detail-table-carType");
-  tbody.innerHTML = ""; 
+  tbody.innerHTML = "";
 
   listCarTypes.forEach((carType) => {
     console.log("Rendering car type:", carType);
@@ -539,7 +539,7 @@ function renderCarTypes(listCarTypes) {
 }
 function renderStatistic(data) {
   const tbody1 = document.getElementById("thongke1");
-  tbody1.innerHTML = ""; 
+  tbody1.innerHTML = "";
   tableBodyHtml = ``;
   let count = 1;
   data.statisticsOrderItemDTOS.forEach((item) => {
