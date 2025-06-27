@@ -414,6 +414,9 @@ function renderAccount(listAccount) {
               <td>
                 ${account.phoneNumber}
               </td>
+              <td>
+                ${account.address}
+              </td>
               <td class="accountActive" data-status="${account.active}">${
       account.active ? "đang hoạt động" : "hết hoạt động"
     }</td>
