@@ -1,4 +1,9 @@
-google.charts.load("upcoming", { packages: ["vegachart"] }).then(drawChart);
+google.charts
+  .load("upcoming", { packages: ["vegachart", "corechart"] }) // 👈 load cả hai
+  .then(() => {
+    drawChart();
+    drawChart2();
+  });
 
 async function drawChart() {
   const dataTable = new google.visualization.DataTable();
@@ -123,4 +128,35 @@ async function drawChart() {
     document.getElementById("chart-div")
   );
   chart.draw(dataTable, options);
+}
+async function drawChart2() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/cars/top-brands`, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    });
+    const dataFromApi = await response.json();
+
+    const chartData = [["Hãng xe", "Số lượng đã bán"]];
+    dataFromApi.forEach((item) => {
+      chartData.push([item.brandName, item.totalSold]);
+    });
+
+    const data = google.visualization.arrayToDataTable(chartData);
+
+    const options = {
+      title: "Top 3 hãng xe bán chạy nhất",
+      pieHole: 0.4, // Donut-style (nếu muốn)
+      width: 600,
+      height: 400,
+    };
+
+    const chart = new google.visualization.PieChart(
+      document.getElementById("chart_div2")
+    );
+    chart.draw(data, options);
+  } catch (err) {
+    console.error("Lỗi khi load biểu đồ:", err);
+  }
 }
