@@ -123,6 +123,10 @@ function renderCartItem(datas) {
     const row = document.createElement("tr");
     row.innerHTML = `
           <td>${count}</td>
+          <td>${data.imageUrl
+            ? `<img src="${data.imageUrl}" style="width: 150px; height:100px; auto;" alt="${data.carName}" />`
+            : "Không có hình ảnh"
+        }</td>
           <td>${data.carName}</td>
           <td><p class="price">${data.price.toLocaleString("vi-VN")} đ</p></td>
           <td>
@@ -145,7 +149,7 @@ function renderCartItem(datas) {
   });
   tbody.innerHTML += `
           <tr>
-          <td colspan="4"><strong>TỔNG TIỀN:</strong></td>
+          <td colspan="5"><strong>TỔNG TIỀN:</strong></td>
           <td><p class="totalPrice"><strong>${totalPrice.toLocaleString(
             "vi-VN"
           )} đ</strong></p></td>
