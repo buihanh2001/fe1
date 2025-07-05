@@ -7,9 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 });
 window.onload = async function () {
-  //   document.getElementById("imgFile").addEventListener("click", function () {
-  //     document.getElementById("imageInput").click();
-  //   });
   const brandSelect = document.getElementById("carType");
 
   let brands;

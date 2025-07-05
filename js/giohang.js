@@ -48,7 +48,7 @@ window.onload = async function () {
   document.querySelector(".payButton").addEventListener("click", async () => {
     const result = await Swal.fire({
       title: "Đặt cọc",
-      text: "Bạn sẽ phải đặt cọc 100.000 vnd. Bạn chắc chắn muốn tiếp tục đặt cọc chứ?",
+      text: "Bạn sẽ phải đặt cọc 500.000 vnd. Bạn chắc chắn muốn tiếp tục đặt cọc chứ?",
       icon: "question",
       showCancelButton: true,
       confirmButtonText: "Tiếp tục",

@@ -5,7 +5,7 @@ async function handleRedirect() {
   if (token) {
     localStorage.setItem("token", token);
 
-    const userId = await getUserId(); // Gọi API lấy userId, cần await trong async
+    const userId = await getUserId(); 
     localStorage.setItem("userId", userId);
 
     if (isAdmin()) {

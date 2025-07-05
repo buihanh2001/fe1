@@ -1,5 +1,5 @@
 google.charts
-  .load("upcoming", { packages: ["vegachart", "corechart"] }) // 👈 load cả hai
+  .load("upcoming", { packages: ["vegachart", "corechart"] }) 
   .then(() => {
     drawChart();
     drawChart2();
@@ -16,7 +16,7 @@ async function drawChart() {
     },
   })
     .then((response) => {
-      if (!response.ok) throw new Error("Lỗi khi lấy danh sách lịch hẹn");
+      if (!response.ok) throw new Error("Lỗi mạng");
       return response.json();
     })
     .then(async (data) => {
@@ -28,16 +28,7 @@ async function drawChart() {
       console.error(error);
       document.body.innerHTML = "<p>Lỗi khi tải dữ liệu sản phẩm.</p>";
     });
-  // dataTable.addRows([
-  //   ["A", 28],
-  //   ["B", 55],
-  //   ["C", 43],
-  //   ["D", 91],
-  //   ["E", 81],
-  //   ["F", 53],
-  //   ["G", 19],
-  //   ["H", 87],
-  // ]);
+  
   dataTable.addRows(arrayMonth);
 
   const options = {
@@ -147,7 +138,7 @@ async function drawChart2() {
 
     const options = {
       title: "Top 3 hãng xe bán chạy nhất",
-      pieHole: 0.4, // Donut-style (nếu muốn)
+      pieHole: 0.4,
       width: 600,
       height: 400,
     };
